@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class RegisterScript : MonoBehaviour
+public class NetworkScript : MonoBehaviour
 {
     [SerializeField]
-    private string url;
+    private string urlRegister;
 
     [SerializeField]
     private string name;
@@ -31,7 +31,7 @@ public class RegisterScript : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("username", name);
         form.AddField("passport", "12345");
-        UnityWebRequest request = UnityWebRequest.Post(url, form);
+        UnityWebRequest request = UnityWebRequest.Post(urlRegister, form);
         yield return request.Send();
 
         if(request.isNetworkError||request.isHttpError)

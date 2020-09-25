@@ -1,12 +1,5 @@
-Astillier sind Moralapostel durch und durch. Sie bevorzugen es über Missstände hinweg zu täuschen, um keinerlei Schwäche zu zeigen. Ihr Handeln ist impulsiv und ihr Denken meist irrational, da sie sich stark von ihren Emotionen leiten lassen. Dabei ist ihnen das Gefühl von Kontrolle das Höchste.
-Dunkelheimer sind sehr pragmatisch und relativ einfach veranlagt. Daher gilt neben dem Glauben die Stärke als besonder hoch angesehen. Dunkelheimer hegen gegenüber Technologie ein großes Misstrauen. Genauso gilt die Wissenschaft als Werk des Bösen und sollte vernichtet werden.
-Blôtgoder schätzen die Freiheit in ihrem Leben und zeigen dies auch gerne jedem dem sie begegnen durch auffällige Kunstwerke auf ihrem Körper. Nur ihren Glauben und ihre Ehre schätzen sie höher ein. Falls sie mal bei Verhandlungen ihr Gegenüber nicht durch Jagdgut überzeugen können, nutzen sie gerne auch die Rohe Gewalt, um zu bekommen was die Gottheit von ihnen verlangt.
-Fah’runa sind bekannt für ihre Hartnäckigkeit. Sie kämpfen bis zum Tod und sind äußerst stur in diplomatischen Belangen. Stärke wird sehr geschätzt und um dies zu beweisen, üben sie Raufkämpfe aus, bei denen sich die Kontrahenten gegenseitig die Haut aufschneiden.
-Die stolzen Nuklen fokusieren sich auf die totale Reinheit von Körper, Umfeld und Arbeit. Sie verhalten sich perfektionistisch und und haben einen ausgeprägten Sinn für Kunst. Durch ihre magische Begabung erhitzt sich der Kopf schnell und daher meiden sie die Sonne oder andere schwere, mentale Arbeiten. Erst in der Nacht verwenden sie ausgiebig ihre Kräfte.
-Pecoren sind exzellente Jäger und an das Überleben in der Wildnis angepasst, wobei besonders die langen Beine ihnen helfen. Außerdem sind sie im Laufe ihrer Evolution eine Symbiose mit Parasiten eingegangen, die ihnen immense magische Kräfte verleihen, doch auch ihre Haut auffressen.
-Dupràni sind launische, aber charismatische Wesen. Unter ihrer verführerischen und doch so eiskalten Fassade liegt ein Temperament mit dem sie unberechenbar erscheinen. Einem Dupràni entgeht niemals eine Chance. Sie sind äußerst opportunistisch veranlagt und scheuen sich nicht vor Veränderung in der Welt zurück. Sie begrüßen sie und versuchen stets ihren Umstand zu ihrem Vorteil zu wenden.
-Auch wenn die Farnoor wie Igel aussehen, haben sie nur die Stacheln gemeinsam. Speziell ist ihr guter Geruchs-, Gehör- und Tastsinn. Nur an Sehkraft mangelt es ihnen meistens. Sie geben nicht viel auf Emotionalität, die sie dank ausgeprägten Logik- und Analysefähigkeiten nicht benötigen. Für sie steht glasklar ihre eigene Arbeit im Vordergrund, anstelle der Sorgen anderer.
-Der Anblick eines Nephilon ist selten, da sich ihre Produktion als sündhaft teuer und schwierig erwiesen hat. Das aufgezogene Herz ist ihr Lebenskernund wird von ihnen mit aller Kraft verteidigt, während andere Körperteile einfacher zu ersetzten sind. Je nach ihrer Funktion in der Gesellschaft sind sie ausgestattet.
-Wissen und Wissen allein ist des Krobas einziger und wertvollster Aspekt im Leben. Sie scheren sich kaum um emotionale Belange und auch nur dann wenn die Emotion an sich im Mittelpunkt einer Studie stehen. Besonders ist ihr ausgeprägter Eigensinn. Sofern kein Nutzen darin besteht mit anderen Wesen zu interagieren, werden diese einfach ignoriert.
-
-
+Glorisch - Allgemeine Sprache der Astillier und somit auch der Umgebung
+Setanische - Sprache der Naturvölker
+Granisch - Sprache der Einsiedler und Arbeiter unter Tage
+Fadat - Sprache der Nomaden
+Sulwyit-ratzdin - Sprache der demi Götter des Overminds 

@@ -8,13 +8,21 @@ public class CreationScript : MonoBehaviour
     [SerializeField]
     private TMP_Text DescriptionText;
 
- 
 
-    public void DescribeDropdown(int Drop)
+
+    public void CivDropdown(int Drop)
     {
-
             DescriptionText.text = ParseFile("Völker", Drop);
+    }
 
+    public void LanguageDropdown(int Drop)
+    {
+        DescriptionText.text = ParseFile("Sprache", Drop);
+    }
+
+    public void ReligionDropdown(int Drop)
+    {
+        DescriptionText.text = ParseFile("Religion", Drop);
     }
 
     //liest eine Linie einer TXT Datei und gibt diese wieder
