@@ -10,6 +10,7 @@ public class NetworkCreateSheet : MonoBehaviour
     [SerializeField]
     private string urlCreate;
 
+    // soll die ID vom einloggen erhhlten
     [SerializeField]
     private int UserID = 1;
 
@@ -30,17 +31,28 @@ public class NetworkCreateSheet : MonoBehaviour
     [SerializeField]
     private TMP_Text CharReligion;
 
+    //Momentane Lösung gefällt mir null muss noch geändert werden
+    private int CharCivAbility;
+    public void ChangeAbility(int Abi)
+    {
+        CharCivAbility = Abi;
+    }
+
     public void SafeSheet()
     {
+        // außerdem fehlt hier noch eine Fehleranalyse
         StartCoroutine(SafeCharactersheet());
     }
 
 
     public IEnumerator SafeCharactersheet()
     {
+        //sendet die Daten des Bogens an die Datenbank
+        //Noch wurden diese nicht ausgewertet, sondern nur all Namen gespeichert um diese dann auch wieder im Bogen anzuzeigen
+        //Im Bogen werden diese Namen dann ausgewertet
         WWWForm form = new WWWForm();
         form.AddField("userid", UserID);
-        form.AddField("charciv", CharCiv.text);
+        form.AddField("charciv", CharCiv.text + " " + CharCivAbility);
         form.AddField("charname", CharName.text);
         form.AddField("charweight", CharWeight.text);
         form.AddField("charheight", CharHeight.text);
