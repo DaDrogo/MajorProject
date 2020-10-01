@@ -482,7 +482,31 @@ MonoBehaviour:
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1553052641}
+        m_TargetAssemblyTypeName: DropdownManager, Assembly-CSharp
+        m_MethodName: OnValueChange
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1553052641}
+        m_TargetAssemblyTypeName: DropdownManager, Assembly-CSharp
+        m_MethodName: OnValueChangeString
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Past\\Umgebung
+          m_BoolArgument: 0
+        m_CallState: 2
   m_AlphaFadeSpeed: 0.15
 --- !u!114 &22588011
 MonoBehaviour:
@@ -7477,9 +7501,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1553052637}
         m_TargetAssemblyTypeName: CreationScript, Assembly-CSharp
-        m_MethodName: CivDropdown
+        m_MethodName: 
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12805,7 +12829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &972497492
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20368,6 +20392,7 @@ GameObject:
   - component: {fileID: 1553052639}
   - component: {fileID: 1553052638}
   - component: {fileID: 1553052640}
+  - component: {fileID: 1553052641}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -20425,6 +20450,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DescriptionText: {fileID: 507219076}
   Person: {fileID: 0}
+--- !u!114 &1553052641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553052637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d619740e12881614dacf4a8cdcb1c621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Dropis:
+  - Dropdowns: {fileID: 22588010}
+    OptionsNr: 12
+    FileTxt: DropUmg
+  - Dropdowns: {fileID: 0}
+    OptionsNr: 0
+    FileTxt: 
+  DescriptionText: {fileID: 507219076}
 --- !u!1 &1562404918
 GameObject:
   m_ObjectHideFlags: 0
@@ -21161,7 +21206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1624694426
 RectTransform:
   m_ObjectHideFlags: 0

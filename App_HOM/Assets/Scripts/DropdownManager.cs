@@ -5,27 +5,72 @@ using TMPro;
 
 // wird noch bearbeitet am besten wenn mal zeit dafür vorhanden ist
 
+[System.Serializable]
+public class DropdownInfos
+{
+    public TMP_Dropdown Dropdowns;
+    public int OptionsNr;
+    public string FileTxt;
+}
+
 public class DropdownManager : MonoBehaviour
 {
+
+    List<string> DropOptions = new List<string> { };
+
+    public DropdownInfos[] Dropis;
 
     [SerializeField]
     private TMP_Text DescriptionText;
 
-    public GameObject[] Dropdowns;
-    public int OpionsNr;
-    private string NameTxt;
-    TMP_Dropdown.OptionData
+    int x;
 
-   // public void CreateDropdown()
-   // {
-   //     foreach (GameObject D in Dropdowns){
-   //         ;
-   //     }
-   // }
+    public int getX()
+    {
+        return x;
+    }
+
+    public void setX(int newX)
+    {
+        if (newX < 0)
+            x = 0;
+        else
+            x = newX;
+    }
+
+    private void Start()
+    {
+        CreateDropdown();
+    }
+
+    public void CreateDropdown()
+    {
+        for (int i = 0; i < Dropis.Length; i++)
+        {
+            Dropis[i].Dropdowns.ClearOptions();
+            CreateOptions(Dropis[i].FileTxt, Dropis[i].Dropdowns, Dropis[i].OptionsNr);
+        }
+    }
 
     public void OnValueChange(int Drop)
     {
-        DescriptionText.text = ParseFile("Person\\Sprache", Drop);
+        setX(Drop);
+        Debug.Log(x);
+    }
+
+    public void OnValueChangeString(string File)
+    {
+        Debug.Log(x);
+        DescriptionText.text = ParseFile(File, getX());
+    }
+
+    public void CreateOptions(string File,TMP_Dropdown Down, int Options)
+    {
+         for (int i = 0; i < Options; i++)
+            {
+            DropOptions.Add(ParseFile(File, i));
+            }
+        Down.AddOptions(DropOptions);
     }
 
     private string ParseFile(string File, int Nr)
