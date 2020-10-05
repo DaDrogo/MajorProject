@@ -25,6 +25,46 @@ public class DropdownManager : MonoBehaviour
 
     int x;
 
+    
+
+    private void Start()
+    {
+        CreateDropdown();
+    }
+
+    //erstelle die Dropdowns
+
+    public void CreateDropdown()
+    {
+        foreach (DropdownInfos i in Dropis)
+        {
+            i.Dropdowns.ClearOptions();
+            CreateOptions(i.FileTxt, i.Dropdowns, i.OptionsNr);
+        }
+    }
+
+    public void CreateOptions(string File,TMP_Dropdown Down, int Options)
+    {
+         for (int i = 0; i < Options; i++)
+            {
+            DropOptions.Add(ParseFile("DropBeschr/"+File, i));
+            Debug.Log(Options);
+            }
+        Down.AddOptions(DropOptions);
+    }
+
+    private string ParseFile(string File, int Nr)
+    {
+        //muss noch überarbeitet werden suche des Speicherorts
+        //TXT Dateien aus dem Server holen
+        string[] Text = System.IO.File.ReadAllLines(Application.dataPath+ "/DescriptionTexts/" + File + ".txt");
+        return (Text[Nr]);
+
+
+    }
+
+    //Change Info Text
+
     public int getX()
     {
         return x;
@@ -36,20 +76,6 @@ public class DropdownManager : MonoBehaviour
             x = 0;
         else
             x = newX;
-    }
-
-    private void Start()
-    {
-        CreateDropdown();
-    }
-
-    public void CreateDropdown()
-    {
-        for (int i = 0; i < Dropis.Length; i++)
-        {
-            Dropis[i].Dropdowns.ClearOptions();
-            CreateOptions(Dropis[i].FileTxt, Dropis[i].Dropdowns, Dropis[i].OptionsNr);
-        }
     }
 
     public void OnValueChange(int Drop)
@@ -64,22 +90,4 @@ public class DropdownManager : MonoBehaviour
         DescriptionText.text = ParseFile(File, getX());
     }
 
-    public void CreateOptions(string File,TMP_Dropdown Down, int Options)
-    {
-         for (int i = 0; i < Options; i++)
-            {
-            DropOptions.Add(ParseFile(File, i));
-            }
-        Down.AddOptions(DropOptions);
-    }
-
-    private string ParseFile(string File, int Nr)
-    {
-        //muss noch überarbeitet werden suche des Speicherorts
-        //TXT Dateien aus dem Server holen
-        string[] Text = System.IO.File.ReadAllLines("D:\\Programme\\GitHub\\MajorProject\\App_HOM\\Assets\\DescriptionTexts\\" + File + ".txt");
-        return (Text[Nr]);
-
-
-    }
 }

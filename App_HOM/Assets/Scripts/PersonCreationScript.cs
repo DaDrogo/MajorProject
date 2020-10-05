@@ -88,7 +88,7 @@ public class PersonCreationScript : MonoBehaviour
     {
         //muss noch überarbeitet werden suche des Speicherorts
         //TXT Dateien aus dem Server holen
-        string[] Text = System.IO.File.ReadAllLines("D:\\Programme\\GitHub\\MajorProject\\App_HOM\\Assets\\DescriptionTexts\\" + File+ ".txt");
+        string[] Text = System.IO.File.ReadAllLines(Application.dataPath + "/DescriptionTexts" + File+ ".txt");
         return (Text[Nr]);
 
        
