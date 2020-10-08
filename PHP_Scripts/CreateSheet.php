@@ -1,6 +1,6 @@
 <?php
 $hostname = "localhost";
-$database = "examplename";
+$database = "charsheet";
 $database_username = "root";
 $database_password = "";
 
@@ -19,9 +19,13 @@ else
 	$charage = $_POST['charage'];
 	$charcolor = $_POST['charcolor'];
 	$charlanguage = $_POST['charlanguage'];
-	$cahrreligion = $_POST['cahrreligion'];
+	$charreligion = $_POST['charreligion'];
+	$chartraining = $_POST['chartraining'];
+	$charfeature = $_POST['charfeature'];
+	$chareducation = $_POST['chareducation'];
+	$charenvironment = $_POST['charenvironment'];
 	
-	$query = "INSERT INTO charsheet ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion')";
+	$query = "INSERT INTO charcreate ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharSign, CharEducation, CharEnvironment) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion','$chartraining','$charfeature','$chareducation','$charenvironment')";
 	$result = mysqli_query($connection, $query);
 	if($result)
 	{

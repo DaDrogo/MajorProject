@@ -20484,14 +20484,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   urlCreate: 127.0.0.1/php/CreateSheet.php
   UserID: 1
-  CharCiv: {fileID: 942862116}
-  CharName: {fileID: 904872829}
-  CharWeight: {fileID: 1175736817}
-  CharHeight: {fileID: 1683470857}
-  CharAge: {fileID: 2066709588}
-  CharColor: {fileID: 2135785886}
-  CharLanguage: {fileID: 1394771445}
-  CharReligion: {fileID: 269524726}
+  Chars:
+  - {fileID: 942862116}
+  - {fileID: 904872829}
+  - {fileID: 1175736817}
+  - {fileID: 1683470857}
+  - {fileID: 2066709588}
+  - {fileID: 2135785886}
+  - {fileID: 1394771445}
+  - {fileID: 269524726}
+  - {fileID: 1743857454}
+  - {fileID: 1408761859}
+  - {fileID: 1090609728}
+  - {fileID: 50759820}
 --- !u!4 &1553052639
 Transform:
   m_ObjectHideFlags: 0
@@ -21229,7 +21234,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1553052638}
         m_TargetAssemblyTypeName: NetworkCreateSheet, Assembly-CSharp
         m_MethodName: SafeSheet
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

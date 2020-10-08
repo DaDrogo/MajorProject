@@ -1049,7 +1049,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d619d6f25a3340d418335f1f9353cd62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  url: 127.0.0.1/php/register.php
+  urlRegister: 127.0.0.1/php/Register.php
   name: jnjh
 --- !u!4 &1180872159
 Transform:

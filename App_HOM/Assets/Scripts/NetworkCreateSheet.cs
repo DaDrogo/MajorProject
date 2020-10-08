@@ -42,7 +42,7 @@ public class NetworkCreateSheet : MonoBehaviour
         //Im Bogen werden diese Namen dann ausgewertet
         WWWForm form = new WWWForm();
         //Person____________________________________
-        if (page == 1) { 
+       
 
             form.AddField("userid", UserID);
             form.AddField("charciv", Chars[0].text + " " + CharCivAbility);
@@ -53,14 +53,17 @@ public class NetworkCreateSheet : MonoBehaviour
             form.AddField("charcolor", Chars[5].text);
             form.AddField("charlanguage", Chars[6].text);
              form.AddField("charreligion", Chars[7].text);
-        }
-        else{
+        
             //Past____________________________________
-            // form.AddField("charstudy", CharAge.text);
-            // form.AddField("char", CharColor.text);
-            // form.AddField("charlanguage", CharLanguage.text);
-            // form.AddField("charreligion", CharReligion.text);
-        }
+             form.AddField("chartraining",   "!");
+             form.AddField("charfeature",    "!");
+             form.AddField("chareducation",  "!");
+             form.AddField("charenvironment","!");
+            // form.AddField("chartraining", Chars[8].text);
+            // form.AddField("charfeature", Chars[9].text);
+            // form.AddField("chareducation", Chars[10].text);
+            // form.AddField("charenvironment", Chars[11].text);
+
         UnityWebRequest request = UnityWebRequest.Post(urlCreate, form);
         yield return request.Send();
 
