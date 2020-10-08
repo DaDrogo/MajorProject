@@ -15,21 +15,7 @@ public class NetworkCreateSheet : MonoBehaviour
     private int UserID = 1;
 
     [SerializeField]
-    private TMP_Text CharCiv;
-    [SerializeField]
-    private TMP_Text CharName;
-    [SerializeField]
-    private TMP_Text CharWeight;
-    [SerializeField]
-    private TMP_Text CharHeight;
-    [SerializeField]
-    private TMP_Text CharAge;
-    [SerializeField]
-    private TMP_Text CharColor;
-    [SerializeField]
-    private TMP_Text CharLanguage;
-    [SerializeField]
-    private TMP_Text CharReligion;
+    private TMP_Text[] Chars;
 
     //Momentane Lösung gefällt mir null muss noch geändert werden
     private int CharCivAbility;
@@ -38,34 +24,43 @@ public class NetworkCreateSheet : MonoBehaviour
         CharCivAbility = Abi;
     }
 
-    public void SafeSheet()
+    public void SafeSheet(int page)
     {
         // außerdem fehlt hier noch eine Fehleranalyse
-        StartCoroutine(SafeCharactersheet());
+        StartCoroutine(SafeCharactersheet(page));
     }
 
+    //ToDo
+    //soll später mit einer Datei gespeichert werden.
+    //jetzt erstmal für den first case
 
-    public IEnumerator SafeCharactersheet()
+    public IEnumerator SafeCharactersheet(int page)
     {
+
         //sendet die Daten des Bogens an die Datenbank
         //Noch wurden diese nicht ausgewertet, sondern nur all Namen gespeichert um diese dann auch wieder im Bogen anzuzeigen
         //Im Bogen werden diese Namen dann ausgewertet
         WWWForm form = new WWWForm();
         //Person____________________________________
-        form.AddField("userid", UserID);
-        form.AddField("charciv", CharCiv.text + " " + CharCivAbility);
-        form.AddField("charname", CharName.text);
-        form.AddField("charweight", CharWeight.text);
-        form.AddField("charheight", CharHeight.text);
-        form.AddField("charage", CharAge.text);
-        form.AddField("charcolor", CharColor.text);
-        form.AddField("charlanguage", CharLanguage.text);
-        form.AddField("charreligion", CharReligion.text);
-        //Past____________________________________
-      // form.AddField("charstudy", CharAge.text);
-      // form.AddField("char", CharColor.text);
-      // form.AddField("charlanguage", CharLanguage.text);
-      // form.AddField("charreligion", CharReligion.text);
+        if (page == 1) { 
+
+            form.AddField("userid", UserID);
+            form.AddField("charciv", Chars[0].text + " " + CharCivAbility);
+            form.AddField("charname", Chars[1].text);
+            form.AddField("charweight", Chars[2].text);
+            form.AddField("charheight", Chars[3].text);
+            form.AddField("charage", Chars[4].text);
+            form.AddField("charcolor", Chars[5].text);
+            form.AddField("charlanguage", Chars[6].text);
+             form.AddField("charreligion", Chars[7].text);
+        }
+        else{
+            //Past____________________________________
+            // form.AddField("charstudy", CharAge.text);
+            // form.AddField("char", CharColor.text);
+            // form.AddField("charlanguage", CharLanguage.text);
+            // form.AddField("charreligion", CharReligion.text);
+        }
         UnityWebRequest request = UnityWebRequest.Post(urlCreate, form);
         yield return request.Send();
 

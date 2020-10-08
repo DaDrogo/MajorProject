@@ -52,12 +52,13 @@
     <UnityVersion>2020.1.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\NetworkScript.cs" />
-    <Compile Include="Assets\Scripts\CivDropdownScript.cs" />
+    <Compile Include="Assets\Scripts\Oldies\NetworkScript.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
-    <Compile Include="Assets\Scripts\PersonCreationScript.cs" />
-    <Compile Include="Assets\Scripts\DropdownManager.cs" />
+    <Compile Include="Assets\Scripts\Oldies\PersonCreationScript.cs" />
+    <Compile Include="Assets\Scripts\ManagerDropdown.cs" />
     <Compile Include="Assets\Scripts\NetworkCreateSheet.cs" />
+    <Compile Include="Assets\Scripts\ManagerSheet.cs" />
+    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
