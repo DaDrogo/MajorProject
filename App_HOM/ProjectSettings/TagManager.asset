@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Civ1
+  - ID
   layers:
   - Default
   - TransparentFX
