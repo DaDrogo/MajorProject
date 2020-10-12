@@ -52,15 +52,16 @@
     <UnityVersion>2020.1.6f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\ManagerScene.cs" />
     <Compile Include="Assets\Scripts\Oldies\NetworkScript.cs" />
     <Compile Include="Assets\Scripts\ManagerSheet.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\Oldies\PersonCreationScript.cs" />
+    <Compile Include="Assets\Scripts\PlayerID.cs" />
+    <Compile Include="Assets\Scripts\ManagerLogin.cs" />
     <Compile Include="Assets\Scripts\ManagerDropdown.cs" />
     <Compile Include="Assets\Scripts\NetworkCreateSheet.cs" />
-    <Compile Include="Assets\Scripts\PlayerID.cs" />
-    <Compile Include="Assets\Scripts\ManagerScene.cs" />
-    <Compile Include="Assets\Scripts\ManagerLogin.cs" />
+    <Compile Include="Assets\Scripts\ManagerMainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
