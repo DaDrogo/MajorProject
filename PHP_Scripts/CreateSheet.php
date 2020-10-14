@@ -25,10 +25,12 @@ else
 	$chareducation = $_POST['chareducation'];
 	$charenvironment = $_POST['charenvironment'];
 	
-	$query = "INSERT INTO charcreate ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharSign, CharEducation, CharEnvironment) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion','$chartraining','$charfeature','$chareducation','$charenvironment')";
+	$query = "INSERT INTO charcreate ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharFeature, CharEducation, CharEnvironment) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion','$chartraining','$charfeature','$chareducation','$charenvironment')";
 	$result = mysqli_query($connection, $query);
 	if($result)
 	{
+		$results = mysqli_query($connection, $querys);
+		echo $results;
 		echo "ha";
 	}
 	else

@@ -8,14 +8,17 @@ public class NetworkCreateSheet : MonoBehaviour
 {
 
     [SerializeField]
+    private TMP_Text Info;
+
+    [SerializeField]
     private string urlCreate;
 
     // soll die ID vom einloggen erhhlten
     [SerializeField]
-    private int UserID = 1;
+    private int UserID = 111;
 
     [SerializeField]
-    private TMP_Text[] Chars;
+    public TMP_Text[] Chars;
 
     //Momentane Lösung gefällt mir null muss noch geändert werden
     private int CharCivAbility;
@@ -29,6 +32,8 @@ public class NetworkCreateSheet : MonoBehaviour
         // außerdem fehlt hier noch eine Fehleranalyse
         StartCoroutine(SafeCharactersheet(page));
     }
+
+
 
     //ToDo
     //soll später mit einer Datei gespeichert werden.
@@ -55,10 +60,10 @@ public class NetworkCreateSheet : MonoBehaviour
              form.AddField("charreligion", Chars[7].text);
         
             //Past____________________________________
-             form.AddField("chartraining",   "!");
-             form.AddField("charfeature",    "!");
-             form.AddField("chareducation",  "!");
-             form.AddField("charenvironment","!");
+             form.AddField("chartraining", Chars[8].text);
+             form.AddField("charfeature",    Chars[9].text);
+             form.AddField("chareducation",  Chars[10].text);
+             form.AddField("charenvironment", Chars[11].text);
             // form.AddField("chartraining", Chars[8].text);
             // form.AddField("charfeature", Chars[9].text);
             // form.AddField("chareducation", Chars[10].text);

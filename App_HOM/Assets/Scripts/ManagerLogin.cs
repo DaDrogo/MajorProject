@@ -45,9 +45,9 @@ public class ManagerLogin : MonoBehaviour
             Debug.Log(Username.text);
             Debug.Log(Passport.text);
             Warning.text = "Danke";
-            //StartCoroutine(ConnectDatabase(url));
+            StartCoroutine(ConnectDatabase(url));
             GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = 1;
-            ToMenu();
+            //ToMenu();
         }
         else if(userLE <= 1)
         {

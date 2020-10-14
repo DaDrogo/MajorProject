@@ -21,10 +21,9 @@ else
 	if($result)
 	{
 		
-		$querys = "SELECT Passport FROM login WHERE Username=$username";
-		$results = mysqli_query($connection, $querys);
-		echo $results;
-		echo "ha";
+		$query = "SELECT UserID FROM login";
+		$Comeback = mysqli_query($connection, $query);
+		echo $Comeback;
 	}
 	else
 	{

@@ -7,10 +7,8 @@ using TMPro;
 
 public class ManagerSheet : MonoBehaviour
 {
-    //Needs Work
-
-
-
+    //network Script
+    public NetworkCreateSheet net;
 
     //PopUp
     [SerializeField]
@@ -18,6 +16,7 @@ public class ManagerSheet : MonoBehaviour
     [SerializeField]
     TMP_Text Info;
     private bool Acceptens;
+    private int Popups;
 
     //Pages
     [SerializeField]
@@ -32,18 +31,25 @@ public class ManagerSheet : MonoBehaviour
         From = 0;
         Pages[0].SetActive(true);
         PopUp.SetActive(false);
-        
+        Popups = 0;
+
+    }
+
+    private void Start()
+    {
+
     }
 
     public void Update()
     {
         //Soll zwischen den Seiten des Fragebogens wechseln oder die Scene ändern
         //Save ist hier nicht inbegriffen
-        if (Acceptens)
+        if (Acceptens&&Popups==1)
         {
+            Popups = 0;
             PopUp.SetActive(false);
             switch (From)
-            {
+                {
                 case -1:
                     //Zurück Button bei Entry
                     ChangeScene(1);
@@ -77,6 +83,36 @@ public class ManagerSheet : MonoBehaviour
                     break;
             }
         }
+        else if (Acceptens && Popups == 2)
+        {
+            Popups = 0;
+            PopUp.SetActive(false);
+            Acceptens = false;
+            net.SafeSheet(9);
+        }
+    }
+
+    //Checkt ob das Array voll ist
+
+    public void CheckArray()
+    {
+        
+        TMP_Text[] Array = net.Chars;
+        for (int i = 0; i < Array.Length; i++)
+        {
+            Debug.Log(Array[i].text);
+            if (Array[i].text.Length < 2)
+            {
+                CreateSafeup("Es sind nicht alle Felder augefüllt.");
+                break;
+            }
+            else if(Array.Length == i)
+            {
+                CreateSafeup("Möchtest du wirklich speichern?");
+            }
+        }
+
+        Debug.Log(Array.Length);
     }
 
     //Methode für Update
@@ -97,12 +133,20 @@ public class ManagerSheet : MonoBehaviour
     // wird den Buttons in der Ecke der UI zugeordnet
     public void CreatePopup(int fr)
     {
-        From = From+fr;
+        Popups = 1;
+        From = From + fr;
         if (fr == 2)
             Info.text = "Möchtest du weiter?";
         else
             Info.text = "Möchtest du zurück?";
 
+        PopUp.SetActive(true);
+    }
+
+    void CreateSafeup(string text)
+    {
+        Popups = 2;
+        Info.text = text;
         PopUp.SetActive(true);
     }
 

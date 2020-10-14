@@ -20495,6 +20495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddbbdc2e57b68ae4ba1f5b22febc23f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Info: {fileID: 507219076}
   urlCreate: 127.0.0.1/php/CreateSheet.php
   UserID: 1
   Chars:
@@ -20585,6 +20586,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0986d8f3aa6e83b41b8b947aeab81a65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  net: {fileID: 1553052638}
   PopUp: {fileID: 1348200102}
   Info: {fileID: 351682501}
   Pages:
@@ -21262,14 +21264,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553052638}
-        m_TargetAssemblyTypeName: NetworkCreateSheet, Assembly-CSharp
-        m_MethodName: SafeSheet
-        m_Mode: 3
+      - m_Target: {fileID: 1553052642}
+        m_TargetAssemblyTypeName: ManagerSheet, Assembly-CSharp
+        m_MethodName: CheckArray
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 12
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
