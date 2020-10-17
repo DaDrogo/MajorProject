@@ -46,7 +46,7 @@ public class ManagerLogin : MonoBehaviour
             Debug.Log(Passport.text);
             Warning.text = "Danke";
             StartCoroutine(ConnectDatabase(url));
-            GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = 1;
+            //GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = 1;
             //ToMenu();
         }
         else if(userLE <= 1)
@@ -71,8 +71,8 @@ public class ManagerLogin : MonoBehaviour
     public IEnumerator ConnectDatabase(string url)
     {
         WWWForm form = new WWWForm();
-        form.AddField("username", Username.text);
-        form.AddField("passport", Passport.text);
+        form.AddField("username", Username.text.ToString());
+        form.AddField("passport", Passport.text.ToString());
         UnityWebRequest request = UnityWebRequest.Post(url, form);
         yield return request.Send();
 
@@ -80,13 +80,34 @@ public class ManagerLogin : MonoBehaviour
         {
             Debug.LogError("Networkerror");
         }
+        else if(request.downloadHandler.text == "RegisterWrong")
+        {
+            Warning.text = "Benutzername ist vergeben.";
+            request.Dispose();
+        }
+        else if(request.downloadHandler.text == "WrongUser")
+        {
+            Warning.text = "Benutzername falsch.";
+            request.Dispose();
+        }
+        else if (request.downloadHandler.text == "WrongPass")
+        {
+            Warning.text = "Benutzername falsch.";
+            request.Dispose();
+        }
+        else if (request.downloadHandler.text == "Succes")
+        {
+            Warning.text = "Account Registriert.";
+            request.Dispose();
+        }
         else
         {
             Debug.Log(request.downloadHandler.text);
             //Test soll die ID von PHP bekommen
             // wird noch getestet und wo es hingehört
-            GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = 1;
+            GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = int.Parse(request.downloadHandler.text);
             request.Dispose();
+            ToMenu();
         }
     }
 

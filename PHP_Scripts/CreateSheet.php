@@ -29,8 +29,6 @@ else
 	$result = mysqli_query($connection, $query);
 	if($result)
 	{
-		$results = mysqli_query($connection, $querys);
-		echo $results;
 		echo "ha";
 	}
 	else

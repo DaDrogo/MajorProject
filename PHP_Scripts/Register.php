@@ -11,23 +11,39 @@ if(mysqli_connect_errno())
 }
 else
 {
-	$username = $_POST['username'];
+	//bekommt zwei Daten als Input
+	//$user = "1";
+	//$pass = "9";
 	
-	$passport = $_POST['passport'];
+	$user =  $_POST['username'];
+	$pass =  $_POST['passport'];
 	
-	//$query = "INSERT INTO 'login' ( Username, Passport) VALUES ($)";
-	$query = "INSERT INTO login ( Username, Passport) VALUES ('$username', '$passport')";
-	$result = mysqli_query($connection, $query);
-	if($result)
-	{
-		
-		$query = "SELECT UserID FROM login";
-		$Comeback = mysqli_query($connection, $query);
-		echo $Comeback;
-	}
-	else
-	{
-		echo "lol";
-	}
+	//diese müssen getestet werden. Ob sie schon vorhanden sind
+	//dafür hier alle Usernames aus login ziehen und abgleichen
+	//falls noch nicht vorhanden gehe zu schritt 2 
+	//falls vorhanden abbruch und wiedergeben, dass schon voranden
+	//Hier testen()
+		$queryt = "SELECT UserID FROM login  WHERE Username = '$user'";
+		$Comeback = mysqli_query($connection, $queryt);
+		if($Comeback)
+		{
+			if(mysqli_num_rows($Comeback) > 0)
+			{
+				echo "RegisterWrong";				
+			}
+			else
+			{
+				$query = "INSERT INTO login ( Username, Passport) VALUES ('$user', '$pass')";
+				$result = mysqli_query($connection, $query);
+				if($result)
+				{
+					echo "Succces";
+				}
+			}
+		}
+	//schritt2 füge den Input in die Datenbank ein.
+	//gibt die ID wieder um den Spieler einzuloggen.
+	//mit der ID/Username kann der User auf alles zugreifen
+				
 }
 ?>
