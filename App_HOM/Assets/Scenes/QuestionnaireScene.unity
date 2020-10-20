@@ -17322,7 +17322,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1272746496
 RectTransform:
   m_ObjectHideFlags: 0
@@ -20568,10 +20568,10 @@ MonoBehaviour:
     OptionsNr: 4
     FileTxt: DropMerk
   - Dropdowns: {fileID: 199330587}
-    OptionsNr: 10
+    OptionsNr: 8
     FileTxt: DropErz
   - Dropdowns: {fileID: 22588010}
-    OptionsNr: 10
+    OptionsNr: 12
     FileTxt: DropUmg
   DescriptionText: {fileID: 507219076}
 --- !u!114 &1553052642
@@ -21329,7 +21329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1624694426
 RectTransform:
   m_ObjectHideFlags: 0
