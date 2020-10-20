@@ -62,12 +62,8 @@ public class NetworkCreateSheet : MonoBehaviour
             //Past____________________________________
              form.AddField("chartraining", Chars[8].text);
              form.AddField("charfeature",    Chars[9].text);
-             form.AddField("chareducation",  Chars[10].text);
-             form.AddField("charenvironment", Chars[11].text);
-            // form.AddField("chartraining", Chars[8].text);
-            // form.AddField("charfeature", Chars[9].text);
-            // form.AddField("chareducation", Chars[10].text);
-            // form.AddField("charenvironment", Chars[11].text);
+             form.AddField("chareducation",  Chars[10].text + " " + CharCivAbility);
+             form.AddField("charenvironment", Chars[11].text + " " + CharCivAbility);
 
         UnityWebRequest request = UnityWebRequest.Post(urlCreate, form);
         yield return request.Send();

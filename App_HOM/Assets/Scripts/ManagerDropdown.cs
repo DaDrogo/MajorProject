@@ -32,8 +32,10 @@ public class ManagerDropdown : MonoBehaviour
         CreateDropdown();
     }
 
-    //erstelle die Dropdowns
 
+ 
+    //erstelle die Dropdowns
+    //funktioniert
     public void CreateDropdown()
     {
         foreach (DropdownInfos i in Dropis)
@@ -42,16 +44,20 @@ public class ManagerDropdown : MonoBehaviour
             CreateOptions(i.FileTxt, i.Dropdowns, i.OptionsNr);
         }
     }
-
+    //Tmp reference oder value
+    //_____________________________________Problem_______________________________________-
     public void CreateOptions(string File,TMP_Dropdown Down, int Options)
     {
          for (int i = 0; i < Options; i++)
             {
             DropOptions.Add(ParseFile("DropBeschr/"+File, i));
-            Debug.Log(Options);
             }
         Down.AddOptions(DropOptions);
+
+        DropOptions.Clear();
     }
+
+    //____________________________________________________________________________-
 
     private string ParseFile(string File, int Nr)
     {
@@ -63,7 +69,7 @@ public class ManagerDropdown : MonoBehaviour
 
     }
 
-    //Change Info Text
+    //Change Info Text nach dem button drücken
 
     public int getX()
     {
@@ -81,12 +87,10 @@ public class ManagerDropdown : MonoBehaviour
     public void OnValueChange(int Drop)
     {
         setX(Drop);
-        Debug.Log(x);
     }
 
     public void OnValueChangeString(string File)
     {
-        Debug.Log(x);
         DescriptionText.text = ParseFile(File, getX());
     }
 

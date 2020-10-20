@@ -1,0 +1,11 @@
+{
+"name": "Drill"
+,"Option1":["+20 GE","+20 VE"]
+,"Option2":["+10 AG","+10 KR","+10 AU","+10 RE"]
+,"Option3":
+,"Option4":
+,"Value1":["+20 GE","+20 VE"]
+,"Value2":["+10 AG","+10 KR","+10 AU","+10 RE"]
+,"Value3":["+10 AG","+10 KR","+10 AU","+10 RE"]
+,"Value4":["-10 AG","-10 KR","-10 AU","-10 RE"]
+}
