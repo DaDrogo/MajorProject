@@ -25,9 +25,19 @@ public class ManagerJson : MonoBehaviour
     //Warning Text
     //Json Datei:bennant nach den Überpunkten / beinhalten: Anzahl der Buttons + Überschriften/ Texte der Buttons
     // name:"" / Überschriften:[1/1/1] / Buttons:[2,4,4] / Texte:["","","","","","","","","",""]
+    public GameObject spawnpoint;
 
-    public GameObject ButtonPrefab;
-    public GameObject HeaderPrefab;
+    public GameObject buttonPrefab;
+    int ButtonHeight = 50;
+    int ButtonAmount;
+    string ButtonText;
+
+    public GameObject headerPrefab;
+
+    private void Start()
+    {
+        CreateButton("hallo", 0);
+    }
 
     void LoadJson()
     {
@@ -42,6 +52,14 @@ public class ManagerJson : MonoBehaviour
         //erstelle Header und Buttons mit den Werten und an unterschiedlichen Positionen
     }
 
+    void Create()
+    {
+        for(int i = 0;i<=ButtonAmount;i++)
+        {
+            
+        }
+    }
+
     void CreateHeader(int Nr, Vector2 Position)
     {
         // Gib Header einen Text
@@ -49,11 +67,14 @@ public class ManagerJson : MonoBehaviour
         //Erstelle Header an Position
     }
 
-    void CreateButton(string Text, Vector2 Position)
+    void CreateButton(string Text, int y)
     {
+
         // Gib Button Werte
-        ButtonPrefab.GetComponent<TMP_Text>().text = Text;
+        buttonPrefab.GetComponentInChildren<TMP_Text>().text = Text;
         // Erstelle Button an Ort
+        //spawnpoint.transform.position = new Vector3(0, y, 0);
+        Instantiate(buttonPrefab, spawnpoint.transform);
     }
 
     void SwitchPage(int page)
