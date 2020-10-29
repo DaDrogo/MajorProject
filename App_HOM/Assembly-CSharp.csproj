@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\ManagerLogin.cs" />
     <Compile Include="Assets\Scripts\ManagerDropdown.cs" />
     <Compile Include="Assets\Scripts\NetworkCreateSheet.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

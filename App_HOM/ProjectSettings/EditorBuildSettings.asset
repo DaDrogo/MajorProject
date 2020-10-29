@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/QuestionnaireScene.unity
     guid: 66debf6348e2cab42aaa9b5d99f6a2bf
   - enabled: 1
-    path: Assets/Scenes/CharacterSheetScene.unity
+    path: Assets/Scenes/CharSheetView.unity
     guid: 41022a51fc14d7b478fc9d868a8774c9
   m_configObjects: {}
