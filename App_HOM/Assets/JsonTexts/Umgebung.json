@@ -1,62 +1,86 @@
-{"Drill":
+{"Flucht":
 	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Entführt":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Familienzwist":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Geborgen":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Findelkind":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Waise":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Unterdrückung":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Betucht":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
-	},
-"Flucht":
-	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
+	"HeadersNr":[2,1,1],
+	"Buttons":[2,2,2],
+	"Texts" : [""],
+	"Verbesserung" : 0
 	},
 "Verfolgt":
 	{
-	"HeadersNr":[],
-	"Buttons":[],
-	"Texts" : [""]
+	"HeadersNr":[1],
+	"Buttons":[3],
+	"Texts" : [""],
+	"Verbesserung" : 1
 	},
+"Wanderschaft":
+	{
+	"HeadersNr":[2,1],
+	"Buttons":[4,1],
+	"Texts" : [""],
+	"Verbesserung" : 0
+	},
+"Naturnähe":
+	{
+	"HeadersNr":[3],
+	"Buttons":[6],
+	"Texts" : [""],
+	"Verbesserung" : 0
+	},
+"Kriegsbelastet":
+	{
+	"HeadersNr":[4],
+	"Buttons":[4],
+	"Texts" : [""],
+	"Verbesserung" : 1
+	},
+"Schulische Einrichtung":
+	{
+	"HeadersNr":[1,1,1],
+	"Buttons":[4,2,2],
+	"Texts" : [""],
+	"Verbesserung" : 0
+	},
+"Gefangenschaft":
+	{
+	"HeadersNr":[2,1],
+	"Buttons":[2,4],
+	"Texts" : [""],
+	"Verbesserung" : 2
+	},
+"Staatlichgesichert":
+	{
+	"HeadersNr":[2,2],
+	"Buttons":[2,4],
+	"Texts" : [""],
+	"Verbesserung" : 0
+	},
+"Kriminell":
+	{
+	"HeadersNr":[1,1,1],
+	"Buttons":[3,2,2],
+	"Texts" : [""],
+	"Verbesserung" : 0
+	},
+"Laborexperiment":
+	{
+	"HeadersNr":[1,2],
+	"Buttons":[6,6],
+	"Texts" : [""],
+	"Verbesserung" : 0
+	},
+"Religöse Zuflucht":
+	{
+	"HeadersNr":[2],
+	"Buttons":[4],
+	"Texts" : [""],
+	"Verbesserung" : 0
+	},
+"Verdreckt":
+	{
+	"HeadersNr":[2,1],
+	"Buttons":[4,2],
+	"Texts" : [""],
+	"Verbesserung" : 2
+	}
 }
 
