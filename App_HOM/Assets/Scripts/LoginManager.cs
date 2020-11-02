@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class ManagerLogin : MonoBehaviour
+public class LoginManager : MonoBehaviour
 {
     public GameObject ID;
 

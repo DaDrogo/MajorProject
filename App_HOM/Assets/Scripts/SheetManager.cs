@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 
-public class ManagerSheet : MonoBehaviour
+public class SheetManager : MonoBehaviour
 {
     //network Script
     public NetworkCreateSheet net;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class ManagerJson : MonoBehaviour
+public class JsonManager : MonoBehaviour
 {
     // neue Scene für diese beiden
     // also werden die Daten vorher gespeichert

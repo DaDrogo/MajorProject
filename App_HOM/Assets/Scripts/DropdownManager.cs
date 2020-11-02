@@ -13,7 +13,7 @@ public class DropdownInfos
     public string FileTxt;
 }
 
-public class DropdownManager : MonoBehaviour
+public class ManagerDropdown : MonoBehaviour
 {
 
     List<string> DropOptions = new List<string> { };

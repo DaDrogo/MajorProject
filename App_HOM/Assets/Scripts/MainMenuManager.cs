@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class ManagerMainMenu : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
 
     //was will ich haben?
