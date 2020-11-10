@@ -1221,7 +1221,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1388394861}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerLogin, Assembly-CSharp
         m_MethodName: PressButton
         m_Mode: 5
@@ -1586,10 +1586,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1388394860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7679b7ebd3f35684482858413aa1a1df, type: 3}
+  m_Script: {fileID: 11500000, guid: cc84d07410f293b49b103ddeabdbf58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: {fileID: 924485847654230599, guid: 340ae5e831fd7d746987b772860c8e68, type: 3}
+  ID: {fileID: 0}
   Username: {fileID: 1251787447}
   Passport: {fileID: 2146632691}
   Warning: {fileID: 1970446868}
@@ -1689,7 +1689,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1388394861}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerLogin, Assembly-CSharp
         m_MethodName: PressButton
         m_Mode: 5

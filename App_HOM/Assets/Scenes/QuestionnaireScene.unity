@@ -10471,7 +10471,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553052642}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerSheet, Assembly-CSharp
         m_MethodName: ChangeBool
         m_Mode: 6
@@ -13537,7 +13537,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553052642}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerSheet, Assembly-CSharp
         m_MethodName: CreatePopup
         m_Mode: 3
@@ -20338,7 +20338,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553052642}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerSheet, Assembly-CSharp
         m_MethodName: CreatePopup
         m_Mode: 3
@@ -20583,16 +20583,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1553052637}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0986d8f3aa6e83b41b8b947aeab81a65, type: 3}
+  m_Script: {fileID: 11500000, guid: 8aa80149321fd6c40b24b203b757dcc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  net: {fileID: 1553052638}
-  PopUp: {fileID: 1348200102}
-  Info: {fileID: 351682501}
-  Pages:
-  - {fileID: 1899803069}
-  - {fileID: 1272746495}
-  - {fileID: 1624694425}
+  net: {fileID: 0}
+  PopUp: {fileID: 0}
+  Info: {fileID: 0}
+  Pages: []
 --- !u!1 &1562404918
 GameObject:
   m_ObjectHideFlags: 0
@@ -21264,7 +21261,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553052642}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerSheet, Assembly-CSharp
         m_MethodName: CheckArray
         m_Mode: 1
@@ -24053,7 +24050,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553052642}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ManagerSheet, Assembly-CSharp
         m_MethodName: ChangeBool
         m_Mode: 6

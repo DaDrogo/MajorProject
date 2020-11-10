@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-
+// Script für die Fragebogen Scene
 public class SheetManager : MonoBehaviour
 {
     //network Script
