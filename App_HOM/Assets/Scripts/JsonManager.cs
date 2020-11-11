@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.IO;
 
 public class JsonManager : MonoBehaviour
 {
@@ -34,9 +35,24 @@ public class JsonManager : MonoBehaviour
 
     public GameObject headerPrefab;
 
+    //============================JSON====================
+
+    [SerializeField]
+    string First;
+    string Second;
+    string Third;
+    string Fourth;
+
+    public TextAsset jsonFile1;
+    public Teaching hallo;
+
+
+
+
     private void Start()
     {
         CreateButton("hallo", 0);
+        ReadJson(jsonFile1, 0,"name");
     }
 
     void LoadJson()
@@ -45,11 +61,41 @@ public class JsonManager : MonoBehaviour
         // geht zu nächsten Seite über
     }
 
-    private void ReadJson(string Object)
+    [System.Serializable]
+    public class Teachings
     {
-        //Suche im Jsonfile nach dem Object
+        public Teaching[] teachings;
+    }
 
-        //erstelle Header und Buttons mit den Werten und an unterschiedlichen Positionen
+    [System.Serializable]
+    public class Teaching
+    {
+        public string name;
+        public int[] HeadersNr;
+        public int[] Buttons;
+        public string[] Texts;
+    }
+
+    //Zugriff auf eine Zeile und das Objekt in diesem 
+    private void ReadJson(TextAsset jsonFile,int line,string type, int arrayNr = default)
+    {
+
+        //string json = File.ReadAllText(Application.dataPath + "/JsonTexts/" + "Erziehung" + ".json");
+        Debug.Log(arrayNr);
+        Teachings teachInJson = JsonUtility.FromJson<Teachings>(jsonFile.text);
+
+        Debug.Log(teachInJson.teachings.Length);
+        if (type == First)
+            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
+        else if (type == Second)
+            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
+        else if (type == Third)
+            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
+        else if (type == Fourth)
+            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
+        else
+            Debug.Log("Fuck off");
+
     }
 
     void Create()

@@ -1,50 +1,52 @@
-{"Drill":
+{"teachings":
+[
 	{
+	"name": "Drill",
 	"HeadersNr":[1,2,1],
 	"Buttons":[2,4,4],
 	"Texts" : ["+20GE: Ihr wurdet immer gut versorgt.","+20VE:Ihr musste immer und überall lernen.","+10AG: Ihr wurdet immer anhand eurer sportlichen Leistung bewertet.","+10KR: Das Maximum aus eurem Körper zu holen stand für euch immer im Mittelpunkt.","+10AU: Ihr wollte immer mehr schaffen, um die Annerkennung eurer Eltern zu verdienen.","+10RE: Durch eure schnellen Reaktionen, konntet ihr einigen Schlägen der Lehrer entgehen.","-10AG: Ihr habt viel geschafft, leider mussten eure Gelenke darunter leiden.","-10KR: Beim Training habt ihr euch eine bleibende Verletzung geholt.","-10AU: Ihr habt viel gegessen, zu viel.","-10RE: Euer Kopf steckt schon bei der nächsten Aufgabe, deswegen seit ihr nicht ganz im hier und jetzt."]
 	},
-"Entführt":
 	{
+	"name": "Entführt",
 	"HeadersNr":[1,1,1,1],
 	"Buttons":[2,4,2,2],
 	"Texts" : ["+20AG: Eure Verfolger konnten euch bei der Flucht nicht einholen.","+20RE Durch den richtigen Moment, wurde von eurer Flucht erst bemerkt, als es schon zu spät war.","+10AG: Ihr wurdet zu einem Laufburschen erzogen.","+10KR: Ihr wurdet zu einem Soldaten erzogen.","+10AU: Ihr wurdet zu einem Diener erzogen.","+10RE: Ihr wurdet zum Tierzüchter erzogen.","+5KR: Früh musstet ihr euch in Kämpfen gegen andere Beweisen.","+5AU: Ihr habt den ganzen Tag gearbeitet.","-5GE: Ihr wolltet zu euer Familie zurück. Euer Körper zeigt wie eure neuen Eltern dazu standen.","-5VE: Die Ungewissheit, wie es euren Eltern geht und wo ihr herkommt, verfolgt euch und schmerzt."]
 	},
-"Familienzwist":
 	{
+	"name": "Familienzwist",
 	"HeadersNr":[6],
 	"Buttons":[6],
 	"Texts" : ["+5AG: Vor Peinigern seid ihr oft geflohen.","+5KR: Durch gewaltsame Auseinandersetzungen habt ihr einiges gelernt.","+5AU: Manchmal habt ihr eine Disskusion auch nur ausgesessen.","+5RE: Schnell zu erkennen wann die Fetzen fliegen hat euch schon aus mancher Situation gerettet.","+5GE: Durch Reiberein habt ihr euch ein dickes Fell antrainiert.","+5VE: Der Klügere gibt nach."]
 	},
-"Geborgen":
 	{
+	"name": "Geborgen",
 	"HeadersNr":[1,1],
 	"Buttons":[4,2],
 	"Texts" : ["+10AG:Ihr seid schon früh durch Wälder und Gebirge gewandert.","+10KR: Am liebsten habt ihr bei schwerer Arbeit geholfen.","+10AU: Ihr hattet immer genug zum Essen.","+10RE: In eurer Freizeit habt ihr euer Umfeld ohne Sorgen begutachten können.","+20GE: Euer Körper wurde stets versorgt und trainiert.","+20VE: Eure Seele wurde stets versorgt und ihr konntet viel lernen.",]
 	},
-"Findelkind":
 	{
+	"name": "Findelkind",
 	"HeadersNr":[1,1,1],
 	"Buttons":[2,2,2],
 	"Texts" : ["+5KR: Du hast versucht dich körperlich Durchzusetzten.","+5AU: Du hast solange gewartet, bis du deinen Willen bekommen hast.","+10AG: Oft habt ihr eure Eltern gesucht oder einen Ort eurer Vergangenheit.","+10RE: Ihr wart sehr Aufmerksam um vielleicht etwas über eure Vergangenheit zu erfahren.","+15GE: Eure neuen Eltern haben versucht euch einen guten Start ins Leben zu geben und ihr seit voller Tatendrang.","+15VE: Eure Eltern haben euch viel beigebracht und ihr wollt noch mehr lernen.",]
 	},
-"Waise":
 	{
+	"name": "Waise",
 	"HeadersNr":[1,1],
 	"Buttons":[2,4],
 	"Texts" : ["+10GE: Viel Arbeit und genug zum Essen haben euch gereicht.","+10VE: Ihr hattet wenig Bücher, aber diese kennt ihr Auswendig.","+20AG: Die Straße ist euer Zuhause. Ihr seid viel unterwegs, oft Tage lang.","+20KR: In der Arena fühlt ihr euch heimisch. Oft seht ihr zu und meistens stellt ihr die Kämpfe mit anderen nach. ","+20AU: Die Küche ist euer Leben. Sowohl essen als auch zubereiten den ganzen Tag.","+20RE: Eurer Meinung nach kommt ihr aus der Wildnis. Eure Instinkt und Sinne sind perfekt angepasst.",]
 	},
-"Unterdrückung":
 	{
+	"name": "Unterdrückung",
 	"HeadersNr":[2,1],
 	"Buttons":[4,2],
 	"Texts" : ["+20AG: Eure Flinkheit wurde schon früh ausgenutzt.","+20KR: Eure Stärke hat sich durch die schwere Arbeit entwickelt.","+20AU: Ihr konntet der Unterdrückung trotzen und habt es geschafft auszuhalten.","+20RE: Bei dem kleinsten Anzeichen von Problemen habt ihr es sofort erkannt und konntet euch darauf einstellen.","-10GE: Der körperliche Schaden wird ewig bleiben.","-10VE: Der seelische Schaden wird ewig bleiben.",]
 	},
-"Betucht":
 	{
+	"name": "Betucht",
 	"HeadersNr":[1,1],
 	"Buttons":[4,2],
 	"Texts" : ["+5Ag: Ihr habt eure Freiheit genutzt, um euch viel zu bewegen.","+5KR: Ihr habt eure Freiheit genutzt, um euch auf den Kampf des Überlebens vorzubereiten","+5AU: Ihr habt eure Freiheit genutzt, um Geduld und Verständniss zu lernen und ein Teil der Gesellschaft zu werden.","+5RE: Ihr habt eure Freiheit genutzt, um wie eine Katze durch die Gegend zu pirschen.","+25GE: Eurem Körper fehlt es an nichts. Dementsprechend sieht er auch aus.","+25VE: Ihr hattet die besten Lehrer und auch die Motivation zu lernen. Euer Wissensdurst ist unstillbar.",]
 	}
+]
 }
-
