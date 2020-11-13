@@ -26,40 +26,14 @@ public class JsonManager : MonoBehaviour
     //Warning Text
     //Json Datei:bennant nach den Überpunkten / beinhalten: Anzahl der Buttons + Überschriften/ Texte der Buttons
     // name:"" / Überschriften:[1/1/1] / Buttons:[2,4,4] / Texte:["","","","","","","","","",""]
-    public GameObject spawnpoint;
-
-    public GameObject buttonPrefab;
-    int ButtonHeight = 50;
-    int ButtonAmount;
-    string ButtonText;
-
-    public GameObject headerPrefab;
-
     //============================JSON====================
-
-    [SerializeField]
-    string First;
-    string Second;
-    string Third;
-    string Fourth;
-
-    public TextAsset jsonFile1;
-    public Teaching hallo;
+    string First = "name";
+    string Second = "HeadersNr";
+    string Third = "Buttons";
+    string Fourth ="Texts";
 
 
-
-
-    private void Start()
-    {
-        CreateButton("hallo", 0);
-        ReadJson(jsonFile1, 0,"name");
-    }
-
-    void LoadJson()
-    {
-        //erhalte die Information, dass Button gedrückt wurde und den Wert
-        // geht zu nächsten Seite über
-    }
+    //==================================JSON Files=========================================
 
     [System.Serializable]
     public class Teachings
@@ -71,60 +45,52 @@ public class JsonManager : MonoBehaviour
     public class Teaching
     {
         public string name;
-        public int[] HeadersNr;
-        public int[] Buttons;
+        public string[] HeadersNr;
+        public string[] Buttons;
         public string[] Texts;
     }
 
+
+
     //Zugriff auf eine Zeile und das Objekt in diesem 
-    private void ReadJson(TextAsset jsonFile,int line,string type, int arrayNr = default)
+    public string ReadJsonText(int line,string type, int arrayNr = default)
     {
-
-        //string json = File.ReadAllText(Application.dataPath + "/JsonTexts/" + "Erziehung" + ".json");
+        string json = File.ReadAllText(Application.dataPath + "/JsonTexts/" + "Erziehung" + ".json");
         Debug.Log(arrayNr);
-        Teachings teachInJson = JsonUtility.FromJson<Teachings>(jsonFile.text);
-
+        Teachings teachInJson = JsonUtility.FromJson<Teachings>(json);
         Debug.Log(teachInJson.teachings.Length);
         if (type == First)
-            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
-        else if (type == Second)
-            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
-        else if (type == Third)
-            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
+            return (teachInJson.teachings[line].name);
+        //else if (type == Second)
+        //    return (teachInJson.teachings[line].HeadersNr[arrayNr]);
+        //else if (type == Third)
+        //    return (teachInJson.teachings[line].Buttons[arrayNr]);
         else if (type == Fourth)
-            Debug.Log(teachInJson.teachings[line].HeadersNr[arrayNr]);
+            return (teachInJson.teachings[line].Texts[arrayNr]);
         else
-            Debug.Log("Fuck off");
+            return ("Fuck off");
+
+        
 
     }
 
-    void Create()
+    public int ReadJsonLength(int line, string type)
     {
-        for(int i = 0;i<=ButtonAmount;i++)
-        {
-            
-        }
+        string json = File.ReadAllText(Application.dataPath + "/JsonTexts/" + "Erziehung" + ".json");
+        Teachings teachInJson = JsonUtility.FromJson<Teachings>(json);
+        if (type == First)
+            return (teachInJson.teachings[line].name.Length);
+        else if (type == Second)
+            return(teachInJson.teachings[line].HeadersNr.Length);
+        else if (type == Third)
+            return (teachInJson.teachings[line].Buttons.Length);
+        else if (type == Fourth)
+            return (teachInJson.teachings[line].Texts.Length);
+        else
+            return (1);
     }
 
-    void CreateHeader(int Nr, Vector2 Position)
-    {
-        // Gib Header einen Text
+    //==============================================
 
-        //Erstelle Header an Position
-    }
-
-    void CreateButton(string Text, int y)
-    {
-
-        // Gib Button Werte
-        buttonPrefab.GetComponentInChildren<TMP_Text>().text = Text;
-        // Erstelle Button an Ort
-        //spawnpoint.transform.position = new Vector3(0, y, 0);
-        Instantiate(buttonPrefab, spawnpoint.transform);
-    }
-
-    void SwitchPage(int page)
-    {
-
-    }
+    
 }
