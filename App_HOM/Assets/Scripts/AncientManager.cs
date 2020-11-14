@@ -6,13 +6,14 @@ using TMPro;
 
 public class AncientManager : MonoBehaviour
 {
-    public GameObject ButtonSpawnpoint;
-    public GameObject HeaderSpawnpoint;
+    public Transform SpawnPosition;
 
     public GameObject buttonPrefab;
     int ObjectHeight = 50;
     int ButtonAmount;
     int HeaderAmount;
+    int FieldPosition;
+    int ButtonTexts;
     string ButtonText;
 
     public GameObject headerPrefab;
@@ -30,38 +31,50 @@ public class AncientManager : MonoBehaviour
     private void Start()
     {
         jManager = new JsonManager();
-        CreateHeader("Test", 0);
-        CreateButton("Test", 1);
-        CreateButton("Test", 3);
-        Create(1);
+        CreateHeader("ja", 0);
+        CreateButton("Nein", 1);
     }
+
+    //Wird von dem Dropdown aufgerufen und erhält einen int Wert welcher der Buttons gedrückt wurde. Der Int wert wird im Json benötigt um die richtigen Werte zu erhalten
 
     public void TechingDrop(int Drop)
     {
-        LoadJson(Drop,TeachFile);
+        Create(Drop);
     }
 
-    void LoadJson(int Drop, TextAsset File)
-    {
-        //erhalte die Information, dass Button gedrückt wurde und den Wert
-        // geht zu nächsten Seite über
-        Create(Drop);
-        CreateHeader("Test", 0);
-    }
+    //Was wird benötigt?
+    //eine Funktion die die alten Objekte löscht. Also am besten alle Childs von dem Spawnergameobject X
+    //1. eine Schleife um die Objekte zu erstellen
+    //2. die Anzahl der zu erstellenden Objekte
+    //3.Schleife beinhaltet zuerst wird geschaut ob Header Null ist falls nicht beginnt die schleife
+        //a.Header mit Wert erstellen
+        //b.Button parsen und soviele erstellen mit den Texten
+        //c.dabei wird der Buttoncount immer höher gezählt
+    //4.
 
     void Create(int Drop)
     {
-        CreateButton("Test2", 2);
-        int amount = 0;
+        foreach(Transform child in SpawnPosition)
+        {
+            Destroy(child.gameObject);
+        }
+        FieldPosition = 0;
+        ButtonTexts = 0;
         bool rdy = false;
         while (rdy == false)
         {
             HeaderAmount = jManager.ReadJsonLength(Drop, Second);
             Debug.Log(HeaderAmount);
-            for (int i = 0; i <= HeaderAmount; i++)
+            for (int i = 0; i < HeaderAmount; i++)
             {
-
-                amount++;
+                CreateHeader(jManager.ReadJsonText(Drop, "HeadersNr",i), FieldPosition);
+                
+                ButtonAmount = int.Parse(jManager.ReadJsonText(Drop, "Buttons", i));
+                Debug.Log(ButtonAmount);
+                for (int j = 0; j < ButtonAmount; j++)
+                {
+                    CreateButton(jManager.ReadJsonText(Drop, "Texts", ButtonTexts), FieldPosition);
+                }
             }
             CreateChoice();
             rdy = true;
@@ -75,34 +88,29 @@ public class AncientManager : MonoBehaviour
 
     void CreateHeader(string NrText, int HeaderNr)
     {
+
+        GameObject Temp = Instantiate(headerPrefab, SpawnPosition);
         // Gib Header einen Text
-        headerPrefab.GetComponent<TMP_Text>().text = "Wähle bitte " + NrText + " aus.";
+        Temp.GetComponent<TMP_Text>().text = "Wähle bitte " + NrText + " aus.";
         //Erstelle Header an Position
-        HeaderSpawnpoint.transform.position = new Vector3(HeaderSpawnpoint.transform.position.x, HeaderSpawnpoint.transform.position.y - 50 * HeaderNr, 0);
-        Instantiate(headerPrefab, HeaderSpawnpoint.transform);
+        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - 50 * HeaderNr, 0);
+        FieldPosition++;
+
     }
 
-    public Transform SpawnPosition;
+
 
     void CreateButton(string Text, int ButtonNr)
     {
-        //Test 1
-
-        // GameObject Temp = buttonPrefab;
-        // // Gib Button Werte
-        // Temp.GetComponentInChildren<TMP_Text>().text = Text;
-        // // Erstelle Button an Ort
-        // Debug.Log(Temp.transform.position);
-        // SpawnPosition.position = new Vector3(Temp.transform.position.x, Temp.transform.position.y - 50 * ButtonNr, 0);
-        // Debug.Log(Temp.transform.position);
-        // Instantiate(Temp,SpawnPosition);
-
-
-        //Test 2
-        Instantiate(buttonPrefab, SpawnPosition);
+        //Erstelle Button als Child von Objekt
+        GameObject Temp = Instantiate(buttonPrefab,SpawnPosition);
+        // Gib Button Werte
+        Temp.GetComponentInChildren<TMP_Text>().text = Text;
+        // Weise dem Button einen Ort zu
+        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - 50 * ButtonNr, 0);
+        FieldPosition++;
+        ButtonTexts++;
     }
-
-    //Idee aufbauen einer List von Headern und Buttons und diese dann abarbeiten erst Objekte erschaffen und diese dann befüllen
 
     void SwitchPage(int page)
     {

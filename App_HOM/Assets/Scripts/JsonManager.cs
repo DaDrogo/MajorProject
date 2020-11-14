@@ -53,18 +53,22 @@ public class JsonManager : MonoBehaviour
 
 
     //Zugriff auf eine Zeile und das Objekt in diesem 
-    public string ReadJsonText(int line,string type, int arrayNr = default)
+
+    //Line = welcher Array aus dem Json soll gelesen werden
+    //type = der bestimmte array wird ausgesucht darin mit den Werten
+    //arrayNr = falls die Werte in einem Array gespeichert sind wird hier die Nummer von wo der Wert genommen werden soll eingefügt
+    public string ReadJsonText(int line,string type, int arrayNr )
     {
         string json = File.ReadAllText(Application.dataPath + "/JsonTexts/" + "Erziehung" + ".json");
-        Debug.Log(arrayNr);
+        Debug.Log(line+","+type+","+arrayNr);
         Teachings teachInJson = JsonUtility.FromJson<Teachings>(json);
         Debug.Log(teachInJson.teachings.Length);
         if (type == First)
             return (teachInJson.teachings[line].name);
-        //else if (type == Second)
-        //    return (teachInJson.teachings[line].HeadersNr[arrayNr]);
-        //else if (type == Third)
-        //    return (teachInJson.teachings[line].Buttons[arrayNr]);
+        else if (type == Second)
+            return (teachInJson.teachings[line].HeadersNr[arrayNr]);
+        else if (type == Third)
+            return (teachInJson.teachings[line].Buttons[arrayNr]);
         else if (type == Fourth)
             return (teachInJson.teachings[line].Texts[arrayNr]);
         else

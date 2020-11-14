@@ -222,7 +222,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 22116714}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 604, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2018721426}
@@ -3119,12 +3119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7e86b61860ceb4786fe3afdb1ca2d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonSpawnpoint: {fileID: 2018721425}
-  HeaderSpawnpoint: {fileID: 273325186}
+  SpawnPosition: {fileID: 2018721426}
   buttonPrefab: {fileID: 7577957155575679134, guid: 1b04022a002203b49ac424d9167629ee, type: 3}
   headerPrefab: {fileID: 2052217333912880066, guid: c8008b30b53b31c4cafc506f8a9924b7, type: 3}
   TeachFile: {fileID: 4900000, guid: 2605c4888455f7546b1d7bd8c2e1dae1, type: 3}
-  SpawnPosition: {fileID: 2018721426}
 --- !u!1 &1934918898
 GameObject:
   m_ObjectHideFlags: 0

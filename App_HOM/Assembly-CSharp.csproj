@@ -61,13 +61,13 @@
      <Compile Include="Assets\Scripts\Oldies\NetworkScript.cs" />
      <Compile Include="Assets\Scripts\LoginManager.cs" />
      <Compile Include="Assets\Scripts\Oldies\ButtonScript.cs" />
+     <Compile Include="Assets\Scripts\AncientManager.cs" />
      <Compile Include="Assets\Scripts\Oldies\PersonCreationScript.cs" />
      <Compile Include="Assets\Scripts\SheetManager.cs" />
      <Compile Include="Assets\Scripts\PlayerID.cs" />
      <Compile Include="Assets\Scripts\DropdownManager.cs" />
      <Compile Include="Assets\Scripts\NetworkCreateSheet.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\AncientManager.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\Later\DropAmbi.txt" />
