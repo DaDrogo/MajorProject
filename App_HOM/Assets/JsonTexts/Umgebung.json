@@ -1,86 +1,89 @@
-{"Flucht":
+{"surrounding":
+[
 	{
-	"HeadersNr":[2,1,1],
-	"Buttons":[2,2,2],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Flucht",
+	"HeadersNr":["1","1","2"],
+	"Buttons":["2","2","2"],
+	"Texts" : ["-05VE: Keine Heimat zu haben, hat euch traumatisiert.","-05GE: Nur vom Nötigsten zu leben, hat euerem Leben stark geschadet.","+15RE: Ihr wart immer Vorsichtig und habt eine gute Menschenkenntnis.","+15AG: Auf der Flucht zu sein bedeutet viel zu laufen, ihr könnt es schon im Schlaf.","+10AU: Auf der Flucht habt ihr alles mitgehen lassen, was ihr in die Hände bekommen habt.","+10KR: Als ihr alt genug wart habt ihr euch euren Peinigern entgegen geststellt und euch verteidigt."],
+	"Verbesserung" : "0"
 	},
-"Verfolgt":
 	{
-	"HeadersNr":[1],
-	"Buttons":[3],
-	"Texts" : [""],
-	"Verbesserung" : 1
+	"name": "Verfolgt",
+	"HeadersNr":["1"],
+	"Buttons":["3"],
+	"Texts" : ["+20RE: Neue Umgebungen und Menschen haben eure Anpassungsfähigkeit verstärkt.","+20AG: Wer verfolgt wird sollte schnell laufen können, eure Freunde waren leider nicht so schnell wie ihr.","+20AU: Wenn ihr mal rasten konntet, habt ihr so viel gegessen wie möglich war."],
+	"Verbesserung" : "1"
 	},
-"Wanderschaft":
 	{
-	"HeadersNr":[2,1],
-	"Buttons":[4,1],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Wanderschaft",
+	"HeadersNr":["2","1"],
+	"Buttons":["4","2"],
+	"Texts" : ["+20KR: Oft habt ihr euch gegen Halunken verteidigen müssen.","+20AU: Durch Erfahrungen seit ihr Effizient beim Rasten und Reisen geworden.","+20GE: Auf Wanderschaft lernt man viele Menschen kennen und auch ihre Gastfreundschaft.","+20RE: Auf euren Unternehmungen, wart ihr stets wachsam und seid bisher in keinem Überfall gewesen.","-10AG: auf euren Reisen habt ihr euch eine Verletzung zu viel geholt.","-10VE: Mit dem Kopf hingt ihr schon immer mehr in der Wildnis und dem Sternenhimmel."],
+	"Verbesserung" : "0"
 	},
-"Naturnähe":
 	{
-	"HeadersNr":[3],
-	"Buttons":[6],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Naturnähe",
+	"HeadersNr":["3"],
+	"Buttons":["6"],
+	"Texts" : ["+10AG: Ihr seid viel unterwegs gewesen und habt mit Tieren gespielt.","+10KR: Ihr wolltet schon immer was aus der Natur erschaffen.","+10AU: Die Natur hat euch einen breiten Schatz an Nahrung versprochen.","+10RE: Ihr seid oft Nachts durch die Wildnis gestreift, auf der Suche nach Abenteuern.","+10GE: Das Wetter und die Umgebeung haben euch Wiederstandsfähig gemacht.","+10VE: In der Natur gibt es viel über Wetter, Tiere und Landschaft zu lernen."],
+	"Verbesserung" : "0"
 	},
-"Kriegsbelastet":
 	{
-	"HeadersNr":[4],
-	"Buttons":[4],
-	"Texts" : [""],
-	"Verbesserung" : 1
+	"name": "Kriegsbelastet",
+	"HeadersNr":["4"],
+	"Buttons":["4"],
+	"Texts" : ["+10AG: ","+10KR:","+10AU:","+10RE:"],
+	"Verbesserung" : "1"
 	},
-"Schulische Einrichtung":
 	{
-	"HeadersNr":[1,1,1],
-	"Buttons":[4,2,2],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Schulische Einrichtung",
+	"HeadersNr":["1","1","1"],
+	"Buttons":["4","2","2"],
+	"Texts" : ["-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:"],
+	"Verbesserung" : "0"
 	},
-"Gefangenschaft":
 	{
-	"HeadersNr":[2,1],
-	"Buttons":[2,4],
-	"Texts" : [""],
-	"Verbesserung" : 2
+	"name": "Gefangenschaft",
+	"HeadersNr":["2","1"],
+	"Buttons":["2","4"],
+	"Texts" : ["-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:"],
+	"Verbesserung" : "2"
 	},
-"Staatlichgesichert":
 	{
-	"HeadersNr":[2,2],
-	"Buttons":[2,4],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Staatlichgesichert",
+	"HeadersNr":["2","2"],
+	"Buttons":["2","4"],
+	"Texts" : ["-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:"],
+	"Verbesserung" : "0"
 	},
-"Kriminell":
 	{
-	"HeadersNr":[1,1,1],
-	"Buttons":[3,2,2],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Kriminell",
+	"HeadersNr":["1","1","1"],
+	"Buttons":["3","2","2"],
+	"Texts" : ["-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:"],
+	"Verbesserung" : "0"
 	},
-"Laborexperiment":
 	{
-	"HeadersNr":[1,2],
-	"Buttons":[6,6],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Laborexperiment",
+	"HeadersNr":["1","2"],
+	"Buttons":["6","6"],
+	"Texts" : ["-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:"],
+	"Verbesserung" : "0"
 	},
-"Religöse Zuflucht":
 	{
-	"HeadersNr":[2],
-	"Buttons":[4],
-	"Texts" : [""],
-	"Verbesserung" : 0
+	"name": "Religöse Zuflucht",
+	"HeadersNr":["2"],
+	"Buttons":["4"],
+	"Texts" : ["-05VE:","-05VE:","-05VE:","-05VE:"],
+	"Verbesserung" : "0"
 	},
-"Verdreckt":
 	{
-	"HeadersNr":[2,1],
-	"Buttons":[4,2],
-	"Texts" : [""],
-	"Verbesserung" : 2
+	"name": "Verdreckt",
+	"HeadersNr":["2","1"],
+	"Buttons":["4","2"],
+	"Texts" : ["-05VE:","-05VE:","-05VE:","-05VE:","-05VE:","-05VE:"],
+	"Verbesserung" : "2"
 	}
+]
 }
 

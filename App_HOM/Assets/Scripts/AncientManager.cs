@@ -107,7 +107,7 @@ public class AncientManager : MonoBehaviour
         // Gib Button Werte
         Temp.GetComponentInChildren<TMP_Text>().text = Text;
         // Weise dem Button einen Ort zu
-        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - 50 * ButtonNr, 0);
+        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x + 350, SpawnPosition.transform.position.y - 50 * ButtonNr, 0);
         FieldPosition++;
         ButtonTexts++;
     }

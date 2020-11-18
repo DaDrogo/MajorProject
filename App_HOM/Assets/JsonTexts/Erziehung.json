@@ -10,13 +10,13 @@
 	"name": "Entführt",
 	"HeadersNr":["1","1","1","1"],
 	"Buttons":["2","4","2","2"],
-	"Texts" : ["+20AG: Eure Verfolger konnten euch bei der Flucht nicht einholen.","+20RE Durch den richtigen Moment, wurde von eurer Flucht erst bemerkt, als es schon zu spät war.","+10AG: Ihr wurdet zu einem Laufburschen erzogen.","+10KR: Ihr wurdet zu einem Soldaten erzogen.","+10AU: Ihr wurdet zu einem Diener erzogen.","+10RE: Ihr wurdet zum Tierzüchter erzogen.","+5KR: Früh musstet ihr euch in Kämpfen gegen andere Beweisen.","+5AU: Ihr habt den ganzen Tag gearbeitet.","-5GE: Ihr wolltet zu euer Familie zurück. Euer Körper zeigt wie eure neuen Eltern dazu standen.","-5VE: Die Ungewissheit, wie es euren Eltern geht und wo ihr herkommt, verfolgt euch und schmerzt."]
+	"Texts" : ["+20AG: Eure Verfolger konnten euch bei der Flucht nicht einholen.","+20RE Durch den richtigen Moment, wurde von eurer Flucht erst bemerkt, als es schon zu spät war.","+10AG: Ihr wurdet zu einem Laufburschen erzogen.","+10KR: Ihr wurdet zu einem Soldaten erzogen.","+10AU: Ihr wurdet zu einem Diener erzogen.","+10RE: Ihr wurdet zum Tierzüchter erzogen.","+05KR: Früh musstet ihr euch in Kämpfen gegen andere Beweisen.","+05AU: Ihr habt den ganzen Tag gearbeitet.","-05GE: Ihr wolltet zu euer Familie zurück. Euer Körper zeigt wie eure neuen Eltern dazu standen.","-05VE: Die Ungewissheit, wie es euren Eltern geht und wo ihr herkommt, verfolgt euch und schmerzt."]
 	},
 	{
 	"name": "Familienzwist",
 	"HeadersNr":["6"],
 	"Buttons":["6"],
-	"Texts" : ["+5AG: Vor Peinigern seid ihr oft geflohen.","+5KR: Durch gewaltsame Auseinandersetzungen habt ihr einiges gelernt.","+5AU: Manchmal habt ihr eine Disskusion auch nur ausgesessen.","+5RE: Schnell zu erkennen wann die Fetzen fliegen hat euch schon aus mancher Situation gerettet.","+5GE: Durch Reiberein habt ihr euch ein dickes Fell antrainiert.","+5VE: Der Klügere gibt nach."]
+	"Texts" : ["+05AG: Vor Peinigern seid ihr oft geflohen.","+05KR: Durch gewaltsame Auseinandersetzungen habt ihr einiges gelernt.","+05AU: Manchmal habt ihr eine Disskusion auch nur ausgesessen.","+05RE: Schnell zu erkennen wann die Fetzen fliegen hat euch schon aus mancher Situation gerettet.","+05GE: Durch Reiberein habt ihr euch ein dickes Fell antrainiert.","+05VE: Der Klügere gibt nach."]
 	},
 	{
 	"name": "Geborgen",
@@ -28,7 +28,7 @@
 	"name": "Findelkind",
 	"HeadersNr":["1","1","1"],
 	"Buttons":["2","2","2"],
-	"Texts" : ["+5KR: Du hast versucht dich körperlich Durchzusetzten.","+5AU: Du hast solange gewartet, bis du deinen Willen bekommen hast.","+10AG: Oft habt ihr eure Eltern gesucht oder einen Ort eurer Vergangenheit.","+10RE: Ihr wart sehr Aufmerksam um vielleicht etwas über eure Vergangenheit zu erfahren.","+15GE: Eure neuen Eltern haben versucht euch einen guten Start ins Leben zu geben und ihr seit voller Tatendrang.","+15VE: Eure Eltern haben euch viel beigebracht und ihr wollt noch mehr lernen."]
+	"Texts" : ["+05KR: Du hast versucht dich körperlich Durchzusetzten.","+05AU: Du hast solange gewartet, bis du deinen Willen bekommen hast.","+10AG: Oft habt ihr eure Eltern gesucht oder einen Ort eurer Vergangenheit.","+10RE: Ihr wart sehr Aufmerksam um vielleicht etwas über eure Vergangenheit zu erfahren.","+15GE: Eure neuen Eltern haben versucht euch einen guten Start ins Leben zu geben und ihr seit voller Tatendrang.","+15VE: Eure Eltern haben euch viel beigebracht und ihr wollt noch mehr lernen."]
 	},
 	{
 	"name": "Waise",
@@ -46,7 +46,7 @@
 	"name": "Betucht",
 	"HeadersNr":["1","1"],
 	"Buttons":["4","2"],
-	"Texts" : ["+5Ag: Ihr habt eure Freiheit genutzt, um euch viel zu bewegen.","+5KR: Ihr habt eure Freiheit genutzt, um euch auf den Kampf des Überlebens vorzubereiten","+5AU: Ihr habt eure Freiheit genutzt, um Geduld und Verständniss zu lernen und ein Teil der Gesellschaft zu werden.","+5RE: Ihr habt eure Freiheit genutzt, um wie eine Katze durch die Gegend zu pirschen.","+25GE: Eurem Körper fehlt es an nichts. Dementsprechend sieht er auch aus.","+25VE: Ihr hattet die besten Lehrer und auch die Motivation zu lernen. Euer Wissensdurst ist unstillbar."]
+	"Texts" : ["+05Ag: Ihr habt eure Freiheit genutzt, um euch viel zu bewegen.","+05KR: Ihr habt eure Freiheit genutzt, um euch auf den Kampf des Überlebens vorzubereiten","+05AU: Ihr habt eure Freiheit genutzt, um Geduld und Verständniss zu lernen und ein Teil der Gesellschaft zu werden.","+05RE: Ihr habt eure Freiheit genutzt, um wie eine Katze durch die Gegend zu pirschen.","+25GE: Eurem Körper fehlt es an nichts. Dementsprechend sieht er auch aus.","+25VE: Ihr hattet die besten Lehrer und auch die Motivation zu lernen. Euer Wissensdurst ist unstillbar."]
 	}
 ]
 }
