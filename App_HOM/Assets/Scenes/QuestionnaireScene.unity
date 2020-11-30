@@ -7455,9 +7455,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1553052637}
-        m_TargetAssemblyTypeName: CreationScript, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 1553052641}
+        m_TargetAssemblyTypeName: DropdownManager, Assembly-CSharp
+        m_MethodName: OnValueChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -20574,6 +20574,8 @@ MonoBehaviour:
     OptionsNr: 12
     FileTxt: DropUmg
   DescriptionText: {fileID: 507219076}
+  DescriptionImage: {fileID: 0}
+  images: []
 --- !u!114 &1553052642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20589,7 +20591,8 @@ MonoBehaviour:
   net: {fileID: 0}
   PopUp: {fileID: 0}
   Info: {fileID: 0}
-  Pages: []
+  Active: {fileID: 0}
+  Sites: []
 --- !u!1 &1562404918
 GameObject:
   m_ObjectHideFlags: 0
@@ -21326,7 +21329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1624694426
 RectTransform:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 // wird noch bearbeitet am besten wenn mal zeit dafür vorhanden ist
 
@@ -10,7 +11,7 @@ public class DropdownInfos
 {
     public TMP_Dropdown Dropdowns;
     public int OptionsNr;
-    public string FileTxt;
+    public TextAsset FileTxt;
 }
 
 public class DropdownManager : MonoBehaviour
@@ -22,6 +23,12 @@ public class DropdownManager : MonoBehaviour
 
     [SerializeField]
     private TMP_Text DescriptionText;
+
+
+    //Hardcoded Images
+    [SerializeField]
+    private Image DescriptionImage;
+    public Sprite[] images;
 
     int x;
 
@@ -46,11 +53,11 @@ public class DropdownManager : MonoBehaviour
     }
     //Tmp reference oder value
     //_____________________________________Problem_______________________________________-
-    public void CreateOptions(string File,TMP_Dropdown Down, int Options)
+    public void CreateOptions(TextAsset File,TMP_Dropdown Down, int Options)
     {
          for (int i = 0; i < Options; i++)
             {
-            DropOptions.Add(ParseFile("DropBeschr/"+File, i));
+            DropOptions.Add(ParseFile(File, i));
             }
         Down.AddOptions(DropOptions);
 
@@ -59,14 +66,14 @@ public class DropdownManager : MonoBehaviour
 
     //____________________________________________________________________________-
 
-    private string ParseFile(string File, int Nr)
+    private string ParseFile(TextAsset File, int Nr)
     {
         //muss noch überarbeitet werden suche des Speicherorts
         //TXT Dateien aus dem Server holen
-        string[] Text = System.IO.File.ReadAllLines(Application.dataPath+ "/DescriptionTexts/" + File + ".txt");
+        Debug.Log(File.text);
+        string[] Text = File.text.Split("\n"[0]);
+        Debug.Log(Text);
         return (Text[Nr]);
-
-
     }
 
     //Change Info Text nach dem button drücken
@@ -89,9 +96,19 @@ public class DropdownManager : MonoBehaviour
         setX(Drop);
     }
 
-    public void OnValueChangeString(string File)
+    public void OnValueChangeString(TextAsset File)
     {
         DescriptionText.text = ParseFile(File, getX());
+    }
+
+    public void OnValueChangeImage(int Drop)
+    {
+        ParseImage(Drop);
+    }
+
+    void ParseImage(int Drop)
+    {
+        DescriptionImage.sprite = images[Drop];
     }
 
 }
