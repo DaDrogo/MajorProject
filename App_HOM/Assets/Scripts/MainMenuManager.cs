@@ -26,18 +26,6 @@ public class MainMenuManager : MonoBehaviour
         ChangeButton("");
     }
 
-    public void SwitchScene()
-    {
-        if(scene!=0)
-            SceneManager.LoadScene(scene);
-        else
-        {
-            PopUp.SetActive(true);
-            PopUp.GetComponentInChildren<TMP_Text>().text = "Bitte Wähle etwas aus.";
-            DeactivatePopUp();
-        }
-    }
-
     public void DeactivatePopUp()
     {
         PopUp.SetActive(false);
@@ -49,8 +37,9 @@ public class MainMenuManager : MonoBehaviour
     public GameObject Active;
     public GameObject[] Sites;
 
-    public void SiwtchSites(int Site)
+    public void SwitchSites(int Site)
     {
+        scene = Site + 2;
         Active.gameObject.SetActive(false);
         Active = Sites[Site];
         Active.SetActive(true);
@@ -100,6 +89,7 @@ public class MainMenuManager : MonoBehaviour
     //Hier ist die Funktion des Buttons, wenn dieser gedrückt wird.
     public void PressCharaktersheet()
     {
+        DeleteClasses();
         GetClassAmount();
         FillList();
         CreateCharacterSheets();
@@ -108,7 +98,7 @@ public class MainMenuManager : MonoBehaviour
     //Hier wird herausgefunden, wie groß [classAmount] ist durch die ID des Benutzers außerdem wird dann [classAmount]diese Zahl gegeben
     void GetClassAmount()
     {
-
+        classAmount = 6;
     }
 
     //Nun wird mir der ClassAmount die Liste aus der Datenbank befüllt. Dazu wird auf die Datenbank zugegriffen und mithilfde der ID und der Anzahl der Klassen diese runtergeladen
@@ -135,27 +125,34 @@ public class MainMenuManager : MonoBehaviour
     //nun werden die Buttons mit den Werten der Liste gefüllt
     void CreateCharacterSheets()
     {
-        for(int i = 0; i <= 5; i++)
+        for(int i = 0; i <= classAmount; i++)
         {
             GameObject Temp = Instantiate(CharButton, SpawnPosition.transform);
             // Gib Button Werte
             Temp.GetComponentInChildren<TMP_Text>().text = GetClassNr(i).ToString();
             TMP_Text [] ButtonsText =  Temp.GetComponentsInChildren<TMP_Text>(); 
-            ButtonsText[0].text = GetClassNr(i).ToString();
-            ButtonsText[1].text = GetClassName(i);
-            ButtonsText[2].text = GetClassRace(i);
+            ButtonsText[0].text = GetClassNr(1).ToString();
+            ButtonsText[1].text = GetClassName(1);
+            ButtonsText[2].text = GetClassRace(1);
             // Weise dem Button einen Ort zu
-            //Temp.transform.position = new Vector3(0, SpawnPosition.transform.position.y - 200 * classAmount, 0);
+            Temp.transform.position = new Vector3(0, SpawnPosition.transform.position.y - 200 * classAmount, 0);
         }
     }
 
     //___________________________________ALLROUND_____________________________
+
+    //zerstöre die Klassem erschaffen, vom Klassenersteller
     public void DeleteClasses()
     {
         foreach(Transform child in SpawnPosition.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
+    }
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(scene);
     }
 
     //___________________________________CHARAKTERERSTELLUNG_____________________________

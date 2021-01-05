@@ -5,54 +5,84 @@ using UnityEngine.EventSystems;
 
 public class Pageswiper : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    private Vector3 panelLocation;
-    public float percentThreshold = 0.2f;
-    public float easing = 0.5f;
-    public int totalPages = 1;
-    private int currentPage = 1;
 
-    // Start is called before the first frame update
+    //Locations benötigt für consistincy
+    Vector3 StartLocation;
+    Vector3 EndLocation;
+    Vector3 MomentaryLocation;
+
+    //Anzahl der Seiten +1
+    public int pages;
+    //desto höher die Zahl umso langsamer wird geswiped
+    public float sleep =1;
+    //wohin sich der Cursor vom ausgangsort bewgt hat
+    float difference;
+    //auf welche Seite sich der Cursor bewegt hat
+    float side;
+
+    //feste Locations werden festgelegt
     void Start()
     {
-        panelLocation = transform.position;
+        StartLocation = transform.position;
+        EndLocation = new Vector3(-Screen.width*pages,transform.position.y,0);
+        Debug.Log(EndLocation);
+        SetLocation(StartLocation);
     }
+
+    // hier wird die xAchse des Panels bewegt
+
     public void OnDrag(PointerEventData data)
     {
-        float difference = data.pressPosition.x - data.position.x;
-        transform.position = panelLocation - new Vector3(difference, 0, 0);
+        difference = data.pressPosition.x - data.position.x;
+        transform.position = MomentaryLocation - new Vector3(difference, 0, 0);
     }
+
+    // nach dem Loslassen soll ermittelt werden auf welche Seite gesprungen wird
+
     public void OnEndDrag(PointerEventData data)
     {
-        float percentage = (data.pressPosition.x - data.position.x) / Screen.width;
-        if (Mathf.Abs(percentage) >= percentThreshold)
+        side = (data.pressPosition.x - data.position.x)/Screen.width;
+        //zurückspringen auf die erste seite
+        if(transform.position.x >= 0)
         {
-            Vector3 newLocation = panelLocation;
-            if (percentage > 0 && currentPage < totalPages)
-            {
-                currentPage++;
-                newLocation += new Vector3(-Screen.width, 0, 0);
-            }
-            else if (percentage < 0 && currentPage > 1)
-            {
-                currentPage--;
-                newLocation += new Vector3(Screen.width, 0, 0);
-            }
-            StartCoroutine(SmoothMove(transform.position, newLocation, easing));
-            panelLocation = newLocation;
+            SetLocation(StartLocation);
+        }
+        //letzte Seite
+        else if (transform.position.x <= -Screen.width * pages)
+        {
+            SetLocation(EndLocation);
         }
         else
         {
-            StartCoroutine(SmoothMove(transform.position, panelLocation, easing));
+            //nach rechts
+            if (side > 0)
+            {
+                SetLocation(MomentaryLocation += new Vector3(-Screen.width, 0, 0));
+            }
+            // nach links
+            else if (side < 0)
+            {
+                SetLocation(MomentaryLocation += new Vector3(Screen.width, 0, 0));
+            }
         }
     }
-    IEnumerator SmoothMove(Vector3 startpos, Vector3 endpos, float seconds)
+    //hier wird die neue Location fürs Transform festgelegt
+    void SetLocation(Vector3 Location)
     {
-        float t = 0f;
-        while (t <= 1.0)
-        {
-            t += Time.deltaTime / seconds;
-            transform.position = Vector3.Lerp(startpos, endpos, Mathf.SmoothStep(0f, 1f, t));
+        Debug.Log(Location); Debug.Log("__________________");
+        StartCoroutine(Move(transform.position,Location));
+        MomentaryLocation = Location;
+    }
+
+    //für einen Smoothen Übergang zwischen den Seiten
+    IEnumerator Move(Vector3 starting, Vector3 ending)
+    {
+        float t = 0;
+        while (t <= 1.0){
+            t += Time.deltaTime / sleep;
+            transform.position = Vector3.Lerp(starting, ending, Mathf.SmoothStep(0f, 1f, t));
             yield return null;
         }
     }
+
 }

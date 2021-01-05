@@ -6,6 +6,9 @@ using TMPro;
 
 public class NetworkCreateSheet : MonoBehaviour
 {
+    [SerializeField]
+    private PlayerData Data;
+
 
     [SerializeField]
     private TMP_Text Info;
@@ -47,23 +50,30 @@ public class NetworkCreateSheet : MonoBehaviour
         //Im Bogen werden diese Namen dann ausgewertet
         WWWForm form = new WWWForm();
         //Person____________________________________
-       
+                
+        foreach(var key in Data.data.Keys)
+        {
+            string value = "";
+            Data.data.TryGetValue(key, out value);
 
-            form.AddField("userid", UserID);
-            form.AddField("charciv", Chars[0].text + " " + CharCivAbility);
-            form.AddField("charname", Chars[1].text);
-            form.AddField("charweight", Chars[2].text);
-            form.AddField("charheight", Chars[3].text);
-            form.AddField("charage", Chars[4].text);
-            form.AddField("charcolor", Chars[5].text);
-            form.AddField("charlanguage", Chars[6].text);
-             form.AddField("charreligion", Chars[7].text);
+            form.AddField(key, value);
+        }
+
+            //form.AddField("userid", UserID);
+            //form.AddField("charciv", Chars[0].text + " " + CharCivAbility);
+            //form.AddField("charname", Chars[1].text);
+            //form.AddField("charweight", Chars[2].text);
+            //form.AddField("charheight", Chars[3].text);
+            //form.AddField("charage", Chars[4].text);
+            //form.AddField("charcolor", Chars[5].text);
+            //form.AddField("charlanguage", Chars[6].text);
+            // form.AddField("charreligion", Chars[7].text);
         
-            //Past____________________________________
-             form.AddField("chartraining", Chars[8].text);
-             form.AddField("charfeature",    Chars[9].text);
-             form.AddField("chareducation",  Chars[10].text + " " + CharCivAbility);
-             form.AddField("charenvironment", Chars[11].text + " " + CharCivAbility);
+            ////Past____________________________________
+            // form.AddField("chartraining", Chars[8].text);
+            // form.AddField("charfeature",    Chars[9].text);
+            // form.AddField("chareducation",  Chars[10].text + " " + CharCivAbility);
+            // form.AddField("charenvironment", Chars[11].text + " " + CharCivAbility);
 
         UnityWebRequest request = UnityWebRequest.Post(urlCreate, form);
         yield return request.Send();

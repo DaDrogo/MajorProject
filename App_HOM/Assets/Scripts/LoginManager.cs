@@ -14,10 +14,6 @@ public class LoginManager : MonoBehaviour
     //public TMP_Text Passport;
     private void Awake()
     {
-        GameObject[] ToDestroy = GameObject.FindGameObjectsWithTag("ID");
-        foreach(GameObject Gonk in ToDestroy)
-            Object.Destroy(Gonk);
-
         Instantiate(ID);
     }
 

@@ -57,9 +57,9 @@ public class JsonManager : MonoBehaviour
     //Line = welcher Array aus dem Json soll gelesen werden
     //type = der bestimmte array wird ausgesucht darin mit den Werten
     //arrayNr = falls die Werte in einem Array gespeichert sind wird hier die Nummer von wo der Wert genommen werden soll eingefügt
-    public string ReadJsonText(int line,string type, int arrayNr )
+    public string ReadJsonText(int line,string type, int arrayNr, TextAsset text)
     {
-        string json = File.ReadAllText(Application.dataPath + "/JsonTexts/" + "Erziehung" + ".json");
+        string json = text.text;
         Debug.Log(line+","+type+","+arrayNr);
         Teachings teachInJson = JsonUtility.FromJson<Teachings>(json);
         Debug.Log(teachInJson.teachings.Length);
@@ -78,9 +78,9 @@ public class JsonManager : MonoBehaviour
 
     }
 
-    public int ReadJsonLength(int line, string type)
+    public int ReadJsonLength(int line, string type, TextAsset text)
     {
-        string json = File.ReadAllText(Application.dataPath + "/JsonTexts/" + "Erziehung" + ".json");
+        string json = text.text;
         Teachings teachInJson = JsonUtility.FromJson<Teachings>(json);
         if (type == First)
             return (teachInJson.teachings[line].name.Length);

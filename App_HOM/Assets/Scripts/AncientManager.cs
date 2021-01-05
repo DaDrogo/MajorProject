@@ -6,17 +6,21 @@ using TMPro;
 
 public class AncientManager : MonoBehaviour
 {
+    //dort wird das erste Objekt gespawnt
     public Transform SpawnPosition;
 
+    // Objekte zum spawnen
     public GameObject buttonPrefab;
-    int ObjectHeight = 50;
+    public GameObject headerPrefab;
+
+    public int ObjectHeight = 100;
     int ButtonAmount;
     int HeaderAmount;
     int FieldPosition;
     int ButtonTexts;
     string ButtonText;
 
-    public GameObject headerPrefab;
+
 
 
     string First = "name";
@@ -63,17 +67,17 @@ public class AncientManager : MonoBehaviour
         bool rdy = false;
         while (rdy == false)
         {
-            HeaderAmount = jManager.ReadJsonLength(Drop, Second);
+            HeaderAmount = jManager.ReadJsonLength(Drop, Second,TeachFile);
             Debug.Log(HeaderAmount);
             for (int i = 0; i < HeaderAmount; i++)
             {
-                CreateHeader(jManager.ReadJsonText(Drop, "HeadersNr",i), FieldPosition);
+                CreateHeader(jManager.ReadJsonText(Drop, "HeadersNr",i, TeachFile), FieldPosition);
                 
-                ButtonAmount = int.Parse(jManager.ReadJsonText(Drop, "Buttons", i));
+                ButtonAmount = int.Parse(jManager.ReadJsonText(Drop, "Buttons", i, TeachFile));
                 Debug.Log(ButtonAmount);
                 for (int j = 0; j < ButtonAmount; j++)
                 {
-                    CreateButton(jManager.ReadJsonText(Drop, "Texts", ButtonTexts), FieldPosition);
+                    CreateButton(jManager.ReadJsonText(Drop, "Texts", ButtonTexts, TeachFile), FieldPosition);
                 }
             }
             CreateChoice();
@@ -93,7 +97,7 @@ public class AncientManager : MonoBehaviour
         // Gib Header einen Text
         Temp.GetComponent<TMP_Text>().text = "Wähle bitte " + NrText + " aus.";
         //Erstelle Header an Position
-        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - 50 * HeaderNr, 0);
+        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - ObjectHeight/10 * HeaderNr, 0);
         FieldPosition++;
 
     }
@@ -107,7 +111,7 @@ public class AncientManager : MonoBehaviour
         // Gib Button Werte
         Temp.GetComponentInChildren<TMP_Text>().text = Text;
         // Weise dem Button einen Ort zu
-        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x + 350, SpawnPosition.transform.position.y - 50 * ButtonNr, 0);
+        Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - ObjectHeight/10 * ButtonNr, 0);
         FieldPosition++;
         ButtonTexts++;
     }

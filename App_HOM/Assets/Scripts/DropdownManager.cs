@@ -22,7 +22,7 @@ public class DropdownManager : MonoBehaviour
     public DropdownInfos[] Dropis;
 
     [SerializeField]
-    private TMP_Text DescriptionText;
+    public TMP_Text DescriptionText;
 
 
     //Hardcoded Images
@@ -70,9 +70,7 @@ public class DropdownManager : MonoBehaviour
     {
         //muss noch überarbeitet werden suche des Speicherorts
         //TXT Dateien aus dem Server holen
-        Debug.Log(File.text);
         string[] Text = File.text.Split("\n"[0]);
-        Debug.Log(Text);
         return (Text[Nr]);
     }
 

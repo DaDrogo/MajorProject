@@ -9,6 +9,7 @@ public class SheetManager : MonoBehaviour
 {
     //network Script
     public NetworkCreateSheet net;
+    public DropdownManager DM;
 
     //PopUp
     [SerializeField]
@@ -18,6 +19,11 @@ public class SheetManager : MonoBehaviour
     private bool Acceptens;
     private int Popups;
 
+    //muss noch gemacht werden mit dem Servers
+    public void SaveSheet()
+    {
+        SwitchScene(1);
+    }
 
 
     //Checkt ob das Array voll ist
@@ -57,17 +63,9 @@ public class SheetManager : MonoBehaviour
         PopUp.SetActive(true);
     }
 
-    // zum einfachen erstellen von Tabs
-    //benötigt Buttons, denen diese funktion gegeben wird mit dem int, der dem Tab zugeordent ist auf dem Script in dem Array
-
-    public GameObject Active;
-    public GameObject[] Sites;
-
-    public void SiwtchSites(int Site)
+    void SwitchScene(int Scene)
     {
-        Active.gameObject.SetActive(false);
-        Active = Sites[Site];
-        Active.SetActive(true);
+        SceneManager.LoadScene(Scene);
     }
 
 

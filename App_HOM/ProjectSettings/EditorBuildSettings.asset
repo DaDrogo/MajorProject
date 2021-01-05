@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/LogInScene.unity
     guid: 9a8e6e5e5f6d59740a791be047eb8b35
   - enabled: 1
-    path: Assets/Scenes/MainMenuScene.unity
-    guid: b33b591d607035543a36350b38729ae6
+    path: Assets/Scenes/MenuScene.unity
+    guid: 7464e9ad610501144b3bef22ce96de93
   - enabled: 1
     path: Assets/Scenes/FragebogenScene.unity
     guid: 54767c5c50ace8243ba2c92f5b32766e
+  - enabled: 1
+    path: Assets/Scenes/Charakterbogen.unity
+    guid: 1f41d63ff3fe3aa47a752b310eaca77d
   m_configObjects: {}
