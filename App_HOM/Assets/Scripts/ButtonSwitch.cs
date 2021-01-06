@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ButtonSwitch : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ButtonSwitch : MonoBehaviour
 
     GameObject Active;
     public GameObject[] Sites;
+    public GameObject[] Buttons;
 
     private void Start()
     {
@@ -18,8 +20,27 @@ public class ButtonSwitch : MonoBehaviour
 
     public void SiwtchSites(int Site)
     {
+        ReturnColor();
         Active.gameObject.SetActive(false);
         Active = Sites[Site];
         Active.SetActive(true);
+        NormalColor(Site);
+    }
+
+    public void NormalColor(int but)
+    {
+        var color = Buttons[but].GetComponent<Button>().colors;
+        color.normalColor = color.selectedColor;
+        Buttons[but].GetComponent<Button>().colors = color;
+    }
+
+    public void ReturnColor()
+    {
+        foreach(GameObject but in Buttons)
+        {
+            var color = but.GetComponent<Button>().colors;
+            color.normalColor = color.highlightedColor;
+            but.GetComponent<Button>().colors = color;
+        }
     }
 }

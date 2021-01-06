@@ -25,7 +25,6 @@ public class Pageswiper : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         StartLocation = transform.position;
         EndLocation = new Vector3(-Screen.width*pages,transform.position.y,0);
-        Debug.Log(EndLocation);
         SetLocation(StartLocation);
     }
 
@@ -69,7 +68,6 @@ public class Pageswiper : MonoBehaviour, IDragHandler, IEndDragHandler
     //hier wird die neue Location fürs Transform festgelegt
     void SetLocation(Vector3 Location)
     {
-        Debug.Log(Location); Debug.Log("__________________");
         StartCoroutine(Move(transform.position,Location));
         MomentaryLocation = Location;
     }

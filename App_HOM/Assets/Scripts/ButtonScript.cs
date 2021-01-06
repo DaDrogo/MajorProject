@@ -12,7 +12,6 @@ public class ButtonScript : MonoBehaviour
     void Start()
     {
         header = GetComponentInChildren<TMP_Text>();
-        Debug.Log(header.text);
     }
 
     public void OnSelect()
