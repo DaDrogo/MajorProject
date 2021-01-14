@@ -6,19 +6,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New PlayerData", menuName = "HOM/Player Data", order = 0)]
 public class PlayerData : ScriptableObject
 {
-    public int ID;
-    public Dictionary<string, string> data;
-
-    private void Awake()
-    {
-        data = new Dictionary<string, string>();
-    }
+    public Dictionary<string, string> data = new Dictionary<string, string>();
 
     public void SaveData(TMP_InputField input)
     {
         string key = input.gameObject.GetComponent<DatabaseData>().id.ToString();
         string value = input.text;
 
+        SaveDataString(key, value);
+    }
+
+    public void SaveDataString(string key, string value)
+    {
         if (data.ContainsKey(key))
         {
             data[key] = value;
@@ -29,3 +28,5 @@ public class PlayerData : ScriptableObject
         }
     }
 }
+
+

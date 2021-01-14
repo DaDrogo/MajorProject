@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &39195767500040319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 636121135867536183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fb4c1f68a0f7344cb525446dd72ea3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1703902466235883800
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +317,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40919389785692874, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_Name
-      value: CharacterButtonPrefab
+      value: CharacterButtonPrefab Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 39195767500040319}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Activate
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CharButtonScript, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -357,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -200
       objectReference: {fileID: 0}
     - target: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_SizeDelta.x
@@ -365,7 +393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_AnchorMin.x
@@ -393,6 +421,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+--- !u!1 &636121135867536183 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 40919389785692874, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+  m_PrefabInstance: {fileID: 595226367924812285}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &636121135867536176 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}

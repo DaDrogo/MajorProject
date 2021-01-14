@@ -59,17 +59,21 @@
     <Compile Include="Assets\Scripts\LoginManager.cs" />
     <Compile Include="Assets\Scripts\AncientManager.cs" />
     <Compile Include="Assets\Scripts\Oldies\PersonCreationScript.cs" />
+    <Compile Include="Assets\Scripts\CharButtonScript.cs" />
+    <Compile Include="Assets\Scripts\BackButton.cs" />
     <Compile Include="Assets\Scripts\SheetManager.cs" />
+    <Compile Include="Assets\Scripts\ButtonSwitch.cs" />
     <Compile Include="Assets\Scripts\PlayerData.cs" />
     <Compile Include="Assets\Scripts\ButtonScript.cs" />
+    <Compile Include="Assets\Datas.cs" />
     <Compile Include="Assets\Scripts\Pageswiper.cs" />
+    <Compile Include="Assets\DatabaseData.cs" />
+    <Compile Include="Assets\DebugInstanceID.cs" />
     <Compile Include="Assets\Scripts\DropdownManager.cs" />
     <Compile Include="Assets\Scripts\NetworkCreateSheet.cs" />
     <Compile Include="Assets\Scripts\CharSheetManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\ButtonSwitch.cs" />
-    <Compile Include="Assets\DebugInstanceID.cs" />
-    <Compile Include="Assets\DatabaseData.cs" />
+    <Compile Include="Assets\Scripts\FileHolder.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Resources\DropBeschr\DropBesti.txt" />

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Civ1
   - ID
+  - Manager
   layers:
   - Default
   - TransparentFX

@@ -21,8 +21,11 @@ public class MainMenuManager : MonoBehaviour
     public GameObject Button;
     public GameObject PopUp;
 
+    public PlayerData ID;
+
     private void Start()
     {
+        TestChar();
         ChangeButton("");
     }
 
@@ -51,14 +54,20 @@ public class MainMenuManager : MonoBehaviour
     {
         if (text != "")
         {
-            Button.GetComponent<Button>().interactable = true;
+            
             Button.GetComponentInChildren<TMP_Text>().text = text;
         }
         else
         {
             Button.GetComponentInChildren<TMP_Text>().text = "";
-            Button.GetComponent<Button>().interactable = false;
+            
         }
+        Button.GetComponent<Button>().interactable = false;
+    }
+
+    public void MakeButtonActive()
+    {
+        Button.GetComponent<Button>().interactable = true;
     }
 
     //bekomme eine Zahl, auf welche Seite du zugreifen möchtest außerdem werden Werte gespeichert um auf der nächsten Seite weiter zu geben
@@ -98,7 +107,7 @@ public class MainMenuManager : MonoBehaviour
     //Hier wird herausgefunden, wie groß [classAmount] ist durch die ID des Benutzers außerdem wird dann [classAmount]diese Zahl gegeben
     void GetClassAmount()
     {
-        classAmount = 6;
+        classAmount = int.Parse(ID.data[DatabaseData.DataId.UserCharSheets.ToString()]);
     }
 
     //Nun wird mir der ClassAmount die Liste aus der Datenbank befüllt. Dazu wird auf die Datenbank zugegriffen und mithilfde der ID und der Anzahl der Klassen diese runtergeladen
@@ -108,24 +117,33 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
+    void TestChar()
+    {
+        ID.SaveDataString(DatabaseData.DataId.UserCharSheets.ToString(),"0");
+        ID.SaveDataString(DatabaseData.DataId.CharName.ToString(), "Samael");
+        ID.SaveDataString(DatabaseData.DataId.CharRace.ToString(), "Nuklen");
+        // ID.SaveDataString(Inputs[1]);
+    }
+
     //Hier werden die Werte aus der Liste besorgt , wlche vorher durch die Datenbank befüllt wurde
-    int GetClassNr(int ID)
+    int GetClassNr(int it)
     {
-        return ID;
+        return it;
     }
-    string GetClassName(int ID)
+    string GetClassName(int it)
     {
-        return ID.ToString();
+        return ID.data[DatabaseData.DataId.CharName.ToString()];
     }
-    string GetClassRace(int ID)
+    string GetClassRace(int it)
     {
-        return ID.ToString();
+        return ID.data[DatabaseData.DataId.CharRace.ToString()];
     }
 
     //nun werden die Buttons mit den Werten der Liste gefüllt
     void CreateCharacterSheets()
     {
-        for(int i = 0; i <= classAmount; i++)
+        //classAmount = int.TryParse();
+        for (int i = 0; i <= classAmount; i++)
         {
             GameObject Temp = Instantiate(CharButton, SpawnPosition.transform);
             // Gib Button Werte
@@ -135,7 +153,7 @@ public class MainMenuManager : MonoBehaviour
             ButtonsText[1].text = GetClassName(1);
             ButtonsText[2].text = GetClassRace(1);
             // Weise dem Button einen Ort zu
-            Temp.transform.position = new Vector3(0, SpawnPosition.transform.position.y - 200 * classAmount, 0);
+            Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y-50*i, 0);
         }
     }
 

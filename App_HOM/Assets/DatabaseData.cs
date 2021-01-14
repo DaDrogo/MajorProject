@@ -6,7 +6,9 @@ public class DatabaseData : MonoBehaviour
 {
     public enum DataId
     {
-        UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharFeature, CharEducation, CharEnvironment
+        UserName, UserPassport, UserID, UserCharSheets,
+        CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor,CharSkinColor, CharGender, CharLanguage, CharReligion, CharFeature, CharEducation, CharEnvironment, CharTraining, CharDestiny, CharAmbition,
+
     }
 
     public DataId id;

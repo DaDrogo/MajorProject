@@ -35,8 +35,6 @@ public class AncientManager : MonoBehaviour
     private void Start()
     {
         jManager = new JsonManager();
-        CreateHeader("ja", 0);
-        CreateButton("Nein", 1);
     }
 
     //Wird von dem Dropdown aufgerufen und erhält einen int Wert welcher der Buttons gedrückt wurde. Der Int wert wird im Json benötigt um die richtigen Werte zu erhalten

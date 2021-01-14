@@ -7,22 +7,75 @@ using UnityEngine.SceneManagement;
 
 public class LoginManager : MonoBehaviour
 {
-    public GameObject ID;
+    public PlayerData ID;
+
+    public GameObject PopUp;
 
 
     //public TMP_Text Username;
     //public TMP_Text Passport;
-    private void Awake()
+    private void Start()
     {
-        Instantiate(ID);
+
     }
 
-    //private void Start()
-    //{
-    //    Username.text = "";
-    //    Passport.text = "";
-    //    Warning.text = ""; 
-    //}
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(side == 0)
+            {
+                Application.Quit();
+            }
+            else
+            {
+                SiwtchSites(0);
+            }
+        }
+    }
+    public TMP_InputField[] Inputs;
+
+    public void Login()
+    {
+        ID.SaveData(Inputs[0]);
+        ID.SaveData(Inputs[1]);
+        OpenP();
+    }
+
+    public void ToMenu()
+    {
+        CloseP();
+        SceneManager.LoadScene(1);
+    }
+    //127.0.0.1/php/Login.php
+    //127.0.0.1/php/Register.php
+
+    // zum einfachen erstellen von Tabs
+    //benötigt Buttons, denen diese funktion gegeben wird mit dem int, der dem Tab zugeordent ist auf dem Script in dem Array
+
+    public GameObject Active;
+    public GameObject[] Sites;
+    int side;
+
+    public void SiwtchSites(int Site)
+    {
+        side = Site;
+        Active.gameObject.SetActive(false);
+        Active = Sites[side];
+        Active.gameObject.SetActive(true);
+    }
+
+    public void OpenP()
+    {
+        PopUp.SetActive(true);
+    }
+
+    public void CloseP()
+    {
+        PopUp.SetActive(false);
+    }
+
+
 
     //public void PressButton(string url)
     //{
@@ -111,24 +164,5 @@ public class LoginManager : MonoBehaviour
     //    }
     //}
 
-    public void ToMenu()
-    {
-        SceneManager.LoadScene(1);
-    }
-    //127.0.0.1/php/Login.php
-    //127.0.0.1/php/Register.php
 
-    // zum einfachen erstellen von Tabs
-    //benötigt Buttons, denen diese funktion gegeben wird mit dem int, der dem Tab zugeordent ist auf dem Script in dem Array
-
-    public GameObject Active;
-    public GameObject[] Sites;
-
-    public void SiwtchSites(int Site)
-    {
-        Active.gameObject.SetActive(false);
-        Active = Sites[Site];
-        Debug.Log(Site);
-        Active.gameObject.SetActive(true);
-    }
 }

@@ -92,11 +92,19 @@ public class DropdownManager : MonoBehaviour
     public void OnValueChange(int Drop)
     {
         setX(Drop);
+        
+        
     }
 
     public void OnValueChangeString(TextAsset File)
     {
+        
         DescriptionText.text = ParseFile(File, getX());
+    }
+
+    public void NewValueChange(TMP_Dropdown input)
+    {
+        string key = input.gameObject.GetComponent<DatabaseData>().id.ToString();
     }
 
     public void OnValueChangeImage(int Drop)

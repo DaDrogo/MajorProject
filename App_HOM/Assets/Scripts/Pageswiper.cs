@@ -14,7 +14,7 @@ public class Pageswiper : MonoBehaviour, IDragHandler, IEndDragHandler
     //Anzahl der Seiten +1
     public int pages;
     //desto höher die Zahl umso langsamer wird geswiped
-    public float sleep =1;
+    float sleep = .5f;
     //wohin sich der Cursor vom ausgangsort bewgt hat
     float difference;
     //auf welche Seite sich der Cursor bewegt hat
@@ -26,6 +26,8 @@ public class Pageswiper : MonoBehaviour, IDragHandler, IEndDragHandler
         StartLocation = transform.position;
         EndLocation = new Vector3(-Screen.width*pages,transform.position.y,0);
         SetLocation(StartLocation);
+        Debug.Log(StartLocation);
+        Debug.Log(EndLocation);
     }
 
     // hier wird die xAchse des Panels bewegt
