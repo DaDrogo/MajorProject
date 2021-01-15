@@ -2,7 +2,7 @@ Der Kreislauf
 Gebietende Hand
 Offenes Buch
 Wespenschwarm
-Haizähne
+HaizÃ¤hne
 Ein Stein
 Die Maske
 Wasserfall
@@ -10,5 +10,3 @@ Der Pinsel
 Wolken
 Ein Blitz
 Vulkan
-
-

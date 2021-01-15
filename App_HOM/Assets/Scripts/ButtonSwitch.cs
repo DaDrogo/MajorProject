@@ -11,6 +11,9 @@ public class ButtonSwitch : MonoBehaviour
     GameObject Active;
     public GameObject[] Sites;
     public GameObject[] Buttons;
+    public GameObject[] Arrows;
+    int side;
+    public int max;
 
     private void Start()
     {
@@ -20,11 +23,51 @@ public class ButtonSwitch : MonoBehaviour
 
     public void SiwtchSites(int Site)
     {
+        side = Site;
+        ChangeSite();
+    }
+
+    public void SwitchSitesArrows(int Site)
+    {
+        side = Site;
+        CheckArrows();
+        ChangeSite();
+    }
+
+    public void GetSite(int multi)
+    {
+        side = side+multi;
+        CheckArrows();
+        ChangeSite();
+    }
+
+    void ChangeSite()
+    {
+
         ReturnColor();
         Active.gameObject.SetActive(false);
-        Active = Sites[Site];
+        Active = Sites[side];
         Active.SetActive(true);
-        NormalColor(Site);
+        NormalColor(side);
+    }
+
+    void CheckArrows()
+    {
+        if (side <= 0)
+        {
+            Arrows[1].SetActive(true);
+            Arrows[0].SetActive(false);
+        }
+        else if (side >= max)
+        {
+            Arrows[0].SetActive(true);
+            Arrows[1].SetActive(false);
+        }
+        else
+        {
+            Arrows[0].SetActive(true);
+            Arrows[1].SetActive(true);
+        }
     }
 
     public void NormalColor(int but)

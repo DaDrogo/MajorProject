@@ -48,7 +48,7 @@ public class LoginManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     //127.0.0.1/php/Login.php
-    //127.0.0.1/php/Register.php
+    //188.34.197.30/php/Register.php
 
     // zum einfachen erstellen von Tabs
     //benötigt Buttons, denen diese funktion gegeben wird mit dem int, der dem Tab zugeordent ist auf dem Script in dem Array
@@ -75,6 +75,14 @@ public class LoginManager : MonoBehaviour
         PopUp.SetActive(false);
     }
 
+  // public void RegisterUser(string url)
+  // {
+  //     Debug.Log(Username.text);
+  //     Debug.Log(Passport.text);
+  //     StartCoroutine(ConnectDatabase(url));
+  //     //GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = 1;
+  //     //ToMenu();
+  // }
 
 
     //public void PressButton(string url)
@@ -120,48 +128,48 @@ public class LoginManager : MonoBehaviour
     //
     //}
     //
-    //public IEnumerator ConnectDatabase(string url)
-    //{
-    //    WWWForm form = new WWWForm();
-    //    form.AddField("username", Username.text.ToString());
-    //    form.AddField("passport", Passport.text.ToString());
-    //    UnityWebRequest request = UnityWebRequest.Post(url, form);
-    //    yield return request.Send();
-    //
-    //    if (request.isNetworkError || request.isHttpError)
-    //    {
-    //        Warning.text = "Networkerror";
-    //        Debug.LogError("Networkerror");
-    //    }
-    //    else if(request.downloadHandler.text == "RegisterWrong")
-    //    {
-    //        Warning.text = "Benutzername ist vergeben.";
-    //        request.Dispose();
-    //    }
-    //    else if(request.downloadHandler.text == "WrongUser")
-    //    {
-    //        Warning.text = "Benutzername falsch.";
-    //        request.Dispose();
-    //    }
-    //    else if (request.downloadHandler.text == "WrongPass")
-    //    {
-    //        Warning.text = "Benutzername falsch.";
-    //        request.Dispose();
-    //    }
-    //    else if (request.downloadHandler.text == "Succes")
-    //    {
-    //        Warning.text = "Account Registriert.";
-    //        request.Dispose();
-    //    }
-    //    else
-    //    {
-    //        Debug.Log(request.downloadHandler.text);
-    //        //Test soll die ID von PHP bekommen
-    //        // wird noch getestet und wo es hingehört
-    //        GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = int.Parse(request.downloadHandler.text);
-    //        request.Dispose();
-    //        ToMenu();
-    //    }
+   // public IEnumerator ConnectDatabase(string url)
+   // {
+        //WWWForm form = new WWWForm();
+        //form.AddField("username", Username.text.ToString());
+        //form.AddField("passport", Passport.text.ToString());
+        //UnityWebRequest request = UnityWebRequest.Post(url, form);
+        //yield return request.Send();
+    
+       // if (request.isNetworkError || request.isHttpError)
+       // {
+       //     Warning.text = "Networkerror";
+       //     Debug.LogError("Networkerror");
+       // }
+       // else if(request.downloadHandler.text == "RegisterWrong")
+       // {
+       //     Warning.text = "Benutzername ist vergeben.";
+       //     request.Dispose();
+       // }
+       // else if(request.downloadHandler.text == "WrongUser")
+       // {
+       //     Warning.text = "Benutzername falsch.";
+       //     request.Dispose();
+       // }
+       // else if (request.downloadHandler.text == "WrongPass")
+       // {
+       //     Warning.text = "Benutzername falsch.";
+       //     request.Dispose();
+       // }
+       // else if (request.downloadHandler.text == "Succes")
+       // {
+       //     Warning.text = "Account Registriert.";
+       //     request.Dispose();
+       // }
+       // else
+       // {
+       //     Debug.Log(request.downloadHandler.text);
+       //     //Test soll die ID von PHP bekommen
+       //     // wird noch getestet und wo es hingehört
+       //     GameObject.FindGameObjectWithTag("ID").GetComponent<PlayerID>().ID = int.Parse(request.downloadHandler.text);
+       //     request.Dispose();
+       //     ToMenu();
+       // }
     //}
 
 

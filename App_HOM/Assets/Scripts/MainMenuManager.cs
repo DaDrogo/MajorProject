@@ -21,12 +21,16 @@ public class MainMenuManager : MonoBehaviour
     public GameObject Button;
     public GameObject PopUp;
 
+    public Button StartButton;
+
     public PlayerData ID;
 
     private void Start()
     {
         TestChar();
         ChangeButton("");
+        StartButton.onClick.Invoke();
+
     }
 
     public void DeactivatePopUp()
@@ -42,10 +46,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void SwitchSites(int Site)
     {
-        scene = Site + 2;
-        Active.gameObject.SetActive(false);
-        Active = Sites[Site];
-        Active.SetActive(true);
+        scene = Site;
     }
 
     //gib dem Button zum Wechseln der Seite einen Text und aktiviee ihn um auf die nächste Scene zugreifen zu können.
