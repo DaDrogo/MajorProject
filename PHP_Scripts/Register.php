@@ -1,4 +1,5 @@
 <?php
+//funktioniert
 $hostname = "localhost";
 $database = "Login";
 $database_username = "kingdrogo";
@@ -12,11 +13,11 @@ if(mysqli_connect_errno())
 else
 {
 	//bekommt zwei Daten als Input
-	$user = "1";
-	$pass = "9";
+	//$user = "1";
+	//$pass = "9";
 	
-	//$user =  $_POST['username'];
-	//$pass =  $_POST['passport'];
+	$user =  $_POST['username'];
+	$pass =  $_POST['passport'];
 	
 	//diese müssen getestet werden. Ob sie schon vorhanden sind
 	//dafür hier alle Usernames aus login ziehen und abgleichen

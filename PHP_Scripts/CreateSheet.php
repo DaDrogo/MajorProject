@@ -1,8 +1,8 @@
 <?php
 $hostname = "localhost";
 $database = "charsheet";
-$database_username = "root";
-$database_password = "";
+$database_username = "kingdrogo";
+$database_password = "12345";
 
 $connection = mysqli_connect($hostname, $database_username, $database_password, $database);
 if(mysqli_connect_errno())
@@ -22,7 +22,7 @@ else
 	{
 		$data[$key] = $val;
 	}
-	$userid = $_POST['userid'];
+	//$userid = $_POST['userid'];
 	//$charciv = $_POST['charciv'];
 	//$charname = $_POST['charname'];
 	//$charweight = $_POST['charweight'];
@@ -34,31 +34,30 @@ else
 	//$chartraining = $_POST['chartraining'];
 	//$charfeature = $_POST['charfeature'];
 	//$chareducation = $_POST['chareducation'];
-	//$charenvironment = $_POST['charenvironment'];
-	
-	array 0 
+	//$charenvironment = $_POST['charenvironment']; 
 	
 	// über schleife den query-string selber zusammenbauen
 	
 	$query = "INSERT INTO charcreate (";
 	foreach($data as $key =>  $val)
 	{
-		$query += "$key,"
+		$query .= "$key,"
 	}
 	// letztes komma wieder löschen
-	
-	$query += ") VALUES (";
+	substr($query,0,-1);
+	$query .= ") VALUES (";
 	
 	foreach($data as $key =>  $val)
 	{
-		$query += "'" + $val + "',";
+		$query .= "'" + $val + "',";
 	}
-	
+	substr($query,0,-1);
 	// letztes komma wieder löschen
-	query += ")";
+	$query .= ")";
 
 
 	//$query = "INSERT INTO charcreate ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharFeature, CharEducation, CharEnvironment) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion','$chartraining','$charfeature','$chareducation','$charenvironment')";
+	
 	$result = mysqli_query($connection, $query);
 	if($result)
 	{
