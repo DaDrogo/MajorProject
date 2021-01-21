@@ -1,4 +1,5 @@
 <?php
+//funktioniert
 $hostname = "localhost";
 $database = "Login";
 $database_username = "kingdrogo";
@@ -27,19 +28,19 @@ else
 		$Comeback = mysqli_query($connection, $queryt);
 		if($Comeback)
 		{
-			//if(mysqli_num_rows($Comeback) > 0)
-			//{
-			//	echo "RegisterWrong";				
-			//}
-			//else
-			//{
+			if(mysqli_num_rows($Comeback) > 0)
+			{
+				echo "RegisterWrong";				
+			}
+			else
+			{
 				$query = "INSERT INTO login ( Username, Passport) VALUES ('$user', '$pass')";
 				$result = mysqli_query($connection, $query);
 				if($result)
 				{
 					echo "Succces";
 				}
-			//}
+			}
 		}
 	//schritt2 füge den Input in die Datenbank ein.
 	//gibt die ID wieder um den Spieler einzuloggen.

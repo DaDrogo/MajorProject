@@ -12,14 +12,16 @@ if(mysqli_connect_errno())
 else
 {
 	$UserID = $_POST['UserID'];
+	$UserCharSheets = $_POST['UserCharSheets'];
 	
 	
-	$query = "INSERT INTO charcreate () VALUES () ";
+	
+	$query = "INSERT INTO userinfo (UserID, UserCharSheets) VALUES ('$UserID','$UserCharSheets') ";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)
 	{
-		echo "ha";
+		echo "User Saved";
 	}
 	else
 	{

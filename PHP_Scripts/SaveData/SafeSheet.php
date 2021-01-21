@@ -26,6 +26,7 @@ else
 	//}
 	
 	$UserID			   =  $_POST['UserID		  '];
+	$SheetNr		   =  $_POST['SheetNr		  '];
 	$CharRace          =  $_POST['CharRace        '];
 	$CharRaceAbility   =  $_POST['CharRaceAbility '];
 	$CharName          =  $_POST['CharName        '];
@@ -43,9 +44,10 @@ else
 	$CharTraining      =  $_POST['CharTraining    '];
 	$CharDestiny       =  $_POST['CharDestiny     '];
 	$CharAmbition      =  $_POST['CharAmbition    '];
-	
-	
-	
+	$ModiAmount   	   =  $_POST['ModiAmount	  '];
+	$AbilityAmount     =  $_POST['AbilityAmount   '];
+	$ItemAmount        =  $_POST['ItemAmount      '];
+		
 	// über schleife den query-string selber zusammenbauen
 	
 	//$query = "INSERT INTO charcreate (";
@@ -68,13 +70,13 @@ else
 
 	//$query = "INSERT INTO charcreate ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharFeature, CharEducation, CharEnvironment) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion','$chartraining','$charfeature','$chareducation','$charenvironment')";
 	
-	$query = "INSERT INTO charcreate (UserID, CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor, CharSkinColor, CharGender, CharLanguage, CharReligion, CharFeature, CharEducation, CharEnvironment, CharTraining, CharDestiny, CharAmbition) VALUES ('$UserID', '$CharRace', '$CharRaceAbility', '$CharName', '$CharWeight', '$CharHeight', '$CharAge', '$CharHairColor', '$CharSkinColor', '$CharGender', '$CharLanguage', '$CharReligion', '$CharFeature', '$CharEducation', '$CharEnvironment', '$CharTraining', '$CharDestiny', '$CharAmbition')";
+	$query = "INSERT INTO charcreate (UserID, SheetNr, CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor, CharSkinColor, CharGender, CharLanguage, CharReligion, CharFeature, CharEducation, CharEnvironment, CharTraining, CharDestiny, CharAmbition, ModiAmount, AbilityAmount, ItemAmount) VALUES ('$UserID', '$SheetNr', '$CharRace', '$CharRaceAbility', '$CharName', '$CharWeight', '$CharHeight', '$CharAge', '$CharHairColor', '$CharSkinColor', '$CharGender', '$CharLanguage', '$CharReligion', '$CharFeature', '$CharEducation', '$CharEnvironment', '$CharTraining', '$CharDestiny', '$CharAmbition', '$ModiAmount', '$AbilityAmount', '$ItemAmount')";
 	
 	
 	$result = mysqli_query($connection, $query);
 	if($result)
 	{
-		echo "ha";
+		echo "Sheet Saved";
 	}
 	else
 	{
