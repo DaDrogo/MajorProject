@@ -9,40 +9,65 @@ public class NetworkCreateSheet : MonoBehaviour
     [SerializeField]
     private PlayerData Data;
 
-
-    [SerializeField]
-    private TMP_Text Info;
-
-    [SerializeField]
-    private string urlCreate;
-
-    // soll die ID vom einloggen erhhlten
-    [SerializeField]
-    private int UserID = 111;
-
-    [SerializeField]
-    public TMP_Text[] Chars;
-
-    //Momentane Lösung gefällt mir null muss noch geändert werden
-    private int CharCivAbility;
-    public void ChangeAbility(int Abi)
-    {
-        CharCivAbility = Abi;
-    }
-
-    public void SafeSheet(int page)
+    public void SafeSheet()
     {
         // außerdem fehlt hier noch eine Fehleranalyse
-        StartCoroutine(SafeCharactersheet(page));
+        StartCoroutine(SafeCharacterSheet());
+        StartCoroutine(SaveInfos());
     }
 
+    public void LoadSheet()
+    {
+        // außerdem fehlt hier noch eine Fehleranalyse
+        StartCoroutine(LoadCharacterSheet());
+    }
 
+    public IEnumerator LoadCharacterSheet()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("UserID", Data.data["UserID"]);
+        form.AddField("CharSheetNr", Data.data["CharSheetNr"]);
+        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.LOAD_SHEET, form);
+        yield return 0;
+
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Networkerror");
+        }
+        else
+        {
+            Debug.Log(request.downloadHandler.text);
+            request.Dispose();
+        }
+    }
 
     //ToDo
     //soll später mit einer Datei gespeichert werden.
     //jetzt erstmal für den first case
 
-    public IEnumerator SafeCharactersheet(int page)
+    public IEnumerator SaveInfos()
+    {
+        Debug.Log("Connecting");
+        WWWForm form = new WWWForm();
+        form.AddField("UserID", Data.data["UserID"]);
+        form.AddField("UserCharSheets ", Data.data["UserCharSheets"]);
+        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.SAVEUSERINFO, form);
+        yield return request.Send();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            //Warning.text = "Networkerror";
+            Debug.LogError("Networkerror");
+        }
+        else
+        {
+            Debug.Log(request.downloadHandler.text + " vorhanden Sheets");
+            //Test soll die ID von PHP bekommen
+            // wird noch getestet und wo es hingehört
+            request.Dispose();
+        }
+    }
+
+    public IEnumerator SafeCharacterSheet()
     {
 
         //sendet die Daten des Bogens an die Datenbank
@@ -50,33 +75,75 @@ public class NetworkCreateSheet : MonoBehaviour
         //Im Bogen werden diese Namen dann ausgewertet
         WWWForm form = new WWWForm();
         //Person____________________________________
-                
-        foreach(var key in Data.data.Keys)
-        {
-            string value = "";
-            Data.data.TryGetValue(key, out value);
 
-            form.AddField(key, value);
-        }
-
-            //form.AddField("userid", UserID);
-            //form.AddField("charciv", Chars[0].text + " " + CharCivAbility);
-            //form.AddField("charname", Chars[1].text);
-            //form.AddField("charweight", Chars[2].text);
-            //form.AddField("charheight", Chars[3].text);
-            //form.AddField("charage", Chars[4].text);
-            //form.AddField("charcolor", Chars[5].text);
-            //form.AddField("charlanguage", Chars[6].text);
-            // form.AddField("charreligion", Chars[7].text);
-        
-            ////Past____________________________________
-            // form.AddField("chartraining", Chars[8].text);
-            // form.AddField("charfeature",    Chars[9].text);
-            // form.AddField("chareducation",  Chars[10].text + " " + CharCivAbility);
-            // form.AddField("charenvironment", Chars[11].text + " " + CharCivAbility);
-
-        UnityWebRequest request = UnityWebRequest.Post(urlCreate, form);
+        //foreach (var key in Data.data.Keys)
+        //{
+        //    string value = "";
+        //    Data.data.TryGetValue(key, out value);
+        //
+        //    form.AddField(key, value);
+        //}
+        Debug.Log(Data.data["UserID"]);
+        form.AddField("UserID", Data.data["UserID"]);
+        form.AddField("SheetNr", Data.data["SheetNr"]);
+        form.AddField("CharRace", Data.data["CharRace"]);
+        form.AddField("CharRaceAbility", Data.data["CharRaceAbility"]);
+        form.AddField("CharName", Data.data["CharName"]);
+        form.AddField("CharWeight", Data.data["CharWeight"]);
+        form.AddField("CharHeight", Data.data["CharHeight"]);
+        form.AddField("CharAge", Data.data["CharAge"]);
+        form.AddField("CharHairColor", Data.data["CharHairColor"]);
+        form.AddField("CharSkinColor", Data.data["CharSkinColor"]);
+        form.AddField("CharGender", Data.data["CharGender"]);
+        form.AddField("CharLanguage", Data.data["CharLanguage"]);
+        form.AddField("CharReligion", Data.data["CharReligion"]);
+        form.AddField("CharDestiny", Data.data["CharDestiny"]);
+        form.AddField("CharDestinyLevel", Data.data["CharDestinyLevel"]);
+        form.AddField("CharAmbition", Data.data["CharAmbition"]);
+        form.AddField("ModiAmount", Data.data["ModiAmount"]);
+        form.AddField("AbilityAmount", Data.data["AbilityAmount"]);
+        form.AddField("ItemAmount", Data.data["ItemAmount"]);
+        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.SAVE_SHEET, form);
         yield return request.Send();
+
+        if (request.isNetworkError || request.isHttpError)
+        {
+            Debug.LogError("Networkerror");
+        }
+        else
+        {
+            Debug.Log(request.downloadHandler.text);
+            request.Dispose();
+        }
+    }
+
+    public IEnumerator SafeGW()
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("UserID", Data.data["UserID"]);
+        form.AddField("CharSheetNr", Data.data["CharSheetNr"]);
+
+        form.AddField("AG   	  ", Data.data["AG   	      "]);
+        form.AddField("AGplus    ", Data.data["AGplus        "]);
+        form.AddField("AGminus   ", Data.data["AGminus       "]);
+        form.AddField("KR   	   ", Data.data["KR   	       "]);
+        form.AddField("KRplus    ", Data.data["KRplus        "]);
+        form.AddField("KRminus   ", Data.data["KRminus       "]);
+        form.AddField("AU   	   ", Data.data["AU   	       "]);
+        form.AddField("AUplus    ", Data.data["AUplus        "]);
+        form.AddField("AUminus   ", Data.data["AUminus       "]);
+        form.AddField("RE   	   ", Data.data["RE   	       "]);
+        form.AddField("REplus    ", Data.data["REplus        "]);
+        form.AddField("REminus   ", Data.data["REminus       "]);
+        form.AddField("GE   	   ", Data.data["GE   	       "]);
+        form.AddField("GEplus    ", Data.data["GEplus        "]);
+        form.AddField("GEminus   ", Data.data["GEminusl     "]);
+        form.AddField("VE   	   ", Data.data["VE   	       "]);
+        form.AddField("VEplus   ", Data.data["VEplus       "]);
+        form.AddField("VEminus   ", Data.data["VEminus       "]);
+
+        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.SAVE_GW, form);
+        yield return 0;
 
         if (request.isNetworkError || request.isHttpError)
         {

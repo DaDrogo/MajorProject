@@ -7,9 +7,9 @@ public class DatabaseData : MonoBehaviour
     public enum DataId
     {
         UserName, UserPassport, UserID,
-        UserCharSheets, CharSheetNr, 
-        CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor,CharSkinColor, CharGender, CharLanguage, CharReligion, CharFeature, CharEducation, CharEnvironment, CharTraining, CharDestiny, CharAmbition,
-        ModiAmount,AbilityAmount, ItemAmount,
+        UserCharSheets, SheetNr, 
+        CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor,CharSkinColor, CharGender, CharLanguage, CharReligion, CharDestiny, CharDestinyLevel, CharAmbition, ModiAmount, AbilityAmount, ItemAmount,
+        CharFeature, CharEducation, CharEnvironment, CharTraining,    
         ModiNr, ModiName, ModiPotenz, ModiLvl,
         ItemName, ItemType, ItemWeight, ItemDescription,
         AbiName, AbiType, AbiExhaust, AbiEffect,

@@ -33,15 +33,15 @@ public class LoginManager : MonoBehaviour
 
     public void Login()
     {
-        ID.SaveData(Inputs[0]);
-        ID.SaveData(Inputs[1]);
+        ID.SaveDataInput(Inputs[0]);
+        ID.SaveDataInput(Inputs[1]);
         Entry.TestCoroutine(login); 
     }
 
     public void Register()
     {
-        ID.SaveData(Inputs[2]);
-        ID.SaveData(Inputs[3]);
+        ID.SaveDataInput(Inputs[2]);
+        ID.SaveDataInput(Inputs[3]);
         Entry.TestCoroutine(register);       
     }
 

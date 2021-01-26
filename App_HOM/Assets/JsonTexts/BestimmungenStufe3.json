@@ -1,0 +1,156 @@
+{"BestimmungenStufe2":
+[
+	{
+	"Name": "Scharfschütze",
+	"GW":[5,	0,	10,	15,	5,	5],
+	"Modifikationen":["Arsenal","Arsenal","Arsenal","Arsenal","Arsenal","Gesellschaftssinn"],
+	"Vorraussetzung": ["Marke des Todes","Marke des Todes", "Kette der Zweisamkeit"]
+	},
+	{
+	"Name": "Befehlshaber",
+	"GW":[5,	5,	5,	10,	10,	5],
+	"Modifikationen":["Arsenal","Arsenal","Gesellschaftssinn","Gesellschaftssinn","Weltkenntnis","Weltkenntnis"],
+	"Vorraussetzung": ["Marke des Todes","Bänder der Freundschaft","Gehirn +2"]
+	},
+	{
+	"Name": "Leibwache",
+	"GW":[10,	10,	5,	10,	5,	0],
+	"Modifikationen":["Arsenal","Arsenal","Arsenal","Arsenal","Akrobatik","Akrobatik"],
+	"Vorraussetzung": ["Marke des Todes","Marke des Todes","Bänder der Freundschaft"]
+	},
+
+{
+	"Name": "Wahrsager", 
+	"GW":[5,	0,	10,	5,	5,	10],
+	"Modifikationen":["Weltkenntnis","Weltkenntnis","Weltkenntnis","Konzentration","Konzentration","Gesellschaftssinn"],
+	"Vorraussetzung": ["Gehirn +2", "Kette der Zweisamkeit", "Geizkragen"]
+	},
+	{
+	"Name": "Eremit", 
+	"GW":[-5,	0,	10,	10,	0,	20],
+	"Modifikationen":["Konzentration","Konzentration","Konzentration","Konzentration","Konzentration","Forschung"],
+	"Vorraussetzung": ["Gehirn +2","Gehirn +2","Gehirn +2"]
+	},
+	{
+	"Name": "Glaubensritter", 
+	"GW":[15,	10,	-5,	5,	10,	5],
+	"Modifikationen":["Arsenal","Arsenal","Arsenal","Akrobatik","Akrobatik","Konzentration"],
+	"Vorraussetzung": ["Gehirn +2","Marke des Todes II","Marke des Todes II"]
+	},
+
+{
+	"Name": "Heilbringer",
+	"GW":[0,	-5,	0,	15,	15,	15],
+	"Modifikationen":["Weltkenntnis","Weltkenntnis","Weltkenntnis","Konzentration","Konzentration","Gesellschaftssinn"],
+	"Vorraussetzung": ["Gehirn +2", "Bänder der Freundschaft","Marke des Lebens II"]
+	},
+	{
+	"Name": "Weiser",
+	"GW":[0,	-5,	10,	10,	5,	20],
+	"Modifikationen":["Konzentration","Konzentration","Konzentration","Konzentration","Konzentration","Forschung"],
+	"Vorraussetzung": ["Gehirn +2","Gehirn +2", "Kette der Zweisamkeit"]
+	},
+	{
+	"Name": "Katastrophe",
+	"GW":[5,	10,	0,	5,	5,	15],
+	"Modifikationen":["Arsenal","Arsenal","Arsenal","Akrobatik","Akrobatik","Konzentration"],
+	"Vorraussetzung": ["Gehirn +2","Marke des Todes II","Marke des Todes II"]
+	},
+
+{
+	"Name": "Feuertänzer",
+	"GW":[20,	0,	20,	0,	0,	0],
+	"Modifikationen":["Akrobatik","Akrobatik","Akrobatik","Handwerk","Handwerk","Gesellschaftssinn"],
+	"Vorraussetzung": ["Geizkragen","Bänder der Freundschaft","Marke des Todes II"]
+	},
+	{
+	"Name": "Sirene",
+	"GW":[5,	-5,	15,	10,	5,	10],
+	"Modifikationen":["Gesellschaftssinn","Gesellschaftssinn","Gesellschaftssinn","Gesellschaftssinn","Gesellschaftssinn","Gesellschaftssinn"],
+	"Vorraussetzung": ["Geizkragen","Geizkragen","Geizkragen", "Faden der Freundschaft"]
+	},
+	{
+	"Name": "Trickser",
+	"GW":[15,	0,	5,	10,	0,	10],
+	"Modifikationen":["Gesellschaftssinn","Gesellschaftssinn","Heimlichkeit","Heimlichkeit","Akrobatik","Akrobatik"],
+	"Vorraussetzung": ["Bänder der Freundschaft","Bänder der Freundschaft","Geizhals", "Gehirn +1"]
+	},
+
+{
+	"Name": "Cybernetiker",
+	"GW":[0,	5,	15,	0,	10,	10],
+	"Modifikationen":["Handwerk","Handwerk","Handwerk","Forschung","Forschung","Arsenal"],
+	"Vorraussetzung": ["Hand des Schicksals", "Kette der Zweisamkeit", "Gehirn +1", "Marke des Todes"]
+	},
+	{
+	"Name": "Ingenieur",
+	"GW":[0,	5,	10,	0,	5,	15],
+	"Modifikationen":["Handwerk","Handwerk","Handwerk","Handwerk","Handwerk","Forschung"],
+	"Vorraussetzung": ["Hand des Schicksals","Hand des Schicksals", "Ring der Einsamkeit", "Gehirn +1"]
+	},
+	{
+	"Name": "Donnerzähmer",
+	"GW":[0,	10,	5,	10,	5,	10],
+	"Modifikationen":["Arsenal","Arsenal","Arsenal","Handwerk","Handwerk","Forschung"],
+	"Vorraussetzung": ["Hand des Schicksals","Marke des Todes II", "Faden der Freundschaft", "Gehirn +1"]
+	},
+
+{
+	"Name": "Weißkittel",
+	"GW":[-5,	-5,	0,	15,	15,	20],
+	"Modifikationen":["Forschung","Forschung","Forschung","Forschung","Forschung","Weltkenntnis"],
+	"Vorraussetzung": ["Gehirn +2", "Bänder der Freundschaft", "Marke des Lebens II"]
+	},
+	{
+	"Name": "Lunatiker",
+	"GW":[10,	5,	0,	15,	-5,	15],
+	"Modifikationen":["Arsenal","Arsenal","Forschung","Forschung","Forschung","Handwerk"],
+	"Vorraussetzung": ["Gehirn +2", "Symbol des Nichts","Marke des Todes", "Ring der Einsamkeit"]
+	},
+	{
+	"Name": "Intelligenzbestie",
+	"GW":[0,	0,	5,	10,	5,	20],
+	"Modifikationen":["Forschung","Forschung","Forschung","Handwerk","Handwerk","Handwerk"],
+	"Vorraussetzung": ["Gehirn +2", "Gehirn +2","Faden der Freundschaft","Finger des Schicksals"]
+	},
+
+{
+	"Name": "Weltenwandler",
+	"GW":[0,	0,	10,	10,	5,	15],
+	"Modifikationen":["Weltkenntnis","Weltkenntnis","Weltkenntnis","Handwerk","Handwerk","Handwerk"],
+	"Vorraussetzung": ["Hand des Schicksals","Bänder der Freundschaft","Gehirn +2"]
+	},
+	{
+	"Name": "Mutant",
+	"GW":[10,	15,	0,	10,	15,	-10],
+	"Modifikationen":["Handwerk","Handwerk", "Handwerk","Arsenal","Arsenal","Akrobatik"],
+	"Vorraussetzung": ["Hand des Schicksals","Marke des Todes","Ring der Einsamkeit","Marke des Lebens"]
+	},
+	{
+	"Name": "Sprengmeister",
+	"GW":[0,	10,	5,	15,	5,	5],
+	"Modifikationen":["Arsenal","Arsenal","Arsenal","Arsenal","Handwerk","Forschung"],
+	"Vorraussetzung": ["Hand des Schicksals","Marke des Todes II","Ring der Einsamkeit","Gehirn +1"]
+	},
+
+{
+	"Name": "Alptraum",
+	"GW":[15,	5,	0,	5,	-5,	20],
+	"Modifikationen":["Gesellschaftssinn","Gesellschaftssinn","Gesellschaftssinn","Gesellschaftssinn","Heimlichkeit","Arsenal"],
+	"Vorraussetzung": ["Marke des Todes II","Kette der Zweisamkeit","Gehirn +2"]
+	},
+	{
+	"Name": "Saboteur",
+	"GW":[0,	10,	0,	10,	10,	10],
+	"Modifikationen":["Handwerk","Handwerk","Handwerk","Heimlichkeit","Heimlichkeit","Heimlichkeit"],
+	"Vorraussetzung": ["Hand des Schicksals","Bänder der Freundschaft","Geizhals","Gehirn +1"]
+	},
+	{
+	"Name": "Kopfgeldjäger",
+	"GW":[15,	5,	0,	15,	0,	5],
+	"Modifikationen":["Arsenal","Arsenal","Arsenal","Arsenal","Heimlichkeit","Heimlichkeit"],
+	"Vorraussetzung": ["Marke des Todes II","Marke des Todes II","Geizkragen"]
+	}
+	
+]
+}

@@ -1,0 +1,108 @@
+{"BestimmungenStufe2":
+[
+	{
+	"Name": "Schütze",
+	"GW":[3, 0, 0, 10, 0, 7],
+	"Modifikationen":["Arsenal","Arsenal","Weltkenntnis"],
+	"Vorraussetzung": ["Marke des Todes"]
+	},
+	{
+	"Name": "Schildträger",
+	"GW":[-5,10,10,-5,15,-5],
+	"Modifikationen":["Arsenal","Arsenal","Akrobatik"],
+	"Vorraussetzung": ["Marke des Todes"]
+	},
+
+{
+	"Name": "Kultist", 
+	"GW":[5,-4,-2,-2,-2,20],
+	"Modifikationen":["Konzentration","Konzentration","Heimlichkeit"],
+	"Vorraussetzung": ["Gehirn +1"]
+	},
+	{
+	"Name": "Priester", 
+	"GW":[2,0,4,0,3,6],
+	"Modifikationen":["Forschung","Forschung","Gesellschaftssinn"],
+	"Vorraussetzung": ["Marke des Lebens"]
+	},
+
+{
+	"Name": "Adept",
+	"GW":[1,	1,	6,	1,	1,	10],
+	"Modifikationen":["Konzentration","Konzentration","Konzentration"],
+	"Vorraussetzung": ["Gehirn +1"]
+	},
+	{
+	"Name": "Akolyth",
+	"GW":[0,	5,	5,	0,	0,	10],
+	"Modifikationen":["Konzentration","Konzentration","Arsenal"],
+	"Vorraussetzung": ["Marke des Lebens"]
+	},
+
+{
+	"Name": "Musiker",
+	"GW":[7,	2,	5,	7,	1,	-2],
+	"Modifikationen":["Handwerk","Gesellschaftssinn","Akrobatik"],
+	"Vorraussetzung": ["Geizhals"]
+	},
+	{
+	"Name": "Verführer",
+	"GW":[10,	-2,	2,	4,	-4,	10],
+	"Modifikationen":["Heimlichkeit","Gesellschaftssinn","Akrobatik"],
+	"Vorraussetzung": ["Geizhals"]
+	},
+
+{
+	"Name": "Handwerker",
+	"GW":[4,	6,	2,	0,	8,	-5],
+	"Modifikationen":["Handwerk","Handwerk","Handwerk"],
+	"Vorraussetzung": ["Finger des Schicksals"]
+	},
+	{
+	"Name": "Elektrifier",
+	"GW":[7,	0,	3,	0,	0,	5],
+	"Modifikationen":["Forschung","Forschung","Handwerk"],
+	"Vorraussetzung": ["Marke des Todes"]
+	},
+
+{
+	"Name": "Arzt",
+	"GW":[4,	0,	6,	2,	2,	6],
+	"Modifikationen":["Forschung","Forschung","Forschung"],
+	"Vorraussetzung": ["Marke des Lebens"]
+	},
+	{
+	"Name": "Forscher",
+	"GW":[-4,	-2,	2,	7,	2,	15],
+	"Modifikationen":["Arsenal","Forschung","Handwerk"],
+	"Vorraussetzung": ["Gehirn +1"]
+	},
+
+{
+	"Name": "Alkaliker",
+	"GW":[10,	-4,	2,	8,	-4,	3],
+	"Modifikationen":["Forschung","Forschung","Handwerk"],
+	"Vorraussetzung": ["Gehirn +1"]
+	},
+	{
+	"Name": "Biochemiker",
+	"GW":[10,	10,	10,	10,	-10,	-15],
+	"Modifikationen":["Handwerk","Arsenal","Handwerk"],
+	"Vorraussetzung": ["Finger des Schicksals"]
+	},
+
+{
+	"Name": "Söldner",
+	"GW":[5,10,0,5,-5,5],
+	"Modifikationen":["Heimlichkeit","Arsenal","Gesellschaftssinn"],
+	"Vorraussetzung": ["Marke des Todes"]
+	},
+{
+	"Name": "Schmuggler",
+	"GW":[5,-4,-4,15,0, 8],
+	"Modifikationen":["Handwerk","Heimlichkeit","Gesellschaftssinn"],
+	"Vorraussetzung": ["Geizhals"]
+	}
+	
+]
+}

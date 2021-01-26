@@ -8,13 +8,22 @@ public class PlayerData : ScriptableObject
 {
     public Dictionary<string, string> data = new Dictionary<string, string>();
 
-    public void SaveData(TMP_InputField input)
+
+    public void SaveDataInput(TMP_InputField input)
     {
         string key = input.gameObject.GetComponent<DatabaseData>().id.ToString();
         string value = input.text;
 
         SaveDataString(key, value);
     }
+    public void SaveDataText(TMP_Text input)
+    {
+        string key = input.gameObject.GetComponent<DatabaseData>().id.ToString();
+        string value = input.text;
+
+        SaveDataString(key, value);
+    }
+
 
     public void SaveDataString(string key, string value)
     {
@@ -26,6 +35,7 @@ public class PlayerData : ScriptableObject
         {
             data.Add(key, value);
         }
+        Debug.Log(data[key]);
     }
 }
 

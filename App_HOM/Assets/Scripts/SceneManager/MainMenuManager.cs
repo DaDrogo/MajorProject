@@ -25,13 +25,22 @@ public class MainMenuManager : MonoBehaviour
 
     public PlayerData ID;
 
+    public GetUserInfos userInfos;
+
+    public TMP_Text[] Inputs;
+
     private void Start()
     {
-        TestChar();
+        
+
+        //TestChar();
+        userInfos.GetTheInfos("188.34.197.30/GetUserInfos.php");
         ChangeButton("");
         StartButton.onClick.Invoke();
 
     }
+
+    //___________________________________ALLROUND_____________________________
 
     public void DeactivatePopUp()
     {
@@ -71,14 +80,6 @@ public class MainMenuManager : MonoBehaviour
         Button.GetComponent<Button>().interactable = true;
     }
 
-    //bekomme eine Zahl, auf welche Seite du zugreifen möchtest außerdem werden Werte gespeichert um auf der nächsten Seite weiter zu geben
-
-
-    void GetText()
-    {
-
-    }
-
     //_____________________________________________________________________CHARAKTERBÖGEN____________________________________________________________________________
 
     // hier sollen Gameobjecte gesammelt werden in einer Liste, und auch wieder gelöcht werden jeweils in unterschiedlichen Funktionen
@@ -99,6 +100,8 @@ public class MainMenuManager : MonoBehaviour
     //Hier ist die Funktion des Buttons, wenn dieser gedrückt wird.
     public void PressCharaktersheet()
     {
+       //string SheetNr = (int.Parse(DatabaseData.DataId.UserCharSheets.ToString()) + 1).ToString();
+       //Debug.Log(SheetNr);
         DeleteClasses();
         GetClassAmount();
         FillList();
@@ -108,7 +111,7 @@ public class MainMenuManager : MonoBehaviour
     //Hier wird herausgefunden, wie groß [classAmount] ist durch die ID des Benutzers außerdem wird dann [classAmount]diese Zahl gegeben
     void GetClassAmount()
     {
-        classAmount = int.Parse(ID.data[DatabaseData.DataId.UserCharSheets.ToString()]);
+        classAmount = int.Parse(ID.data[DatabaseData.DataId.UserCharSheets.ToString()]);       
     }
 
     //Nun wird mir der ClassAmount die Liste aus der Datenbank befüllt. Dazu wird auf die Datenbank zugegriffen und mithilfde der ID und der Anzahl der Klassen diese runtergeladen
@@ -118,13 +121,14 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-    void TestChar()
-    {
-        ID.SaveDataString(DatabaseData.DataId.UserCharSheets.ToString(),"0");
-        ID.SaveDataString(DatabaseData.DataId.CharName.ToString(), "Samael");
-        ID.SaveDataString(DatabaseData.DataId.CharRace.ToString(), "Nuklen");
-        // ID.SaveDataString(Inputs[1]);
-    }
+    //void TestChar()
+    //{
+    //    
+    //    ID.SaveDataString(DatabaseData.DataId.UserID.ToString(), "1");
+    //    ID.SaveDataString(DatabaseData.DataId.CharName.ToString(), "Samael");
+    //    ID.SaveDataString(DatabaseData.DataId.CharRace.ToString(), "Nuklen");
+    //    // ID.SaveDataString(Inputs[1]);
+    //}
 
     //Hier werden die Werte aus der Liste besorgt , wlche vorher durch die Datenbank befüllt wurde
     int GetClassNr(int it)
@@ -144,7 +148,7 @@ public class MainMenuManager : MonoBehaviour
     void CreateCharacterSheets()
     {
         //classAmount = int.TryParse();
-        for (int i = 0; i <= classAmount; i++)
+        for (int i = 0; i < classAmount; i++)
         {
             GameObject Temp = Instantiate(CharButton, SpawnPosition.transform);
             // Gib Button Werte
@@ -158,22 +162,34 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-    //___________________________________ALLROUND_____________________________
-
     //zerstöre die Klassem erschaffen, vom Klassenersteller
     public void DeleteClasses()
     {
-        foreach(Transform child in SpawnPosition.transform)
+        foreach (Transform child in SpawnPosition.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
     }
 
+
+
+    //___________________________________DataManagment_____________________________
+    public NetworkCreateSheet Sheet;
+
+
     public void ChangeScene()
     {
+        //speichert die Daten für die Charaktererstellung
+        if (scene == 2)
+        {
+            ID.SaveDataText(Inputs[0]);
+            ID.SaveDataText(Inputs[1]);
+        }
+        //lädt die Daten des Charakterbogens, welcher angeklickt wurde
+        else if (scene == 3)
+        {
+            Sheet.LoadSheet();
+        }
         SceneManager.LoadScene(scene);
     }
-
-    //___________________________________CHARAKTERERSTELLUNG_____________________________
-
 }
