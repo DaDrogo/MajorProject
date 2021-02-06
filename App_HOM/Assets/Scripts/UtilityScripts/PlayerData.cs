@@ -35,7 +35,6 @@ public class PlayerData : ScriptableObject
         {
             data.Add(key, value);
         }
-        Debug.Log(data[key]);
     }
 }
 

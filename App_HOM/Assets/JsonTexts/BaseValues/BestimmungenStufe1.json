@@ -1,53 +1,52 @@
-{"BestimmungenStufe1":
+{"destinies1":
 [
 	{
 	"Name": "Rekrut",
 	"GW":[2, 2, 2, 2, 2, -10],
 	"Modifikationen":["Arsenal","Akrobatik"],
-	"Vorraussetzung": [""]
+	"Vorraussetzung": ["",""]
 	},
 {
 	"Name": "Gläubiger", 
 	"GW":[0, 0, 0, 0, 5, 0],
 	"Modifikationen":["Konzentration","Forschung"],
-	"Vorraussetzung": [""]
+	"Vorraussetzung": ["",""]
 	},
 {
 	"Name": "Naturtalent",
 	"GW":[-2, -4, 0, -2, -2, 10],
 	"Modifikationen":["Konzentration","Konzentration"],
-	"Vorraussetzung": [""]
+	"Vorraussetzung": ["",""]
 	},
 {
 	"Name": "Schausteller",
 	"GW":[5, -4, 0, 2, -3, 0],
 	"Modifikationen":["Gesellschaftssinn","Akrobatik"],
-	"Vorraussetzung": [""]
+	"Vorraussetzung": ["",""]
 	},
 {
 	"Name": "Arbeiter",
 	"GW":[0, 4, 4, 1, 1, -5],
 	"Modifikationen":["Handwerk","Handwerk"],
-	"Vorraussetzung": [""]
+	"Vorraussetzung": ["",""]
 	},
 {
 	"Name": "Student",
 	"GW":[-1, -1, -1, -1, -1, 5],
 	"Modifikationen":["Forschung","Weltkenntnis"],
-	"Vorraussetzung": [""]
+	"Vorraussetzung": ["",""]
 	},
 {
 	"Name": "Trankmischer",
 	"GW":[0, -2, 1, 2, 2, 2],
 	"Modifikationen":["Forschung","Handwerk"],
-	"Vorraussetzung": [""]
+	"Vorraussetzung": ["",""]
 	},
 {
 	"Name": "Dieb",
 	"GW":[4, 0, 2, 4, -5, 5],
 	"Modifikationen":["Heimlichkeit","Arsenal"],
-	"Vorraussetzung": [""]
-	},
+	"Vorraussetzung": ["",""]
+	}
 	
-]
-}
+]}

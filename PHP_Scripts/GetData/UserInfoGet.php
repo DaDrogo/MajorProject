@@ -12,9 +12,9 @@ if(mysqli_connect_errno())
 else
 {
 	$UserID = $_POST['UserID'];
+	$SheetNr =  $_POST['SheetNr'];
 	
-	
-	$query = "INSERT INTO charcreate () VALUES () ";
+	$query = "SELECT CharRace, CharName FROM charcreate WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

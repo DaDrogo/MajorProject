@@ -105,8 +105,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294374129
-  m_fontColor: {r: 0.94509804, g: 0.9490196, b: 0.9647059, a: 1}
+    rgba: 4280387240
+  m_fontColor: {r: 0.65882355, g: 0.5254902, b: 0.12941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -253,8 +253,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294374129
-  m_fontColor: {r: 0.94509804, g: 0.9490196, b: 0.9647059, a: 1}
+    rgba: 4280387240
+  m_fontColor: {r: 0.65882355, g: 0.5254902, b: 0.12941177, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -341,6 +341,22 @@ PrefabInstance:
       propertyPath: m_text
       value: NR
       objectReference: {fileID: 0}
+    - target: {fileID: 40919388405686820, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919388405686820, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.5254902
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919388405686820, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.12941177
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919388405686820, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280387240
+      objectReference: {fileID: 0}
     - target: {fileID: 40919388405686821, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_AnchorMin.y
       value: 0.5
@@ -385,6 +401,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: CharButtonScript, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_Transition
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_SpriteState.m_HighlightedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ff2498b4f798924194cbdcc22e9c822, type: 3}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ff2498b4f798924194cbdcc22e9c822, type: 3}
+    - target: {fileID: 40919389785692876, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_SpriteState.m_SelectedSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8ff2498b4f798924194cbdcc22e9c822, type: 3}
     - target: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -468,6 +500,22 @@ PrefabInstance:
     - target: {fileID: 40919389785692877, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692879, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 712bbe28d401d6e41adc3ded568e6fd9, type: 3}
+    - target: {fileID: 40919389785692879, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692879, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40919389785692879, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d976bc376b03b440a797c6aa3246bcb, type: 3}

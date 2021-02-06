@@ -6,8 +6,8 @@ using UnityEngine.Networking;
 public class NetworkTestScript : MonoBehaviour
 {
 
+    //hier wurde nur getestet, deswegen ist es im oldie Ordner
     public PlayerData Data;
-    // Start is called before the first frame update
     void Start()
     {
         Data.SaveDataString("CharRace", "Human");

@@ -1,0 +1,35 @@
+{"base1":
+[
+	{
+	"Name": "Militärische Ausbildung",
+	"GW":[0, 5, 0, 0, 5, 0]
+	},
+	{
+	"Name": "Wissenschaftliches Studium",
+	"GW":[0, 0, 0, 0, 0, 10]
+	},
+	{
+	"Name": "Götter Studium",
+	"GW":[0, 0, 5, 0, 0, 5]
+	},
+	{
+	"Name": "Handwerkslehre",
+	"GW":[0, 0, 5, 0, 5, 0]
+	},
+	{
+	"Name": "Schurkenlehre",
+	"GW":[5, 0, 0, 5, 0, 0]
+	},
+	{
+	"Name": "Hekatem Studium",
+	"GW":[0, 0, 0, 5, 0, 5]
+	},
+	{
+	"Name": "Künstlerische Ausbildung",
+	"GW":[5, 0, 0, 0, 0, 5]
+	},
+	{
+	"Name": "Alchemie Studium",
+	"GW":[0, 0, 0, 0, 5, 5]
+	}
+]}

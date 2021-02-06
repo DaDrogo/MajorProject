@@ -6,27 +6,42 @@ using TMPro;
 
 public class NetworkCreateSheet : MonoBehaviour
 {
+    //hier werden alle Daten gespeichert und wiedergegeben
     [SerializeField]
     private PlayerData Data;
 
+    //wird ausgeführt, wenn ein neuer Charakterbogen gespeichert wurde
     public void SafeSheet()
     {
         // außerdem fehlt hier noch eine Fehleranalyse
         StartCoroutine(SafeCharacterSheet());
-        StartCoroutine(SaveInfos());
+        StartCoroutine(SaveInfos(UrlStrings.UPDATE_USERINFO));
     }
 
+    //wenn sich ein neuer Nutzer registriert benötigt er neue UserInfos
+    public void RegisterUserInfos(string url)
+    {
+        StartCoroutine(SaveInfos(url));
+    }
+
+    //lädt die Daten aus der Datenbank auf die PlayerData
     public void LoadSheet()
     {
         // außerdem fehlt hier noch eine Fehleranalyse
         StartCoroutine(LoadCharacterSheet());
     }
 
+    public void SafeGW()
+    {
+        StartCoroutine(SafeAllGW(UrlStrings.SAVE_GW, 1));
+    }
+
+    //in Arbeit
     public IEnumerator LoadCharacterSheet()
     {
         WWWForm form = new WWWForm();
         form.AddField("UserID", Data.data["UserID"]);
-        form.AddField("CharSheetNr", Data.data["CharSheetNr"]);
+        form.AddField("SheetNr", Data.data["SheetNr"]);
         UnityWebRequest request = UnityWebRequest.Post(UrlStrings.LOAD_SHEET, form);
         yield return 0;
 
@@ -45,13 +60,14 @@ public class NetworkCreateSheet : MonoBehaviour
     //soll später mit einer Datei gespeichert werden.
     //jetzt erstmal für den first case
 
-    public IEnumerator SaveInfos()
+    //erhält zwei URL (Save und Update UserInfo) um auch das zu machen
+    public IEnumerator SaveInfos(string Url)
     {
         Debug.Log("Connecting");
         WWWForm form = new WWWForm();
         form.AddField("UserID", Data.data["UserID"]);
-        form.AddField("UserCharSheets ", Data.data["UserCharSheets"]);
-        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.SAVEUSERINFO, form);
+        form.AddField("SheetNr", Data.data["SheetNr"]);
+        UnityWebRequest request = UnityWebRequest.Post(Url, form);
         yield return request.Send();
         if (request.isNetworkError || request.isHttpError)
         {
@@ -60,22 +76,22 @@ public class NetworkCreateSheet : MonoBehaviour
         }
         else
         {
-            Debug.Log(request.downloadHandler.text + " vorhanden Sheets");
-            //Test soll die ID von PHP bekommen
-            // wird noch getestet und wo es hingehört
+            Debug.Log("Ergebnis: "+request.downloadHandler.text);
             request.Dispose();
         }
     }
+
+    //TODO:
+    //Noch wurden diese nicht ausgewertet, sondern nur all Namen gespeichert um diese dann auch wieder im Bogen anzuzeigen
+    //Im Bogen werden diese Namen dann ausgewertet
 
     public IEnumerator SafeCharacterSheet()
     {
 
         //sendet die Daten des Bogens an die Datenbank
-        //Noch wurden diese nicht ausgewertet, sondern nur all Namen gespeichert um diese dann auch wieder im Bogen anzuzeigen
-        //Im Bogen werden diese Namen dann ausgewertet
-        WWWForm form = new WWWForm();
-        //Person____________________________________
 
+
+        //old Code
         //foreach (var key in Data.data.Keys)
         //{
         //    string value = "";
@@ -83,7 +99,7 @@ public class NetworkCreateSheet : MonoBehaviour
         //
         //    form.AddField(key, value);
         //}
-        Debug.Log(Data.data["UserID"]);
+        WWWForm form = new WWWForm();
         form.AddField("UserID", Data.data["UserID"]);
         form.AddField("SheetNr", Data.data["SheetNr"]);
         form.AddField("CharRace", Data.data["CharRace"]);
@@ -112,38 +128,66 @@ public class NetworkCreateSheet : MonoBehaviour
         }
         else
         {
-            Debug.Log(request.downloadHandler.text);
+            Debug.Log("Ergebnis: " + request.downloadHandler.text);
             request.Dispose();
         }
     }
 
-    public IEnumerator SafeGW()
+    //In Arbeit
+    public IEnumerator SafeAllGW(string url, int style)
     {
+        //soll die GW der Charakterbögen speichern.
+        //wird ähnlich funktionieren wie SafeCharacterSheet und ist nur da um die Datenbanken kleiner zu halten
         WWWForm form = new WWWForm();
+        Debug.Log("Connecting GW");
         form.AddField("UserID", Data.data["UserID"]);
-        form.AddField("CharSheetNr", Data.data["CharSheetNr"]);
-
-        form.AddField("AG   	  ", Data.data["AG   	      "]);
-        form.AddField("AGplus    ", Data.data["AGplus        "]);
-        form.AddField("AGminus   ", Data.data["AGminus       "]);
-        form.AddField("KR   	   ", Data.data["KR   	       "]);
-        form.AddField("KRplus    ", Data.data["KRplus        "]);
-        form.AddField("KRminus   ", Data.data["KRminus       "]);
-        form.AddField("AU   	   ", Data.data["AU   	       "]);
-        form.AddField("AUplus    ", Data.data["AUplus        "]);
-        form.AddField("AUminus   ", Data.data["AUminus       "]);
-        form.AddField("RE   	   ", Data.data["RE   	       "]);
-        form.AddField("REplus    ", Data.data["REplus        "]);
-        form.AddField("REminus   ", Data.data["REminus       "]);
-        form.AddField("GE   	   ", Data.data["GE   	       "]);
-        form.AddField("GEplus    ", Data.data["GEplus        "]);
-        form.AddField("GEminus   ", Data.data["GEminusl     "]);
-        form.AddField("VE   	   ", Data.data["VE   	       "]);
-        form.AddField("VEplus   ", Data.data["VEplus       "]);
-        form.AddField("VEminus   ", Data.data["VEminus       "]);
-
-        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.SAVE_GW, form);
-        yield return 0;
+        form.AddField("SheetNr", Data.data["SheetNr"]);
+        if (style == 0)
+        {
+            Debug.Log("0");
+            form.AddField("AG", Data.data["AG"]);
+            form.AddField("AGplus", Data.data["AGplus"]);
+            form.AddField("AGminus", Data.data["AGminus"]);
+            form.AddField("KR", Data.data["KR"]);
+            form.AddField("KRplus", Data.data["KRplus"]);
+            form.AddField("KRminus", Data.data["KRminus"]);
+            form.AddField("AU", Data.data["AU"]);
+            form.AddField("AUplus", Data.data["AUplus"]);
+            form.AddField("AUminus", Data.data["AUminus"]);
+            form.AddField("RE", Data.data["RE"]);
+            form.AddField("REplus", Data.data["REplus"]);
+            form.AddField("REminus", Data.data["REminus"]);
+            form.AddField("GE", Data.data["GE"]);
+            form.AddField("GEplus", Data.data["GEplus"]);
+            form.AddField("GEminus", Data.data["GEminus"]);
+            form.AddField("VE", Data.data["VE"]);
+            form.AddField("VEplus", Data.data["VEplus"]);
+            form.AddField("VEminus", Data.data["VEminus"]);
+        }
+        else
+        {
+            Debug.Log("1");
+            form.AddField("AG", Data.data["AG"]);
+            form.AddField("AGplus", "0");
+            form.AddField("AGminus", "0");
+            form.AddField("KR", Data.data["KR"]);
+            form.AddField("KRplus", "0");
+            form.AddField("KRminus", "0");
+            form.AddField("AU", Data.data["AU"]);
+            form.AddField("AUplus", "0");
+            form.AddField("AUminus", "0");
+            form.AddField("RE", Data.data["RE"]);
+            form.AddField("REplus", "0");
+            form.AddField("REminus", "0");
+            form.AddField("GE", Data.data["GE"]);
+            form.AddField("GEplus", "0");
+            form.AddField("GEminus", "0");
+            form.AddField("VE", Data.data["VE"]);
+            form.AddField("VEplus", "0");
+            form.AddField("VEminus", "0");
+        }
+        UnityWebRequest request = UnityWebRequest.Post(url, form);
+        yield return request.Send();
 
         if (request.isNetworkError || request.isHttpError)
         {
@@ -151,8 +195,10 @@ public class NetworkCreateSheet : MonoBehaviour
         }
         else
         {
-            Debug.Log(request.downloadHandler.text);
+            Debug.Log("Grundwerte: " + request.downloadHandler.text);
             request.Dispose();
         }
     }
+
+
 }

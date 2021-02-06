@@ -5,11 +5,43 @@ using TMPro;
 
 public class CharSheetManager : MonoBehaviour
 {
-    //old maybe useful for other things
-    //int ItemAmount;
-    //public GameObject[] Spawns;
-    //public GameObject[] Items;
+    //Plan:
     //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //_____________________________________________________________________VARIABLES____________________________________________________________________________
+
+        //Network
+    public PlayerData player;
+    public NetworkUseSheet usedSheet;
+    public NetworkCreateSheet createdSheet;
+
+        //Objects from scene fängt mit dem ersten Object aus dem Inspector an
+    public TMP_InputField[] PersonInputs;
+    public TMP_InputField[] BaseValuesInputs;
+    public TMP_Text[] DestinyTetxs;
+    public TMP_Text[] ActionTexts;
+
+
+    public string[] PersonStrings;
+    public int[] baseValuesInt;
+    public int[] proofsInt;
+    public string[] abilitysString;
+    public string[] itemsStrings;
+    public int[] actionsInt;
+
+
+
+
+
+
     //public void CreateItem(int arrayNr)
     //{
     //    
@@ -24,30 +56,150 @@ public class CharSheetManager : MonoBehaviour
     //    ItemAmount = 0;
     //}
 
-    //______________Txt Lists
+    //_____________________________________________________________________UTILITY____________________________________________________________________________
 
-
+    //Wenn gestartet wird, wird erstmal PlayerData gefüllt mit allen Daten
+    //Die festen Daten werden in den Charakterbogen eingetragen
+    //Danach werden die Modifikationen/Items/Fertigkeiten/Ambitionen geladen
     private void Start()
     {
-        SetTxtValues();
+        //Debug.Log("UserID" + player.data[DatabaseData.DataId.UserID.ToString()]);
+        //Debug.Log("SheetNr" + player.data[DatabaseData.DataId.SheetNr.ToString()]);
+        StartCharSheet();
     }
+
+    void StartCharSheet()
+    {
+        MakeTexts();
+        LoadMultipleObjects();
+    }
+
+    //_____________________________________________________________________TEXTS____________________________________________________________________________
 
     //bekommt die Dtaen aus der Bank und setzt sie in eine Liste ein
     //kommt noch
+    void MakeTexts()
+    {
+        GetTxtValues();
+        SetTxtValues();
+    }
+
     void GetTxtValues()
     {
-
+        //Persönliches
+        //Volk
+        //Bestimmung
+        //Ambition
+        //BaseValues
+        //Belastung
     }
 
     //Bekommt Daten und füllt diese in eine Liste aus Text Objekten ein
     void SetTxtValues()
     {
-
+        MakebaseValues();
+        ShowValues();
+        //Persönliches
+        //Volk
+        //Bestimmung
+        //Ambition
+        //BaseValues
+        //Belastung
     }
 
     //Speichert die Daten von den Objekten aus der Liste auf der Datenbank
-    //kommt noch
-    void SafeTxtValues()
+    //wenn der Nutzer die App verlässt oder speichern drückt
+    void UpdateTxtValues()
+    {
+
+    }
+
+    //_____________________________________________________________________Items/Modis/Ambitions/Abilitys____________________________________________________________________________
+
+    void LoadMultipleObjects()
+    {
+
+    }
+
+    //_____________________________________________________________________Bestimmungen____________________________________________________________________________
+
+    void MakeDestiny()
+    {
+
+    }
+
+    //_____________________________________________________________________Grundwerte____________________________________________________________________________
+
+    public string[] valuesForBase;
+
+    void MakebaseValues()
+    {
+        int i= 0;
+        foreach(TMP_InputField ini in BaseValuesInputs)
+        {
+            i++;
+            //hier die Daten aus der Dtaenbank holen
+            ini.text = valuesForBase[i];
+        }
+    }
+
+
+    //_____________________________________________________________________Aktionen____________________________________________________________________________
+
+    //BaseValues ArrayNR:
+    //AG:0/3/6/9/12/15
+    //Aktionen ArrayNR:
+    //Angriff(Waffe+GE)/Verkleiden(Kleidung+VE)/Unterhalten(RE+VE)/Bewegung(AG+GE)/Steuern(RE+VE)/Wuchten(KR+GE)/Analysieren(AU+VE)/Interagieren(AG+VE)/Kanalisieren(Leitwert+VE)
+    //Reaktionen ArrayNR:
+    //Argumentieren(RE+VE)/Absorbieren(AU+VE)/Beten(AU+VE)/Verteidigen(Rüstung+GE)/Lügen(RE+VE)/Ausweichen(AG+GE)
+
+    //Initiative
+    //[Ag + Re + 1w6]
+    //Maximales Tragegewicht
+    //AU + KR + Körpergewicht in kg
+    void ShowValues()
+    {
+        Debug.Log("HUH");
+        int AG=int.Parse(BaseValuesInputs[0].text) / 10;
+        Debug.Log("HUH");
+        int KR=int.Parse(BaseValuesInputs[3].text) / 10;
+        int AU=int.Parse(BaseValuesInputs[6].text) / 10;
+        int RE=int.Parse(BaseValuesInputs[9].text) / 10;
+        int GE=int.Parse(BaseValuesInputs[12].text) /10;
+        int VE=int.Parse(BaseValuesInputs[15].text) /10;
+        int Weapon =0;
+        int Cloth = 0;
+        int Armor = 0;
+        int MainValue = 0;
+        ActionTexts[0].text = (Weapon + GE).ToString();
+        ActionTexts[1].text = (Cloth + VE).ToString();
+        ActionTexts[2].text = (RE + VE).ToString();
+        ActionTexts[3].text = (AG + GE).ToString();
+        ActionTexts[4].text = (RE + VE).ToString();
+        ActionTexts[5].text = (KR + GE).ToString();
+        ActionTexts[6].text = (AU + VE).ToString();
+        ActionTexts[7].text = (AG + VE).ToString();
+        ActionTexts[8].text = (MainValue + VE).ToString();
+        ActionTexts[9].text = (RE + VE).ToString();
+        ActionTexts[10].text = (AU + VE).ToString();
+        ActionTexts[11].text = (AU + VE).ToString();
+        ActionTexts[12].text = (Armor + GE).ToString();
+        ActionTexts[13].text = (RE + VE).ToString();
+        ActionTexts[14].text = (AG + GE).ToString();
+        Debug.Log("HAH");
+    }
+
+    void ShowDices()
+    {
+
+    }
+
+    void RollDices()
+    {
+
+    }
+
+    void ShowResult()
     {
 
     }

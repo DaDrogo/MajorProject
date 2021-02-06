@@ -4,10 +4,29 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Networking;
+
+
+//Speicher die Daten für die Texte in den Buttons der Charakterbögen
+[System.Serializable]
+public class CharValues
+{
+    public int nrs;
+    public string names ;
+    public string races;
+
+    //Konstruktor nur zum erinnern ;)
+   //public CharValues()
+   //{
+   //    nrs = 0;
+   //    names = "0";
+   //    races = "0";
+   //}
+}
 
 public class MainMenuManager : MonoBehaviour
 {
-
+    //___________________________________Beschreibung_____________________________
     //was will ich haben?
     //1. abfrage nach id ob es schon Bögen gibt, anzahl an bögen wird in array gespeichert und buttons mit deren name erstellt. also 2 arrays
     //Außerdem wird ein Button für zurück benötigt
@@ -15,32 +34,51 @@ public class MainMenuManager : MonoBehaviour
     //1. login zurück
     //2. Erstellen von Fragebogen
     //3. Auswahl der erstellten Fragebögen
-    //ez Arbeit kommt bei den Fragebögen
 
+    //___________________________________Variablen_____________________________
+    
+    //speichert die nächste Scene
     int scene;
-    public GameObject Button;
+
+    //Button der die Scene wechselt
+    public GameObject ChangeSceneButton;
+
     public GameObject PopUp;
 
+    //Der Button welcher automatisch geklickt werden soll, wenn die App geöffnet wird
     public Button StartButton;
 
+    //Zum erstellen der Charakterbögen
+    public GameObject CharButton;
+    public GameObject SpawnPosition;
+    int classAmount;
+    //Speichert die Daten der Charakterbögen
+    private CharValues[] charis;
+
+    //erhält Daten zum speichern
+    public TMP_Text[] Inputs;
+
+    //Speichert und Lädt die Daten des Nutzers
     public PlayerData ID;
 
+    //Networkseiten
     public GetUserInfos userInfos;
+    public NetworkCreateSheet Sheet;
 
-    public TMP_Text[] Inputs;
+
+
+
+
+    //___________________________________ALLROUND_____________________________
 
     private void Start()
     {
-        
 
-        //TestChar();
-        userInfos.GetTheInfos("188.34.197.30/GetUserInfos.php");
+        userInfos.GetTheInfos(UrlStrings.GET_USERINFO);
         ChangeButton("");
         StartButton.onClick.Invoke();
 
     }
-
-    //___________________________________ALLROUND_____________________________
 
     public void DeactivatePopUp()
     {
@@ -64,38 +102,26 @@ public class MainMenuManager : MonoBehaviour
     {
         if (text != "")
         {
-            
-            Button.GetComponentInChildren<TMP_Text>().text = text;
+
+            ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = text;
         }
         else
         {
-            Button.GetComponentInChildren<TMP_Text>().text = "";
+            ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = "";
             
         }
-        Button.GetComponent<Button>().interactable = false;
+        ChangeSceneButton.GetComponent<Button>().interactable = false;
     }
 
     public void MakeButtonActive()
     {
-        Button.GetComponent<Button>().interactable = true;
+        ChangeSceneButton.GetComponent<Button>().interactable = true;
     }
 
-    //_____________________________________________________________________CHARAKTERBÖGEN____________________________________________________________________________
+    //_____________________________________________________________________CHARAKTERBÖGENBUTTON____________________________________________________________________________
 
     // hier sollen Gameobjecte gesammelt werden in einer Liste, und auch wieder gelöcht werden jeweils in unterschiedlichen Funktionen
     // wenn der Button gedrückt wird, soll der Spawner eine Zahl bekommen. So oft soll er dann die Liste füllen mit Zahl, Namen und Rasse
-
-    public GameObject CharButton;
-    public GameObject SpawnPosition;
-    int classAmount;
-    GameObject[] Buttons;
-
-    public class CharValues
-    {
-        int[] nr;
-        string[] names;
-        string[] races;
-    }
 
     //Hier ist die Funktion des Buttons, wenn dieser gedrückt wird.
     public void PressCharaktersheet()
@@ -105,60 +131,47 @@ public class MainMenuManager : MonoBehaviour
         DeleteClasses();
         GetClassAmount();
         FillList();
-        CreateCharacterSheets();
+        StartCoroutine(FinishFirst(1));
+
     }
 
     //Hier wird herausgefunden, wie groß [classAmount] ist durch die ID des Benutzers außerdem wird dann [classAmount]diese Zahl gegeben
     void GetClassAmount()
     {
         classAmount = int.Parse(ID.data[DatabaseData.DataId.UserCharSheets.ToString()]);       
+        Debug.Log("Klasenanzahl: "+classAmount);
     }
 
     //Nun wird mir der ClassAmount die Liste aus der Datenbank befüllt. Dazu wird auf die Datenbank zugegriffen und mithilfde der ID und der Anzahl der Klassen diese runtergeladen
 
     void FillList()
     {
+        charis = new CharValues[classAmount];
+        
+        for (int u = 0; u < classAmount; u++)
+        {
+            charis[u] = new CharValues();
+            charis[u].nrs = u + 1;
+            StartCoroutine(GetButtonSheetInfos(u + 1));
+        }
 
-    }
-
-    //void TestChar()
-    //{
-    //    
-    //    ID.SaveDataString(DatabaseData.DataId.UserID.ToString(), "1");
-    //    ID.SaveDataString(DatabaseData.DataId.CharName.ToString(), "Samael");
-    //    ID.SaveDataString(DatabaseData.DataId.CharRace.ToString(), "Nuklen");
-    //    // ID.SaveDataString(Inputs[1]);
-    //}
-
-    //Hier werden die Werte aus der Liste besorgt , wlche vorher durch die Datenbank befüllt wurde
-    int GetClassNr(int it)
-    {
-        return it;
-    }
-    string GetClassName(int it)
-    {
-        return ID.data[DatabaseData.DataId.CharName.ToString()];
-    }
-    string GetClassRace(int it)
-    {
-        return ID.data[DatabaseData.DataId.CharRace.ToString()];
     }
 
     //nun werden die Buttons mit den Werten der Liste gefüllt
-    void CreateCharacterSheets()
+    void CreateCharacterSheetsTheSecon()
     {
-        //classAmount = int.TryParse();
-        for (int i = 0; i < classAmount; i++)
+        foreach (CharValues i in charis)
         {
             GameObject Temp = Instantiate(CharButton, SpawnPosition.transform);
             // Gib Button Werte
-            Temp.GetComponentInChildren<TMP_Text>().text = GetClassNr(i).ToString();
-            TMP_Text [] ButtonsText =  Temp.GetComponentsInChildren<TMP_Text>(); 
-            ButtonsText[0].text = GetClassNr(1).ToString();
-            ButtonsText[1].text = GetClassName(1);
-            ButtonsText[2].text = GetClassRace(1);
+            Temp.GetComponentInChildren<TMP_Text>().text = i.nrs.ToString(); ;
+            TMP_Text[] ButtonsText = Temp.GetComponentsInChildren<TMP_Text>();
+            ButtonsText[0].text = i.nrs.ToString();
+            ButtonsText[1].text = i.names;
+            ButtonsText[2].text = i.races;
             // Weise dem Button einen Ort zu
-            Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y-50*i, 0);
+            //int zum casten
+            Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - 200 * (i.nrs-1), 0);
         }
     }
 
@@ -171,12 +184,12 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-
+   
 
     //___________________________________DataManagment_____________________________
-    public NetworkCreateSheet Sheet;
 
 
+    //Wird beim drücken des Weiterbuttons aktiviert, speichert alle Daten und wechselt die Scene
     public void ChangeScene()
     {
         //speichert die Daten für die Charaktererstellung
@@ -191,5 +204,44 @@ public class MainMenuManager : MonoBehaviour
             Sheet.LoadSheet();
         }
         SceneManager.LoadScene(scene);
+    }
+
+    //___________________________________Coroutine_____________________________
+
+    IEnumerator FinishFirst(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        CreateCharacterSheetsTheSecon();
+    }
+
+    //eine kleine Network Courotine, weil schneller und einfacher
+    public IEnumerator GetButtonSheetInfos(int SheetNr)
+    {
+        Debug.Log("Connecting");
+        WWWForm form = new WWWForm();
+        form.AddField("UserID", ID.data["UserID"]);
+        form.AddField("SheetNr", SheetNr.ToString());
+        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.GET_SHEETINFOS, form);
+        yield return request.Send();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            //Warning.text = "Networkerror";
+            Debug.LogError("Networkerror");
+        }
+        else if (request.downloadHandler.text == "lol")
+        {
+            Debug.Log("HAH");
+        }
+        else
+        {
+            //Speichert die Daten in dem Array vom MainMenuManager
+            string Texti = request.downloadHandler.text;
+            string[] textArray = Texti.Split(" "[0]);
+            Debug.Log(textArray[0]);
+            Debug.Log(textArray[1]);
+            charis[SheetNr - 1].names = textArray[0];
+            charis[SheetNr - 1].races = textArray[1];
+            request.Dispose();
+        }
     }
 }

@@ -11,18 +11,22 @@ public class DropdownInfos
 {
     public TMP_Dropdown Dropdowns;
     public int OptionsNr;
-    public TextAsset FileTxt;
+    public TextAsset OptionsText;
+    public TextAsset DescriptionFile;
+    public TMP_Text DescriptionObject;
+
 }
 
 public class DropdownManager : MonoBehaviour
 {
 
+    //was muss vom Button ausgewählt werden?
+    //OnValueChange
+    //SetDropdown(nummer im array)
+
     List<string> DropOptions = new List<string> { };
 
     public DropdownInfos[] Dropis;
-
-    [SerializeField]
-    public TMP_Text DescriptionText;
 
 
     //Hardcoded Images
@@ -43,17 +47,17 @@ public class DropdownManager : MonoBehaviour
  
     //erstelle die Dropdowns
     //funktioniert
-    public void CreateDropdown()
+    void CreateDropdown()
     {
         foreach (DropdownInfos i in Dropis)
         {
             i.Dropdowns.ClearOptions();
-            CreateOptions(i.FileTxt, i.Dropdowns, i.OptionsNr);
+            CreateOptions(i.OptionsText, i.Dropdowns, i.OptionsNr);
         }
     }
-    //Tmp reference oder value
+    //Tmp reference oder value erzeugt einen Dropdown
     //_____________________________________Problem_______________________________________-
-    public void CreateOptions(TextAsset File,TMP_Dropdown Down, int Options)
+    void CreateOptions(TextAsset File,TMP_Dropdown Down, int Options)
     {
          for (int i = 0; i < Options; i++)
             {
@@ -66,6 +70,7 @@ public class DropdownManager : MonoBehaviour
 
     //____________________________________________________________________________-
 
+    //gibt den Optionen oder dem Text eine Schrift
     private string ParseFile(TextAsset File, int Nr)
     {
         //muss noch überarbeitet werden suche des Speicherorts
@@ -76,36 +81,39 @@ public class DropdownManager : MonoBehaviour
 
     //Change Info Text nach dem button drücken
 
-    public int getX()
+    int getX()
     {
         return x;
     }
 
-    public void setX(int newX)
+    void setX(int newX)
     {
         if (newX < 0)
             x = 0;
         else
             x = newX;
     }
+    //-----------------Funktionen für die buttons
 
+
+    //stellt die nummer des gewählten Objekts fest
     public void OnValueChange(int Drop)
     {
         setX(Drop);
         
         
     }
-
-    public void OnValueChangeString(TextAsset File)
+    //ändert den Text der beschreibung
+    public void SetDropdown(int what)
     {
-        
-        DescriptionText.text = ParseFile(File, getX());
+        Dropis[what].DescriptionObject.text = ParseFile(Dropis[what].DescriptionFile, getX());
     }
 
-    public void NewValueChange(TMP_Dropdown input)
-    {
-        string key = input.gameObject.GetComponent<DatabaseData>().id.ToString();
-    }
+   // public void OnValueChangeString(TextAsset File)
+   // {
+   //     
+   //     DescriptionText.text = ParseFile(File, getX());
+   // }
 
     public void OnValueChangeImage(int Drop)
     {

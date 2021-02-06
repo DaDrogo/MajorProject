@@ -26,11 +26,23 @@ public class JsonManager : MonoBehaviour
     //Warning Text
     //Json Datei:bennant nach den Überpunkten / beinhalten: Anzahl der Buttons + Überschriften/ Texte der Buttons
     // name:"" / Überschriften:[1/1/1] / Buttons:[2,4,4] / Texte:["","","","","","","","","",""]
+
+
+    DatabaseData data;
+
+    private void Start()
+    {
+        data = new DatabaseData();
+    }
+
+
     //============================JSON====================
     string First = "name";
     string Second = "HeadersNr";
     string Third = "Buttons";
     string Fourth ="Texts";
+
+    
 
 
     //==================================JSON Files=========================================
@@ -85,7 +97,7 @@ public class JsonManager : MonoBehaviour
         if (type == First)
             return (teachInJson.teachings[line].name.Length);
         else if (type == Second)
-            return(teachInJson.teachings[line].HeadersNr.Length);
+            return (teachInJson.teachings[line].HeadersNr.Length);
         else if (type == Third)
             return (teachInJson.teachings[line].Buttons.Length);
         else if (type == Fourth)
@@ -93,6 +105,54 @@ public class JsonManager : MonoBehaviour
         else
             return (1);
     }
+
+
+    [System.Serializable]
+    public class Destinys
+    {
+        public Destiny[] destinies1;
+    }
+    [System.Serializable]
+    public class Destiny
+    {
+        public string Name;
+        public int[] GW;
+        public string[] Modifikationen;
+        public string[] Vorraussetzung;
+
+    }
+
+    [System.Serializable]
+    public class BaseValues
+    {
+        public BaseValue[] base1;
+    }
+    [System.Serializable]
+    public class BaseValue
+    {
+        public string Name;
+        public int[] GW;
+
+    }
+
+
+    public int ReadJsonBaseValues(TextAsset ai,int from, int line, int value )
+    {
+        string jsoni = ai.text;
+        if (from == 4)
+        {
+            Destinys destinyInJson = JsonUtility.FromJson<Destinys>(jsoni);
+            int ergebniss = destinyInJson.destinies1[line].GW[value];
+            return (ergebniss);
+        }
+        else
+        {
+            BaseValues destinyInJson = JsonUtility.FromJson<BaseValues>(jsoni);
+            int ergebniss = destinyInJson.base1[line].GW[value];
+            return (ergebniss);
+        }
+    }
+
 
     //==============================================
 

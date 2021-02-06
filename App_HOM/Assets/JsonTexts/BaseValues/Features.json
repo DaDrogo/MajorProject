@@ -1,0 +1,51 @@
+{"base1":
+[
+	{
+	"Name": "Der Kreislauf",
+	"GW":[0, 0, 0, 0, 0, 10]
+	},
+	{
+	"Name": "gebietende Hand",
+	"GW":[0, 0, 0, 0, 5, 5]
+	},
+	{
+	"Name": "offenes Buch",
+	"GW":[0, 0, 0, 0, 10, 0]
+	},
+	{
+	"Name": "Wespenschwarm",
+	"GW":[10, 0, 0, 0, 0, 0]
+	},
+	{
+	"Name": "Haizähne",
+	"GW":[0, 10, 0, 0, 0, 0]
+	},
+	{
+	"Name": "Ein Stein",
+	"GW":[0, 0, 10, 0, 0, 0]
+	},
+	{
+	"Name": "Die Maske",
+	"GW":[0, 0, 0, 5, 0, 5]
+	},
+	{
+	"Name": "Wasserfall",
+	"GW":[0, 0, 0, 5, 5, 0]
+	},
+	{
+	"Name": "Der Pinsel",
+	"GW":[0, 0, 0, 10, 0, 0]
+	},
+	{
+	"Name": "Wolken",
+	"GW":[2, 2, 2, 2, 2, 0]
+	},
+	{
+	"Name": "Ein Blitz",
+	"GW":[4, 0, 0, 4, 0, 2]
+	},
+	{
+	"Name": "Vulkan",
+	"GW":[0, 4, 4, 0, 2, 0]
+	}	
+]}

@@ -5,21 +5,19 @@ using UnityEngine.Networking;
 
 public class GetUserInfos : MonoBehaviour
 {
+    //hier werden alle Daten gespeichert und wiedergegeben
     public PlayerData Data;
 
-    private void Start()
-    {
-
-
-    }
-
+    //startet Netzwerkaufbau
     public void GetTheInfos(string url)
     {
         StartCoroutine(GetInfos(url));
     }
 
+    //erhält eine URl um die Infos aus der Datenbank zu erhalten
     public IEnumerator GetInfos(string url)
     {
+        //benötigt nur die ID
         Debug.Log("Connecting");
         WWWForm form = new WWWForm();
         form.AddField("UserID", Data.data["UserID"]);
@@ -32,13 +30,14 @@ public class GetUserInfos : MonoBehaviour
         }
         else
         {
-            Debug.Log(request.downloadHandler.text + " vorhanden Sheets");
-            //Test soll die ID von PHP bekommen
-            // wird noch getestet und wo es hingehört
+            //Gibt die Anzahl der Sheets aus
             Data.SaveDataString("UserCharSheets", request.downloadHandler.text);
             request.Dispose();
         }
     }
+
+
+
 
 
 }

@@ -1,0 +1,51 @@
+{"base1":
+[
+	{
+	"Name": "Flucht",
+	"GW":[15, 0, 0, 15, 0, 0]
+	},
+	{
+	"Name": "Verfolgt",
+	"GW":[10, 0, 0, 20, 0, 0]
+	},
+	{
+	"Name": "Wanderschaft",
+	"GW":[20, 0, 0, 10, 0, 0]
+	},
+	{
+	"Name": "Naturnähe",
+	"GW":[0, 15, 15, 0, 0, 0]
+	},
+	{
+	"Name": "Kriegsbelastet",
+	"GW":[0, 20, 10, 0, 0, 0]
+	},
+	{
+	"Name": "Schulische Einrichtung",
+	"GW":[5, 5, 5, 5, 5, 5]
+	},
+	{
+	"Name": "Gefangenschaft",
+	"GW":[10, 5, 5, 10, 0, 0]
+	},
+	{
+	"Name": "Staatlichegesichert",
+	"GW":[5, 10, 10, 5, 0, 0]
+	},
+	{
+	"Name": "Kriminell",
+	"GW":[10, 10, 10, 10, -5, -5]
+	},
+	{
+	"Name": "Laborexperiment",
+	"GW":[-5, -5, -5, -5, 25, 25]
+	},
+	{
+	"Name": "Religiöse Zuflucht",
+	"GW":[0, 10, 20, 0, 0, 0]
+	},
+	{
+	"Name": "Verdreckt",
+	"GW":[10, 10, 10, 10, -20, 10]
+	}	
+]}

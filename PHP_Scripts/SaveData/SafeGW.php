@@ -11,7 +11,8 @@ if(mysqli_connect_errno())
 }
 else
 {
-	
+	$UserID = $_POST['UserID'];
+	$SheetNr =  $_POST['SheetNr'];
 	$AG   		=  $_POST['AG'];
 	$AGplus   	=  $_POST['AGplus'];
 	$AGminus   	=  $_POST['AGminus '];
@@ -30,7 +31,7 @@ else
 	$VE   		=  $_POST['VE '];
 	$VEplus   	=  $_POST['VEplus '];
 	$VEminus   	=  $_POST['VEminus '];
-	
+
 	$query = "INSERT INTO basevalues (AG, AGplus, AGminus, KR, KRplus, KRminus, AU, AUplus, AUminus, RE, REplus, REminus, GE, GEplus, GEminus, VE, VEplus, VEminus) VALUES ('$AG', '$AGplus', '$AGminus', '$KR', '$KRplus', '$KRminus', '$AU', '$AUplus', '$AUminus', '$RE', '$REplus', '$REminus', '$GE', '$GEplus', '$GEminus', '$VE', '$VEplus', '$VEminus')";
 	
 	$result = mysqli_query($connection, $query);

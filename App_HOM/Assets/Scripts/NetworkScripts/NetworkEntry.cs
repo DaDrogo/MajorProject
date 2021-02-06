@@ -5,20 +5,23 @@ using UnityEngine.Networking;
 
 public class NetworkEntry : MonoBehaviour
 {
+    //hier werden alle Daten gespeichert und wiedergegeben
     public PlayerData Data;
 
+    //gibt mithilfe eine PopUps Feedback
     public LoginManager manager;
 
-    //188.34.197.30/php/Register.php
-
+    //startet den Netzwerkaufbau
     public void TestCoroutine(string url)
     {
         StartCoroutine(ConnectDatabase(url));
         Debug.Log(Data.data["UserName"]);
     }
 
+    //erhält eine URl zum verbinden entweder Login oder Register
     public IEnumerator ConnectDatabase(string url)
     {
+        //hier werden die Daten aus Data eingegeben um sie an den Server zu senden
         Debug.Log("Connecting");
         WWWForm form = new WWWForm();
         form.AddField("username", Data.data["UserName"]);
@@ -26,6 +29,7 @@ public class NetworkEntry : MonoBehaviour
         UnityWebRequest request = UnityWebRequest.Post(url, form);
         yield return request.Send();
     
+        //Antwort je nach den Daten, welche gesendet wurden
         if (request.isNetworkError || request.isHttpError)
         {
             //Warning.text = "Networkerror";
@@ -48,16 +52,13 @@ public class NetworkEntry : MonoBehaviour
         }
         else if (request.downloadHandler.text == "Succces")
         {
-            manager.OpenP("Erfolgreich Registriert, sie sind nun eingeloggt.");
             Debug.Log("Registriert.");
             request.Dispose();
         }
         else
         {
-            manager.OpenP("Erfolgreich eingeloggt, bitte weiter.");
             Debug.Log(request.downloadHandler.text + " erfolgreich eingeloggt");
-            //Test soll die ID von PHP bekommen
-            // wird noch getestet und wo es hingehört
+            //speichert die ID des Nutzers, nach dem einloggen. Mit dieser ID kann auf alles zugegriffen werden
             Data.SaveDataString("UserID", request.downloadHandler.text);
             request.Dispose();
             
