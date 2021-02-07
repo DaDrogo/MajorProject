@@ -11,39 +11,24 @@ if(mysqli_connect_errno())
 }
 else
 {
-	$UserID			   =  $_POST['UserID'];
-	$SheetNr		   =  $_POST['SheetNr'];
+	$UserID	=  $_POST['UserID'];
+	$SheetNr =  $_POST['SheetNr'];
 
-$sql = "SELECT AG, AGplus, AGminus, KR, KRplus, KRminus, AU, AUplus, AUminus, RE, REplus, REminus, GE, GEplus, GEminus, VE, VEplus, VEminus FROM basevalues WHERE UserID=$UserID AND SheetNr='$SheetNr'";
-$result = $conn->query($sql);
+	$query = "SELECT AG, AGplus, AGminus, KR, KRplus, KRminus, AU, AUplus, AUminus, RE, REplus, REminus, GE, GEplus, GEminus, VE, VEplus, VEminus FROM basevalues WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
+	$result = mysqli_query($connection, $query);
 
-if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo $row["AG"]. "<br>" ;
-    echo $row["AGplus"]. "<br>"  ;
-	echo $row["AGminus"]. "<br>" ;
-    echo $row["KR"]. "<br>"  ;
-	echo $row["KRplus"]. "<br>" ;
-    echo $row["KRminus"]. "<br>"  ;
-	echo $row["AU"]. "<br>" ;
-    echo $row["AUplus"]. "<br>"  ;
-	echo $row["AUminus"]. "<br>" ;
-    echo $row["RE"]. "<br>"  ;
-	echo $row["REplus"]. "<br>" ;
-    echo $row["REminus"]. "<br>"  ;
-	echo $row["GE"]. "<br>" ;
-    echo $row["GEplus"]. "<br>"  ;
-	echo $row["GEminus"]. "<br>" ;
-    echo $row["VE"]. "<br>"  ;
-	echo $row["VEplus"]. "<br>"  ;
-	echo $row["VEminus"] ;
-
+	if (mysqli_num_rows($result) > 0) 
+	{
+  		// output data of each row
+ 	 	while($row = mysqli_fetch_assoc($result)) 
+		{
+    			echo $row["AG"]." ".$row["AGplus"]." ".$row["AGminus"]." ".$row["KR"]." ".$row["KRplus"]." ".$row["KRminus"]." ".$row["AU"]." ".$row["AUplus"]." ".$row["AUminus"]." ".$row["RE"]." ".$row["REplus"]." ".$row["REminus"]." ".$row["GE"]." ".$row["GEplus"]." ".$row["GEminus"]." ".$row["VE"]." ".$row["VEplus"]." ".$row["VEminus"];
+		}
+	} 
+	else 
+	{
+  		echo "0 results";
 	}
-} 
-else {
-  echo "0 results";
-}
 
-$conn->close();
+}
 ?>

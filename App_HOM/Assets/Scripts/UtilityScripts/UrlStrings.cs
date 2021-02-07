@@ -14,5 +14,6 @@ public class UrlStrings : MonoBehaviour
     public const string SAVE_GW = "188.34.197.30/SafeGW.php";
     public const string GET_SHEETINFOS = "188.34.197.30/GetSheetInfos.php";
     public const string GET_BASEVALUES = "188.34.197.30/GetGW.php";
+    public const string GET_PERSON = "188.34.197.30/GetGW.php";
     public const string UPDATE_USERINFO = "188.34.197.30/UpdateUserInfo.php";
 }

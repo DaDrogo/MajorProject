@@ -9,17 +9,24 @@ public class NetworkUseSheet : MonoBehaviour
     //Hier sollen alle Daten während der Arbeit am Bogen gespeichert und geladen werden können
 
     public PlayerData Data;
+    public CharSheetManager manage;
 
 
     public void GetMultipleObjectsData(string data)
     {
         if (data == "person")
         {
-
+            StartCoroutine(GiveValues(UrlStrings.GET_PERSON, 0));
         }
         else if (data == "baseValue")
         {
 
+            StartCoroutine(GiveValues(UrlStrings.GET_BASEVALUES, 1));
+        }
+        else if (data == "amounts")
+        {
+
+            StartCoroutine(GiveValues(UrlStrings.GET_BASEVALUES, 2));
         }
         else if (data == "item")
         {
@@ -41,7 +48,7 @@ public class NetworkUseSheet : MonoBehaviour
             Debug.Log("Fail");
     }
 
-    public IEnumerator GiveValues(string Url, int type)
+    public IEnumerator GiveValues(string Url,int type)
     {
         Debug.Log("Connecting");
         WWWForm form = new WWWForm();
@@ -57,6 +64,7 @@ public class NetworkUseSheet : MonoBehaviour
         else
         {
             string Texti = request.downloadHandler.text;
+            Debug.Log(Texti);
             ReadString(Texti, type);          
             request.Dispose();
         }
@@ -64,14 +72,32 @@ public class NetworkUseSheet : MonoBehaviour
 
     void ReadString(string Text, int type)
     {
-        string[] textArray = Text.Split(" "[0]);
+        
         if(type == 0)
         {
-            for(int i = 0; i <= textArray.Length; i++)
+            string[] textArray = Text.Split("|"[0]);
+            for (int i = 0; i < textArray.Length; i++)
             {
-
+                manage.PersonStrings[i] = textArray[i];
             }
         }
-        Debug.Log(textArray.Length);
+        else if(type == 1)
+        {
+            string[] textArray = Text.Split(" "[0]);
+            for (int i = 0; i < textArray.Length; i++)
+            {
+                manage.baseValuesInt[i] = int.Parse(textArray[i]);
+                Debug.Log(manage.baseValuesInt[i]);
+                manage.MakebaseValues();
+            }
+        }
+        else if (type == 2)
+        {
+            string[] textArray = Text.Split(" "[0]);
+            for (int i = 0; i < textArray.Length; i++)
+            {
+                manage.amountsInt[i] = int.Parse(textArray[i]);
+            }
+        }
     }
 }

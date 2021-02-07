@@ -37,6 +37,8 @@ public class CharSheetManager : MonoBehaviour
     public string[] itemsStrings;
     public int[] actionsInt;
 
+    public int[] amountsInt;
+
 
 
 
@@ -63,9 +65,21 @@ public class CharSheetManager : MonoBehaviour
     //Danach werden die Modifikationen/Items/Fertigkeiten/Ambitionen geladen
     private void Start()
     {
-        //Debug.Log("UserID" + player.data[DatabaseData.DataId.UserID.ToString()]);
-        //Debug.Log("SheetNr" + player.data[DatabaseData.DataId.SheetNr.ToString()]);
+        baseValuesInt = new int[18];
+        TestChar();
+        Debug.Log("UserID" + player.data[DatabaseData.DataId.UserID.ToString()]);
+        Debug.Log("SheetNr" + player.data[DatabaseData.DataId.SheetNr.ToString()]);
+
         StartCharSheet();
+    }
+
+    void TestChar()
+    {
+
+        player.SaveDataString("UserID", "33");
+        player.SaveDataString("SheetNr", "1");
+        Debug.Log("Created Test"+" + "+ player.data["UserID"]+" + "+player.data["SheetNr"]);
+        
     }
 
     void StartCharSheet()
@@ -81,23 +95,25 @@ public class CharSheetManager : MonoBehaviour
     void MakeTexts()
     {
         GetTxtValues();
-        SetTxtValues();
+        
     }
 
+
+    //startet die Couroutinen um die Daten zu erhalten
     void GetTxtValues()
     {
+
         //Persönliches
-        //Volk
-        //Bestimmung
-        //Ambition
+        //usedSheet.GetMultipleObjectsData("person");
         //BaseValues
-        //Belastung
+        usedSheet.GetMultipleObjectsData("baseValue");
+        //Amounts
+        //usedSheet.GetMultipleObjectsData("amounts");
     }
 
     //Bekommt Daten und füllt diese in eine Liste aus Text Objekten ein
     void SetTxtValues()
     {
-        MakebaseValues();
         ShowValues();
         //Persönliches
         //Volk
@@ -105,6 +121,7 @@ public class CharSheetManager : MonoBehaviour
         //Ambition
         //BaseValues
         //Belastung
+        
     }
 
     //Speichert die Daten von den Objekten aus der Liste auf der Datenbank
@@ -132,15 +149,16 @@ public class CharSheetManager : MonoBehaviour
 
     public string[] valuesForBase;
 
-    void MakebaseValues()
+    public void MakebaseValues()
     {
-        int i= 0;
-        foreach(TMP_InputField ini in BaseValuesInputs)
+        Debug.Log("____________");
+        for(int i = 0; i < baseValuesInt.Length; i++)
         {
-            i++;
-            //hier die Daten aus der Dtaenbank holen
-            ini.text = valuesForBase[i];
+            Debug.Log(i);
+            Debug.Log(baseValuesInt[i]);
+            BaseValuesInputs[i].text = baseValuesInt[i].ToString();
         }
+        ShowValues();
     }
 
 
