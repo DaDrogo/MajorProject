@@ -3,6 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+[System.Serializable]
+public class ItemInfos
+{
+    public string Name;
+    public string type;
+    public string weight;
+    public string description;
+}
+
+[System.Serializable]
+public class ModiInfos
+{
+    public string Name;
+    public string potenzial;
+    public string rank;
+}
+
+[System.Serializable]
+public class AbilitysInfos
+{
+    public string Name;
+    public string type;
+    public string range;
+    public string length;
+    public string costs;
+    public string effekt;
+
+}
+
+
 public class CharSheetManager : MonoBehaviour
 {
     //Plan:
@@ -31,14 +61,29 @@ public class CharSheetManager : MonoBehaviour
 
 
     public string[] PersonStrings;
+    public string[] DestinyStrings;
     public int[] baseValuesInt;
     public int[] proofsInt;
-    public string[] abilitysString;
-    public string[] itemsStrings;
     public int[] actionsInt;
 
+    //0.modi, 1.abil, 2.item
     public int[] amountsInt;
+    public TMP_Dropdown[] List;
 
+    //Modifikationen
+    public ModiInfos[] modis;
+    public string[] modiStrings;
+    public TMP_Text modiTexts;
+
+    //Fähigkeiten
+    public AbilitysInfos[] abilitys;
+    public string[] abilStrings;
+    public TMP_Text abilTexts;
+
+    //Items:
+    public ItemInfos[] items;
+    public string[] itemsStrings;
+    public TMP_InputField[] itemInputs;
 
 
 
@@ -66,6 +111,9 @@ public class CharSheetManager : MonoBehaviour
     private void Start()
     {
         baseValuesInt = new int[18];
+        PersonStrings = new string[9];
+        DestinyStrings = new string[4];
+        amountsInt = new int[3];
         TestChar();
         Debug.Log("UserID" + player.data[DatabaseData.DataId.UserID.ToString()]);
         Debug.Log("SheetNr" + player.data[DatabaseData.DataId.SheetNr.ToString()]);
@@ -78,6 +126,9 @@ public class CharSheetManager : MonoBehaviour
 
         player.SaveDataString("UserID", "33");
         player.SaveDataString("SheetNr", "1");
+        amountsInt[0] = 0;
+        amountsInt[1] = 0;
+        amountsInt[2] = 0;
         Debug.Log("Created Test"+" + "+ player.data["UserID"]+" + "+player.data["SheetNr"]);
         
     }
@@ -85,7 +136,6 @@ public class CharSheetManager : MonoBehaviour
     void StartCharSheet()
     {
         MakeTexts();
-        LoadMultipleObjects();
     }
 
     //_____________________________________________________________________TEXTS____________________________________________________________________________
@@ -104,17 +154,17 @@ public class CharSheetManager : MonoBehaviour
     {
 
         //Persönliches
-        //usedSheet.GetMultipleObjectsData("person");
+        usedSheet.GetMultipleObjectsData("person");
         //BaseValues
         usedSheet.GetMultipleObjectsData("baseValue");
         //Amounts
-        //usedSheet.GetMultipleObjectsData("amounts");
+        usedSheet.GetMultipleObjectsData("amounts");
     }
 
     //Bekommt Daten und füllt diese in eine Liste aus Text Objekten ein
     void SetTxtValues()
     {
-        ShowValues();
+        
         //Persönliches
         //Volk
         //Bestimmung
@@ -132,17 +182,71 @@ public class CharSheetManager : MonoBehaviour
     }
 
     //_____________________________________________________________________Items/Modis/Ambitions/Abilitys____________________________________________________________________________
-
-    void LoadMultipleObjects()
+    public void SafeObyektz(int type)
     {
+        usedSheet.SafeObyekts(type);
+    }
+
+
+    public void StartAfterNetwork()
+    {
+        CreateOptions();
+    }
+
+    //zählt von 0 bis 2 durch um zu erfahren, was vorhanden ist
+    //wenn was vorhanden, werden die Objekte geladen
+    void CreateOptions()
+    {
+        for (int i = 0; i <amountsInt.Length; i++)
+        {
+            if (amountsInt[i] > 0)
+            {
+                GiveOptions(i);
+            }
+            else
+            {
+                GiveNothing(i);
+            }
+        }
+    }
+
+    List<string> DropOptions = new List<string> { };
+
+    void GiveOptions(int obyekt)
+    {
+        for (int i = 0; i > amountsInt[obyekt]; i++)
+        {
+            usedSheet.SafeObyekts(obyekt);
+        }
+    }
+
+    //Dead End
+    void GiveNothing(int drop)
+    {
+        List[drop].ClearOptions();
+        DropOptions.Add("Leer");
+        List[drop].AddOptions(DropOptions);
+    }
+
+
+    void LoadMultipleObjects(int obyekt)
+    {
+       
 
     }
 
     //_____________________________________________________________________Bestimmungen____________________________________________________________________________
 
-    void MakeDestiny()
+    public void MakeDestiny()
     {
-
+        for (int i = 0; i < PersonStrings.Length; i++)
+        {
+            PersonInputs[i].text = PersonStrings[i];
+        }
+        for (int i = 0; i < DestinyStrings.Length; i++)
+        {
+            DestinyTetxs[i].text = DestinyStrings[i];
+        }
     }
 
     //_____________________________________________________________________Grundwerte____________________________________________________________________________
@@ -151,11 +255,8 @@ public class CharSheetManager : MonoBehaviour
 
     public void MakebaseValues()
     {
-        Debug.Log("____________");
         for(int i = 0; i < baseValuesInt.Length; i++)
         {
-            Debug.Log(i);
-            Debug.Log(baseValuesInt[i]);
             BaseValuesInputs[i].text = baseValuesInt[i].ToString();
         }
         ShowValues();
@@ -177,9 +278,7 @@ public class CharSheetManager : MonoBehaviour
     //AU + KR + Körpergewicht in kg
     void ShowValues()
     {
-        Debug.Log("HUH");
         int AG=int.Parse(BaseValuesInputs[0].text) / 10;
-        Debug.Log("HUH");
         int KR=int.Parse(BaseValuesInputs[3].text) / 10;
         int AU=int.Parse(BaseValuesInputs[6].text) / 10;
         int RE=int.Parse(BaseValuesInputs[9].text) / 10;
@@ -204,7 +303,6 @@ public class CharSheetManager : MonoBehaviour
         ActionTexts[12].text = (Armor + GE).ToString();
         ActionTexts[13].text = (RE + VE).ToString();
         ActionTexts[14].text = (AG + GE).ToString();
-        Debug.Log("HAH");
     }
 
     void ShowDices()
