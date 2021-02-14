@@ -14,7 +14,7 @@ public class NetworkCreateSheet : MonoBehaviour
     public void SafeSheet()
     {
         // außerdem fehlt hier noch eine Fehleranalyse
-        StartCoroutine(SafeCharacterSheet());
+        StartCoroutine(SafeCharacterSheet(UrlStrings.SAVE_SHEET));
         StartCoroutine(SaveInfos(UrlStrings.UPDATE_USERINFO));
     }
 
@@ -34,6 +34,12 @@ public class NetworkCreateSheet : MonoBehaviour
     public void SafeGW()
     {
         StartCoroutine(SafeAllGW(UrlStrings.SAVE_GW, 1));
+    }
+
+    public void UpdateCharSheet()
+    {
+        StartCoroutine(SafeCharacterSheet(UrlStrings.UPDATE_PERSON));
+        StartCoroutine(SafeAllGW(UrlStrings.UPDATE_BASEVALUES, 0));
     }
 
     //in Arbeit
@@ -85,7 +91,7 @@ public class NetworkCreateSheet : MonoBehaviour
     //Noch wurden diese nicht ausgewertet, sondern nur all Namen gespeichert um diese dann auch wieder im Bogen anzuzeigen
     //Im Bogen werden diese Namen dann ausgewertet
 
-    public IEnumerator SafeCharacterSheet()
+    public IEnumerator SafeCharacterSheet(string url)
     {
 
         //sendet die Daten des Bogens an die Datenbank
@@ -119,7 +125,7 @@ public class NetworkCreateSheet : MonoBehaviour
         form.AddField("ModiAmount", Data.data["ModiAmount"]);
         form.AddField("AbilityAmount", Data.data["AbilityAmount"]);
         form.AddField("ItemAmount", Data.data["ItemAmount"]);
-        UnityWebRequest request = UnityWebRequest.Post(UrlStrings.SAVE_SHEET, form);
+        UnityWebRequest request = UnityWebRequest.Post(url, form);
         yield return request.Send();
 
         if (request.isNetworkError || request.isHttpError)

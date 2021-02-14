@@ -24,11 +24,16 @@ else
 		{
     			echo $row["ModiAmount"]."|".$row["AbilityAmount"]."|".$row["ItemAmount"];
 		}
+		}
 	} 
 	else 
 	{
   		echo "0 results";
 	}
 
-}
+}	
+	
+
+	
+
 ?>

@@ -25,7 +25,7 @@ public class DatabaseData : MonoBehaviour
         ItemName, ItemType, ItemWeight, ItemDescription,
 
         //Daten einer Fertigkeit
-        AbiName, AbiType, AbiExhaust, AbiEffect,
+        AbiName, AbiType, AbiSchool, AbiRange, AbiCost, AbiLength, AbiEffect,
 
         //Grundwert Daten
         AG, AGplus, AGminus, KR, KRplus, KRminus, AU, AUplus, AUminus, RE, REplus, REminus, GE, GEplus, GEminus, VE, VEplus, VEminus,

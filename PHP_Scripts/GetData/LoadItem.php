@@ -11,20 +11,27 @@ if(mysqli_connect_errno())
 }
 else
 {
-	$UserID = $_POST['UserID'];
-	
-	
-	$query = "INSERT INTO charcreate () VALUES () ";
-	
+
+	$UserID	=  $_POST['UserID'];
+	$SheetNr =  $_POST['SheetNr'];
+	$ItemNr =  $_POST['ItemNr'];
+
+	$query = "SELECT ItemNr, ItemName, ItemType, ItemWeight, ItemDescription FROM charcreate WHERE UserID='$UserID' AND SheetNr='$SheetNr' AND ItemNr='$ItemNr'";
 	$result = mysqli_query($connection, $query);
-	if($result)
+
+	if (mysqli_num_rows($result) > 0) 
 	{
-		echo "ha";
-	}
-	else
+  		// output data of each row
+ 	 	while($row = mysqli_fetch_assoc($result)) 
+		{
+    			echo $row["ItemNr"]."|".$row["ItemName"]."|".$row["ItemType"]."|".$row["ItemWeight"]."|".$row["ItemDescription"];
+		}
+	} 
+	else 
 	{
-		echo "lol";
+  		echo "0 results";
 	}
+
 }
 
 ?>

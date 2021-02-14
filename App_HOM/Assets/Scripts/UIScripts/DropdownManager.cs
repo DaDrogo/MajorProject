@@ -43,7 +43,11 @@ public class DropdownManager : MonoBehaviour
         CreateDropdown();
     }
 
-
+    public void CreateSingleDropdown(int i)
+    {
+        Dropis[i].Dropdowns.ClearOptions();
+        CreateOptions(Dropis[i].OptionsText, Dropis[i].Dropdowns, Dropis[i].OptionsNr);
+    }
  
     //erstelle die Dropdowns
     //funktioniert

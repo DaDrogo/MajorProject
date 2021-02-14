@@ -15,6 +15,7 @@ public class InvokeMyself : MonoBehaviour
 
     void StartInvoke()
     {
-        me.SetValueWithoutNotify(1);
+        me.value = 1;
+        me.value = 0;
     }
 }

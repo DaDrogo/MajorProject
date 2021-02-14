@@ -7,6 +7,9 @@ TagManager:
   - Civ1
   - ID
   - Manager
+  - Dice
+  - Result
+  - Master
   layers:
   - Default
   - TransparentFX

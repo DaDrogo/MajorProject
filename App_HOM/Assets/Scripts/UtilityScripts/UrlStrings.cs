@@ -16,6 +16,11 @@ public class UrlStrings : MonoBehaviour
     public const string GET_BASEVALUES = "188.34.197.30/GetGW.php";
     public const string GET_PERSON = "188.34.197.30/GetPersonal.php";
     public const string GET_AMOUNTS = "188.34.197.30/GetAmounts.php";
+
+    public const string UPDATE_BASEVALUES = "188.34.197.30/UpdateBaseValues.php";
+    public const string UPDATE_PERSON = "188.34.197.30/UpdatePersonal.php";
+    public const string UPDATE_AMOUNTS = "188.34.197.30/UpdateAmounts.php";
+
     public const string UPDATE_USERINFO = "188.34.197.30/UpdateUserInfo.php";
 
     public const string LOAD_MODI = "188.34.197.30/LoadModi.php";

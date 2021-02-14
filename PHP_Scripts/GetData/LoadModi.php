@@ -11,20 +11,27 @@ if(mysqli_connect_errno())
 }
 else
 {
-	$UserID = $_POST['UserID'];
-	
-	
-	$query = "INSERT INTO charcreate () VALUES () ";
-	
+
+	$UserID	=  $_POST['UserID'];
+	$SheetNr =  $_POST['SheetNr'];
+	$ModiNr =  $_POST['ModiNr'];
+
+	$query = "SELECT ModiNr, ModiName, ModiPotenz, ModiLvl FROM modifiactions WHERE UserID='$UserID' AND SheetNr='$SheetNr' AND ModiNr='$ModiNr'";
 	$result = mysqli_query($connection, $query);
-	if($result)
+
+	if (mysqli_num_rows($result) > 0) 
 	{
-		echo "ha";
-	}
-	else
+  		// output data of each row
+ 	 	while($row = mysqli_fetch_assoc($result)) 
+		{
+    			echo $row["ModiNr"]."|".$row["ModiName"]."|".$row["ModiPotenz"]."|".$row["ModiLvl"];
+		}
+	} 
+	else 
 	{
-		echo "lol";
+  		echo "0 Abi results";
 	}
+
 }
 
 ?>

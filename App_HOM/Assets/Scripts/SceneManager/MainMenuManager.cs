@@ -110,7 +110,7 @@ public class MainMenuManager : MonoBehaviour
             ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = "";
             
         }
-        ChangeSceneButton.GetComponent<Button>().interactable = false;
+        ChangeSceneButton.GetComponent<Button>().interactable = true;
     }
 
     public void MakeButtonActive()

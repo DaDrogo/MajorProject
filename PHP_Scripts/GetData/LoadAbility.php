@@ -11,20 +11,27 @@ if(mysqli_connect_errno())
 }
 else
 {
-	$UserID = $_POST['UserID'];
-	
-	
-	$query = "INSERT INTO charcreate () VALUES () ";
-	
+
+	$UserID	=  $_POST['UserID'];
+	$SheetNr =  $_POST['SheetNr'];
+	$AbiNr =  $_POST['AbiNr'];
+
+	$query = "SELECT AbiNr, AbiName, AbiType, AbiSchool, AbiRange, AbiCost, AbiLength, AbiEffect FROM items WHERE UserID='$UserID' AND SheetNr='$SheetNr' AND AbiNr='$AbiNr'";
 	$result = mysqli_query($connection, $query);
-	if($result)
+
+	if (mysqli_num_rows($result) > 0) 
 	{
-		echo "ha";
-	}
-	else
+  		// output data of each row
+ 	 	while($row = mysqli_fetch_assoc($result)) 
+		{
+    			echo $row["AbiNr"]."|".$row["AbiName"]."|".$row["AbiType"]."|".$row["AbiSchool"]."|".$row["AbiRange"]."|".$row["AbiCost"]."|".$row["AbiLength"]."|".$row["AbiEffect"];
+		}
+	} 
+	else 
 	{
-		echo "lol";
+  		echo "0 Abi results";
 	}
+
 }
 
 ?>
