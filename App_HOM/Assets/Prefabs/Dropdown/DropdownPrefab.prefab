@@ -162,6 +162,7 @@ GameObject:
   - component: {fileID: 5469040376837419735}
   - component: {fileID: 2077418772748149656}
   - component: {fileID: 1952652783017525730}
+  - component: {fileID: 6071252781754538446}
   m_Layer: 5
   m_Name: DropdownPrefab
   m_TagString: Untagged
@@ -297,6 +298,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AlphaFadeSpeed: 0.15
+--- !u!114 &6071252781754538446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3813293083817064524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c88237f68b831d14781d07cb61a2b97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4096397483726892304
 GameObject:
   m_ObjectHideFlags: 0

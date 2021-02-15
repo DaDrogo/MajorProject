@@ -7,6 +7,7 @@ public class GetUserInfos : MonoBehaviour
 {
     //hier werden alle Daten gespeichert und wiedergegeben
     public PlayerData Data;
+    public MainMenuManager manager;
 
     //startet Netzwerkaufbau
     public void GetTheInfos(string url)
@@ -31,13 +32,10 @@ public class GetUserInfos : MonoBehaviour
         else
         {
             //Gibt die Anzahl der Sheets aus
+            Debug.Log("Sheets: " + request.downloadHandler.text);
             Data.SaveDataString("UserCharSheets", request.downloadHandler.text);
+            manager.PressCharaktersheet();
             request.Dispose();
         }
     }
-
-
-
-
-
 }

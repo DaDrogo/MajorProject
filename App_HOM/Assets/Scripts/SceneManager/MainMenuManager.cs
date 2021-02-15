@@ -53,7 +53,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject SpawnPosition;
     int classAmount;
     //Speichert die Daten der Charakterbögen
-    private CharValues[] charis;
+    public CharValues[] charis;
 
     //erhält Daten zum speichern
     public TMP_Text[] Inputs;
@@ -73,10 +73,21 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-
+        TestChar();
         userInfos.GetTheInfos(UrlStrings.GET_USERINFO);
         ChangeButton("");
         StartButton.onClick.Invoke();
+        PressCharaktersheet();
+
+
+    }
+
+    void TestChar()
+    {
+
+        ID.SaveDataString("UserID", "34");
+
+
 
     }
 
@@ -124,22 +135,20 @@ public class MainMenuManager : MonoBehaviour
     // wenn der Button gedrückt wird, soll der Spawner eine Zahl bekommen. So oft soll er dann die Liste füllen mit Zahl, Namen und Rasse
 
     //Hier ist die Funktion des Buttons, wenn dieser gedrückt wird.
-    public void PressCharaktersheet()
-    {
-       //string SheetNr = (int.Parse(DatabaseData.DataId.UserCharSheets.ToString()) + 1).ToString();
-       //Debug.Log(SheetNr);
-        DeleteClasses();
-        GetClassAmount();
-        FillList();
-        StartCoroutine(FinishFirst(1));
-
-    }
+   public void PressCharaktersheet()
+   {
+      //string SheetNr = (int.Parse(DatabaseData.DataId.UserCharSheets.ToString()) + 1).ToString();
+      //Debug.Log(SheetNr);
+       
+       GetClassAmount();
+       FillList();
+   
+   }
 
     //Hier wird herausgefunden, wie groß [classAmount] ist durch die ID des Benutzers außerdem wird dann [classAmount]diese Zahl gegeben
     void GetClassAmount()
     {
-        classAmount = int.Parse(ID.data[DatabaseData.DataId.UserCharSheets.ToString()]);       
-        Debug.Log("Klasenanzahl: "+classAmount);
+        classAmount = int.Parse(ID.data["UserCharSheets"]);       
     }
 
     //Nun wird mir der ClassAmount die Liste aus der Datenbank befüllt. Dazu wird auf die Datenbank zugegriffen und mithilfde der ID und der Anzahl der Klassen diese runtergeladen
@@ -154,37 +163,39 @@ public class MainMenuManager : MonoBehaviour
             charis[u].nrs = u + 1;
             StartCoroutine(GetButtonSheetInfos(u + 1));
         }
-
     }
 
     //nun werden die Buttons mit den Werten der Liste gefüllt
-    void CreateCharacterSheetsTheSecon()
+    //___________________________________DropdownLösung_____________________________
+
+    List<string> DropOptions = new List<string> { };
+    public TMP_Dropdown CharClasses;
+
+    void GiveDropdownsOptions()
     {
-        foreach (CharValues i in charis)
+        CharClasses.ClearOptions();    
+        for (int i = 0; i < classAmount; i++)
         {
-            GameObject Temp = Instantiate(CharButton, SpawnPosition.transform);
-            // Gib Button Werte
-            Temp.GetComponentInChildren<TMP_Text>().text = i.nrs.ToString(); ;
-            TMP_Text[] ButtonsText = Temp.GetComponentsInChildren<TMP_Text>();
-            ButtonsText[0].text = i.nrs.ToString();
-            ButtonsText[1].text = i.names;
-            ButtonsText[2].text = i.races;
-            // Weise dem Button einen Ort zu
-            //int zum casten
-            Temp.transform.position = new Vector3(SpawnPosition.transform.position.x, SpawnPosition.transform.position.y - 200 * (i.nrs-1), 0);
+            DropOptions.Add(charis[i].names);
+            Debug.Log(charis[i].names);
         }
+        CharClasses.AddOptions(DropOptions);
+        DropOptions.Clear();
     }
 
-    //zerstöre die Klassem erschaffen, vom Klassenersteller
-    public void DeleteClasses()
+    //zeigt die Werte der Klasse, wenn sie im Dropdown ausgewählt wurde
+    //also am Dropdown befestigt und die Value des DD = tear
+    public TMP_InputField[] classShow;
+    public void DropdownÀctivationClasses(int tear)
     {
-        foreach (Transform child in SpawnPosition.transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
+        classShow[0].text = charis[tear].nrs.ToString();
+        classShow[1].text = charis[tear].names;
+        classShow[2].text = charis[tear].races;
+        
     }
 
-   
+
+
 
     //___________________________________DataManagment_____________________________
 
@@ -197,6 +208,7 @@ public class MainMenuManager : MonoBehaviour
         {
             ID.SaveDataText(Inputs[0]);
             ID.SaveDataText(Inputs[1]);
+            SaveBaseValues();
         }
         //lädt die Daten des Charakterbogens, welcher angeklickt wurde
         else if (scene == 3)
@@ -206,17 +218,40 @@ public class MainMenuManager : MonoBehaviour
         SceneManager.LoadScene(scene);
     }
 
-    //___________________________________Coroutine_____________________________
+    int[] basevalues;
+    JsonManager json;
+    public TextAsset jsonText;
+    void SaveBaseValues()
+    {    
+        ID.SaveDataString("AG", basevalues[0].ToString());
+        ID.SaveDataString("KR", basevalues[1].ToString());
+        ID.SaveDataString("AU", basevalues[2].ToString());
+        ID.SaveDataString("RE", basevalues[3].ToString());
+        ID.SaveDataString("GE", basevalues[4].ToString());
+        ID.SaveDataString("VE", basevalues[5].ToString());
 
-    IEnumerator FinishFirst(float waitTime)
+    }
+    
+    public TMP_InputField[] civValues;
+    public void ShowValues(int value)
     {
-        yield return new WaitForSeconds(waitTime);
-        CreateCharacterSheetsTheSecon();
+
+        basevalues = new int[6];
+        json = new JsonManager();
+        for (int i = 0; i < 6; i++)
+        {
+            basevalues[i] = json.ReadJsonCivValues(jsonText, value, i);
+            civValues[i].text = basevalues[i].ToString();
+        }
     }
 
+    //___________________________________Coroutine_____________________________
+
+    int gotEverythin = 0;
     //eine kleine Network Courotine, weil schneller und einfacher
     public IEnumerator GetButtonSheetInfos(int SheetNr)
     {
+        
         Debug.Log("Connecting");
         WWWForm form = new WWWForm();
         form.AddField("UserID", ID.data["UserID"]);
@@ -234,13 +269,18 @@ public class MainMenuManager : MonoBehaviour
         }
         else
         {
+            gotEverythin++;
             //Speichert die Daten in dem Array vom MainMenuManager
             string Texti = request.downloadHandler.text;
-            string[] textArray = Texti.Split(" "[0]);
-            Debug.Log(textArray[0]);
-            Debug.Log(textArray[1]);
+            string[] textArray = Texti.Split("|"[0]);
             charis[SheetNr - 1].names = textArray[0];
             charis[SheetNr - 1].races = textArray[1];
+            Debug.Log("Name "+charis[SheetNr - 1].names);
+            if (gotEverythin == classAmount)
+            {
+                GiveDropdownsOptions();
+                gotEverythin = 0;
+            }
             request.Dispose();
         }
     }

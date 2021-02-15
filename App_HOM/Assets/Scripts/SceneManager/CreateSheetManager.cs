@@ -140,12 +140,12 @@ public class CreateSheetManager : MonoBehaviour
     {
 
         //Erstelle die GW
-        Data.SaveDataString("AG", baseValues[0].ToString());
-        Data.SaveDataString("KR", baseValues[1].ToString());
-        Data.SaveDataString("AU", baseValues[2].ToString());
-        Data.SaveDataString("RE", baseValues[3].ToString());
-        Data.SaveDataString("GE", baseValues[4].ToString());
-        Data.SaveDataString("VE", baseValues[5].ToString());
+        Data.SaveDataString("AG", (int.Parse(Data.data["AG"])+baseValues[0]).ToString());
+        Data.SaveDataString("KR", (int.Parse(Data.data["KR"])+baseValues[1]).ToString());
+        Data.SaveDataString("AU", (int.Parse(Data.data["AU"])+baseValues[2]).ToString());
+        Data.SaveDataString("RE", (int.Parse(Data.data["RE"])+baseValues[3]).ToString());
+        Data.SaveDataString("GE", (int.Parse(Data.data["GE"])+baseValues[4]).ToString());
+        Data.SaveDataString("VE", (int.Parse(Data.data["VE"])+baseValues[5]).ToString());
     }
 
     //_____________________________________________________________________GRUNDWERTE____________________________________________________________________________

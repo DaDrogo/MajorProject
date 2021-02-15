@@ -1,12 +1,12 @@
-Mit dem Annehmen dieses Zeichen schaltet ihr nach Wahl eine der vier Magni Synti Zauberschulen frei und erhält Stufe 1 in dieser Schule.
-Das Zeichen der Gebietenden Hand führt euch direkt zu einer Gottheit und ihr werdet automatisch zum Rang des Lehrlings erhoben.
-Durch das Zeichen des Offenen Buches erhaltet ihr die Wahl zwischen Quacksalberei oder Dampfwerkerei. Beide schalten spezielle´Ausstattungsgegenstände von Bestimmungen frei.
-Durch die Wahl des Wespenschwarms Zeichen erhält ihr Zugriff auf 3 Fernkampfmanöver.
-Das Haifischzähne Zeichen gibt euch die Möglichkeit 3 Nahkampfmanöver zu erlernen. Dazu gelten Raufen, Flinke Waffen oder Wuchtige Waffen.
-Dieses steinige Zeichen härtet euch in eurer Defensive ab. Deswegen erhaltet ihr erhaltet 3 Abwehrmanöver.
-Durch das Zeichen der Maske erhaltet ihr Zugriff auf 5 Modifikationen in 3 Sozialen Bereichen.
-Das Zeichen des Wasserfalls lässt euch als seinen Träger 5 Modifikationen für 3 Körperbereiche wählen.
-Mit dem Zeichen des Pinsels seid ihr in der Lage 5 Modifikationen auf 3 Wissensbereiche zu verteilen.
-Wenn ihr ein Wolkenzeichen auf dem Rücken tragt, erhaltet ihr die Fähigkeit für 5 Minuten unsichtbar zu sein, wodurch niemand euch sehen kann.
-Durch das Zeichen des Blitzes wird eure Stimme noch über 1000 Metern bei einer Person hörbar sein. Überzeugt andere in Gesprächen mit einem Bonus von +2 Unterhalten.
-Mit dem Zeichen des Vulkans besitzt ihr die Fähigkeit, dass ihr alle in eurer Umgebung mit eurem Gesprächsstoff fesseln könnt. Für bis zu 30 Minuten lassen alle Zuschauer ihr Umfeld außer Acht und fokussieren sich nur auf euch.
+Alles dreht sich im Kreis. Euer Geist wird alles beherrschen. +10 Verstand
+Vertraut auf die Götter und werdet mit Gesundheit und Witz belohnt. +5 Gesundheit, +5 Verstand
+Mit der richtigen Rezeptur erhaltet Ihr Vitalität. +10 Gesundheit
+Überraschung für Euren Feind, der sich in der Ferne in Sicherheit wähnt.  +10 Agilität
+Warnung, niemand sollte Euch zu zu nahe kommen. +10 Kraft
+Feinde sollten nie Eure Kreativität im Kampf unterschätzen. +10 Ausdauer
+Wie ist Eure Identität? Ihr gebt den andern Rätsel auf. +5 Reflexe, +5 Verstand
+Ihr seid schwer zu fassen und doch voller Kraft. +5 Reflexe, +5 Gesundheit
+Eure Geschicklichkeit ist alles und vielseitig einsetzbar. +10 Reflexe
+Man sieht Euch nicht aber Ihr seht alles. +2 Agilität,  +2 Kraft, +2 Ausdauer, +2 Reflexe, +2 Gesundheit
+So schnell wie Ihr ist kein anderer! +4 Agilität, +4 Reflexe, +2 Verstand
+Ihr seid die Sonne, um die sich alles dreht.  +4 Kraft, +4 Ausdauer, +2 Gesundheit

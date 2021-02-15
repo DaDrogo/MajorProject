@@ -53,6 +53,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\UIScripts\AbilityScript.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\PopUpScript.cs" />
     <Compile Include="Assets\Scripts\UtilityScripts\JsonManager.cs" />
     <Compile Include="Assets\Scripts\SceneManager\MainMenuManager.cs" />
     <Compile Include="Assets\Scripts\XOldies\NetworkScript.cs" />
@@ -69,20 +70,21 @@
     <Compile Include="Assets\Scripts\SceneManager\CreateSheetManager.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ButtonSwitch.cs" />
     <Compile Include="Assets\Scripts\UtilityScripts\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\DiceScript.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ButtonScript.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\ActionScript.cs" />
     <Compile Include="Assets\Scripts\XOldies\Pageswiper.cs" />
     <Compile Include="Assets\Scripts\UtilityScripts\DatabaseData.cs" />
     <Compile Include="Assets\Scripts\XOldies\DebugInstanceID.cs" />
     <Compile Include="Assets\Scripts\UIScripts\DropdownManager.cs" />
     <Compile Include="Assets\Scripts\NetworkScripts\NetworkCreateSheet.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\BaseValues.cs" />
     <Compile Include="Assets\Scripts\SceneManager\CharSheetManager.cs" />
     <Compile Include="Assets\Scripts\NetworkScripts\NetworkEntry.cs" />
     <Compile Include="Assets\Scripts\UtilityScripts\GetBaseValues.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\DiceScript.cs" />
     <Compile Include="Assets\Scripts\UIScripts\ResultScript.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\ActionScript.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\BaseValues.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\PopUpScript.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\CivilScript.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\InvokeButton.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Resources\DropBeschr\DropBesti.txt" />
@@ -101,6 +103,7 @@
      <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
      <None Include="Assets\Resources\DropBeschr\DropReli.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+     <None Include="Assets\Resources\Past\CivAbility.txt" />
      <None Include="Assets\Resources\DropBeschr\DropErz.txt" />
      <None Include="Assets\Resources\Past\Ambition(ToDO).txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
@@ -108,6 +111,7 @@
      <None Include="Assets\Later\DropStör.txt" />
      <None Include="Assets\Resources\Person\Religion.txt" />
      <None Include="Assets\Resources\DropBeschr\DropVolk.txt" />
+     <None Include="Assets\Resources\DropBeschr\DropVolkAbil.txt" />
      <None Include="Assets\Resources\DropBeschr\DropUmg.txt" />
      <None Include="Assets\Documentary\CharSheetViewDocu.txt" />
      <None Include="Assets\Resources\Past\Ausbildung.txt" />
@@ -128,14 +132,15 @@
      <None Include="Assets\Resources\DropBeschr\DropAmbi.txt" />
      <None Include="Assets\Resources\Present\Störungen.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+     <None Include="Assets\Resources\Person\CivAbility.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
      <None Include="Assets\Resources\Past\Umgebung.txt" />
      <None Include="Assets\Resources\Person\Völker.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+     <None Include="Assets\Resources\Past\Bestimmung.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
-     <None Include="Assets\Resources\Past\Bestimmung(ToDo).txt" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
      <None Include="Assets\Resources\Person\Fertigkeit.txt" />
     <Reference Include="UnityEngine">

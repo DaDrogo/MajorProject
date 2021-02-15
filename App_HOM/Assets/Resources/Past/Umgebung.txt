@@ -1,12 +1,12 @@
-Aus einem guten Grund seid ihr aus eurer Heimat geflohen und habt alles dafür getan nie wieder heimzukehren.
-Etwas an euch war der Auslöser für eine Jagd auf euer Leben. Das Wandern von Versteck zu Versteck war euer bisheriges Leben.
-Gleich Nomaden habt ihr und eure Familie es bevorzugt zu wandern, anstatt sesshaft zu sein.
-Ihr seid in einer Region aufgewachsen, die oft von blutigen Konflikten heimgesucht wurde.
-Eurerseits hatte die Nähe zur Natur bevorzugt, weitab jeglicher Zivilisation.
-Eure Familie war einzig und allein das Gotteshauss in dem ihr aufgewachsen seid.
-Euer bisheriges Leben war ein Leben hinter Gittern.
-Ein Ort voll von düsteren Machenschaften und gewalttätigen Übergriffen. Sicher ist hier keiner.
-Im Kern einer Metropole herrscht die absolute Sicherheit.
-Ihr wuchst unter den wachsamen Augen von Tutoren auf.
-Ihr seid in einem Ort der Wissenschaft aufgewachsen, doch wart ihr kaum mehr als Material für die etlichen Experimente.
-Eure Kindheit war von extrem verschmutzten Umständen geprägt. Es war ein Leben im Schmutz.
+Aus einem guten Grund seid ihr aus eurer Heimat geflohen und habt alles dafür getan nie wieder heimzukehren. +15 Agilität, +15 Reflexe
+Etwas an euch war der Auslöser für eine Jagd auf euer Leben. Das Wandern von Versteck zu Versteck war euer bisheriges Leben. +10 Agilität, +20 Reflexe
+Gleich Nomaden habt ihr und eure Familie es bevorzugt zu wandern, anstatt sesshaft zu sein. +20 Agilität, +10 Reflexe
+Ihr seid in einer Region aufgewachsen, die oft von blutigen Konflikten heimgesucht wurde. +15 Kraft, +15 Ausdauer
+Eurerseits hatte die Nähe zur Natur bevorzugt, weitab jeglicher Zivilisation. +20 Kraft, +10 Ausdauer
+Eure Familie war einzig und allein das Gotteshauss in dem ihr aufgewachsen seid. +5 Agilität,  +5 Kraft, +5 Ausdauer, +15 Reflexe, +5 Gesundheit, +5 Verstand
+Euer bisheriges Leben war ein Leben hinter Gittern.  +10 Agilität,  +5 Kraft, +5 Ausdauer, +10 Reflexe
+Ein Ort voll von düsteren Machenschaften und gewalttätigen Übergriffen. Sicher ist hier keiner.  +5 Agilität,  +10 Kraft, +10 Ausdauer, +5 Reflexe
+Im Kern einer Metropole herrscht die absolute Sicherheit.  +10 Agilität,  +10 Kraft, +10 Ausdauer, +10 Reflexe, -5 Gesundheit, -5 Verstand
+Ihr wuchst unter den wachsamen Augen von Tutoren auf.  -5 Agilität,  -5 Kraft, -5 Ausdauer, -5 Reflexe, +25 Gesundheit, +25 Verstand
+Ihr seid in einem Ort der Wissenschaft aufgewachsen, doch wart ihr kaum mehr als Material für die etlichen Experimente. +10 Kraft, +20 Ausdauer
+Eure Kindheit war von extrem verschmutzten Umständen geprägt. Es war ein Leben im Schmutz. +10 Agilität,  +10 Kraft, +5 Ausdauer, +10 Reflexe, -20 Gesundheit, +10 Verstand

@@ -1,8 +1,8 @@
-Seit ihr denken könnt wurde euch gesagt, dass ihr zu Größerem bestimmt seid.
-Als Kind wurdet ihr entführt und gegen euren Willen festgehalten.
-Bereits früh wurde euch bewusst, dass Harmonie in eurer Familie ein Fremdwort ist.
-Als Kind wurdet ihr hervorragend umsorgt und es hat euch an nichts gefehlt.
-Als Baby hat man euch gefunden und in anstrengenden Verhältnissen großgezogen.
-Eine fremde Familie musste euch aufnehmen, da ihr früh beide Elternteile verloren habt.
-Seit eurer Geburt kam es zu Gewalt und gar anderer Schandtaten in eurer Familie.
-Um euch wurde rund um die Uhr gesorgt. Ein einfacheres Leben kann man sich nicht vorstellen.
+Seit ihr denken könnt wurde euch gesagt, dass ihr zu Größerem bestimmt seid.  +5 Agilität,  +10 Kraft, +10 Ausdauer, +5 Reflexe
+Als Kind wurdet ihr entführt und gegen euren Willen festgehalten.  +5 Agilität,  +10 Kraft, +5 Reflexe, +20 Gesundheit, -10 Verstand
+Bereits früh wurde euch bewusst, dass Harmonie in eurer Familie ein Fremdwort ist. +10 Agilität,  +5 Kraft, +5 Ausdauer, +10 Reflexe, +10 Gesundheit, -10 Verstand
+Als Kind wurdet ihr hervorragend umsorgt und es hat euch an nichts gefehlt.  +10 Kraft, +20 Ausdauer, +5 Gesundheit, -5 Verstand
+Als Baby hat man euch gefunden und in anstrengenden Verhältnissen großgezogen. +15 Agilität,  +5 Kraft, +5 Ausdauer, +15 Reflexe, -10 Gesundheit
+Eine fremde Familie musste euch aufnehmen, da ihr früh beide Elternteile verloren habt.  +10 Agilität,  +5 Kraft, +5 Ausdauer, +5 Reflexe, -10 Gesundheit, +15 Verstand
+Seit eurer Geburt kam es zu Gewalt und gar anderer Schandtaten in eurer Familie.  +15 Agilität,  +15 Kraft, +15 Ausdauer, +15 Reflexe, -20 Gesundheit, -10 Verstand
+Um euch wurde rund um die Uhr gesorgt. Ein einfacheres Leben kann man sich nicht vorstellen. -5 Agilität,  -5 Kraft, -5 Ausdauer, -5 Reflexe, +25 Gesundheit, +25 Verstand

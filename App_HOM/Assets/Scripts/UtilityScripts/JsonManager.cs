@@ -153,8 +153,18 @@ public class JsonManager : MonoBehaviour
         }
     }
 
+    public int ReadJsonCivValues(TextAsset ai, int line, int value)
+    {
+        string jsoni = ai.text;
+
+            BaseValues destinyInJson = JsonUtility.FromJson<BaseValues>(jsoni);
+            int ergebniss = destinyInJson.base1[line].GW[value];
+            return (ergebniss);
+        
+    }
+
 
     //==============================================
 
-    
+
 }

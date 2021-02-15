@@ -113,11 +113,19 @@ public class DropdownManager : MonoBehaviour
         Dropis[what].DescriptionObject.text = ParseFile(Dropis[what].DescriptionFile, getX());
     }
 
-   // public void OnValueChangeString(TextAsset File)
-   // {
-   //     
-   //     DescriptionText.text = ParseFile(File, getX());
-   // }
+    GameObject civ;
+
+    public void SetCivDropdown(int what)
+    {
+        civ = GameObject.FindGameObjectWithTag("Civ");
+        civ.GetComponent<CivilScript>().OnChange(what);
+    }
+
+    // public void OnValueChangeString(TextAsset File)
+    // {
+    //     
+    //     DescriptionText.text = ParseFile(File, getX());
+    // }
 
     public void OnValueChangeImage(int Drop)
     {

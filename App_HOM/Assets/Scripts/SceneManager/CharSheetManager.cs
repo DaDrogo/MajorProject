@@ -131,7 +131,7 @@ public class CharSheetManager : MonoBehaviour
     void TestChar()
     {
 
-        player.SaveDataString("UserID", "32");
+        player.SaveDataString("UserID", "34");
         player.SaveDataString("SheetNr", "1");
         Debug.Log("Created Test"+" + "+ player.data["UserID"]+" + "+player.data["SheetNr"]);
         
@@ -369,7 +369,10 @@ public class CharSheetManager : MonoBehaviour
         List[nummerofdropdown].ClearOptions();
         if (nummerofdropdown == 0)
         {
-
+            for (int i = 0; i < amountsInt[nummerofdropdown]; i++)
+            {
+                DropOptions.Add(modis[i].Name);
+            }
         }
         else if (nummerofdropdown == 1)
         {

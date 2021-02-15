@@ -10,6 +10,7 @@ TagManager:
   - Dice
   - Result
   - Master
+  - Civ
   layers:
   - Default
   - TransparentFX
