@@ -32,7 +32,7 @@ public class NetworkScript : MonoBehaviour
         form.AddField("username", name);
         form.AddField("passport", "12345");
         UnityWebRequest request = UnityWebRequest.Post(urlRegister, form);
-        yield return request.Send();
+        yield return request.SendWebRequest();
 
         if(request.isNetworkError||request.isHttpError)
         {

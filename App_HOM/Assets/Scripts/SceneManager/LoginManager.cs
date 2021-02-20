@@ -18,12 +18,17 @@ public class LoginManager : MonoBehaviour
     //das PopUp um Feedback an den Nutzer zu senden
     public GameObject PopUp;
 
+    public TMP_Text FailText;
+
+    int buttonType;
+
     //mit dem Zurückbutten die App bedienen
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(side == 0)
+            FailText.enabled = false;
+            if (side == 0)
             {
                 Application.Quit();
             }
@@ -39,29 +44,49 @@ public class LoginManager : MonoBehaviour
     //Wird aufgerufen vom Nutzer um sich einzuloggen
     public void Login()
     {
+        buttonType = 1;
         ID.SaveDataInput(Inputs[0]);
         ID.SaveDataInput(Inputs[1]);
         Entry.TestCoroutine(UrlStrings.LOGIN);
-        OpenP("Erfolgreich eingeloggt, bitte weiter.");
+        
     }
 
     //Wird aufgerufen vom Nutzer um sich zu registrieren
     public void Register()
     {
+        buttonType = 2;
         ID.SaveDataInput(Inputs[2]);
         ID.SaveDataInput(Inputs[3]);
-        Entry.TestCoroutine(UrlStrings.REGISTER);
         ID.SaveDataString("SheetNr", "0");
-        StartCoroutine(FinishFirst(1));
+        Entry.TestCoroutine(UrlStrings.REGISTER);
+    }
+
+    public void SwitchToMenu()
+    {
+        if(buttonType == 1)
+        {
+            OpenP("Erfolgreich eingeloggt, bitte weiter.");
+        }
+        else if(buttonType == 2)
+        {
+            infos.RegisterUserInfos(UrlStrings.SAVE_USERINFO);
+        }
+        buttonType = 0;
         
     }
 
-    //eine kleine ladezeit um die UserID zu erhalten
-    IEnumerator FinishFirst(float waitTime)
+    //falls input schon vorhanden, wird abgebrochen und fehler zurück gegeben
+    public void ShowFail(string fail)
     {
-        yield return new WaitForSeconds(waitTime);
-        infos.RegisterUserInfos(UrlStrings.SAVE_USERINFO);
-        OpenP("Erfolgreich eingeloggt, bitte weiter.");
+        FailText.enabled = true;
+        FailText.text = fail;
+        StartCoroutine(FinishFirst());
+    }
+
+    IEnumerator FinishFirst()
+    {
+        yield return new WaitForSeconds(2);
+        FailText.enabled = false;
     }
 
     //Springt zum Hauptmenü

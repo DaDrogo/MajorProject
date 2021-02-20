@@ -61,7 +61,6 @@ public class CharSheetManager : MonoBehaviour
         //Objects from scene fängt mit dem ersten Object aus dem Inspector an
     public TMP_InputField[] PersonInputs;
     public TMP_InputField[] BaseValuesInputs;
-    public TMP_Text[] DestinyTetxs;
     public TMP_Text[] ActionTexts;
 
 
@@ -118,8 +117,7 @@ public class CharSheetManager : MonoBehaviour
     private void Start()
     {
         baseValuesInt = new int[18];
-        PersonStrings = new string[9];
-        DestinyStrings = new string[4];
+        PersonStrings = new string[13];
         amountsInt = new int[3];
         TestChar();
         Debug.Log("UserID" + player.data[DatabaseData.DataId.UserID.ToString()]);
@@ -130,7 +128,7 @@ public class CharSheetManager : MonoBehaviour
 
     void TestChar()
     {
-
+    
         player.SaveDataString("UserID", "34");
         player.SaveDataString("SheetNr", "1");
         Debug.Log("Created Test"+" + "+ player.data["UserID"]+" + "+player.data["SheetNr"]);
@@ -197,18 +195,16 @@ public class CharSheetManager : MonoBehaviour
         //benötigt die basevalues
         foreach (TMP_InputField inp in BaseValuesInputs)
         {
+            Debug.Log("1");
             player.SaveDataInput(inp);
         }
         //personal values
         foreach (TMP_InputField inp in PersonInputs)
         {
+            Debug.Log("2");
             player.SaveDataInput(inp);
         }
         //bestimmungsvalues
-        foreach (TMP_Text inp in DestinyTetxs)
-        {
-            player.SaveDataText(inp);
-        }
         //Amounts speichern
         player.SaveDataString("ModiAmount", amountsInt[0].ToString());
         player.SaveDataString("AbilityAmount", amountsInt[1].ToString());
@@ -269,7 +265,7 @@ public class CharSheetManager : MonoBehaviour
     public void SafeObyektz(int type)
     {
         usedSheet.SafeObyekts(type);
-        usedSheet.SaveMultipleObjectsData("amounts");
+        usedSheet.SaveMultipleObjectsData(3);
     }
 
     //------fülle Array-------
@@ -284,7 +280,6 @@ public class CharSheetManager : MonoBehaviour
             {
                 Debug.Log("Gewinner"+amountsInt[i]);
                 GiveOptionsAmount(i);
-                StartCoroutine(FinishFirst(1, i));
             }
             else
             {
@@ -295,7 +290,6 @@ public class CharSheetManager : MonoBehaviour
 
     public int optionNr = 1;
 
-
     //wenn das aufgerufen wird, wissen wir items benötigen optionen
     //obyekt = items
     //nun müssen wir wissen wie viel
@@ -303,51 +297,8 @@ public class CharSheetManager : MonoBehaviour
     //nun die optionNr durchlazufen lassen, bis optionen done sind.
     public void GiveOptionsAmount(int obyekt)
     {
-        Debug.Log("Amount: " + amountsInt[obyekt]);
-        if (obyekt == 0)
-        {
-            modis = new ModiInfos[amountsInt[obyekt] + 1];
-            for (int i = 0; i < amountsInt[obyekt]; i++)
-            {
-                modis[i] = new ModiInfos();
-                modis[i].Nr = (i + 1).ToString();
-                usedSheet.GetObyekts(obyekt, i + 1);
-            }
-            StartCoroutine(FinishFirst(1, obyekt));
-        }
-        else if(obyekt == 1)
-        {
-            abilitys = new AbilitysInfos[amountsInt[obyekt] + 1];
-            for (int i = 0; i < amountsInt[obyekt]; i++)
-            {
-                abilitys[i] = new AbilitysInfos();
-                abilitys[i].Nr = (i + 1).ToString();
-                usedSheet.GetObyekts(obyekt, i + 1);
-            }
-            StartCoroutine(FinishFirst(1, obyekt));
-        }
-        else
-        {
-            items = new ItemInfos[amountsInt[obyekt]+1];
-            for (int i = 0; i < amountsInt[obyekt]; i++)
-            {
-                items[i] = new ItemInfos();
-                items[i].Nr = (i + 1).ToString();
-                usedSheet.GetObyekts(obyekt, i + 1);
-            }
-            
-        }
-
-     
+        usedSheet.GetObyekts(obyekt);
     }
-
-    IEnumerator FinishFirst(float waitTime, int obyekt)
-    {
-        yield return new WaitForSeconds(waitTime);
-        GiveDropdownsOptions(obyekt);
-    }
-
-
     //-----------Dropdowns-------
     //Dead End
 
@@ -364,7 +315,7 @@ public class CharSheetManager : MonoBehaviour
         DropOptions.Clear();
     }
     //hier 1 und 2
-    void GiveDropdownsOptions(int nummerofdropdown)
+    public void GiveDropdownsOptions(int nummerofdropdown)
     {
         List[nummerofdropdown].ClearOptions();
         if (nummerofdropdown == 0)
@@ -396,28 +347,82 @@ public class CharSheetManager : MonoBehaviour
 
     public void DropdownÀctivationModi(int tear)
     {
-        modiShow[0].text = modis[tear].Nr;
-        modiShow[1].text = modis[tear].Name;
-        modiShow[2].text = modis[tear].Potenzial;
-        modiShow[3].text = modis[tear].Rank;
+        if (amountsInt[0] > 0)
+        {
+            modiShow[0].text = modis[tear].Nr;
+            modiShow[1].text = modis[tear].Name;
+            modiShow[2].text = modis[tear].Potenzial;
+            modiShow[3].text = modis[tear].Rank;
+        }
+        else
+        {
+            modiShow[0].text = "";
+            modiShow[1].text = "";
+            modiShow[2].text = "";
+            modiShow[3].text = "";
+        }
+
     }
     public void DropdownÀctivationAbil(int tear)
     {
-        abiShow[0].text = abilitys[tear].Name;
-        abiShow[1].text = abilitys[tear].Type;
-        abiShow[2].text = abilitys[tear].School;
-        abiShow[3].text = abilitys[tear].Range;
-        abiShow[4].text = abilitys[tear].Length;
-        abiShow[5].text = abilitys[tear].Costs;
-        abiShow[6].text = abilitys[tear].Effect;
+        if (amountsInt[1] > 0)
+        {
+            abiShow[0].text = abilitys[tear].Name;
+            abiShow[1].text = abilitys[tear].Type;
+            abiShow[2].text = abilitys[tear].School;
+            abiShow[3].text = abilitys[tear].Range;
+            abiShow[4].text = abilitys[tear].Length;
+            abiShow[5].text = abilitys[tear].Costs;
+            abiShow[6].text = abilitys[tear].Effect;
+        }
+        else
+        {
+            abiShow[0].text = "";
+            abiShow[1].text = "";
+            abiShow[2].text = "";
+            abiShow[3].text = "";
+            abiShow[4].text = "";
+            abiShow[5].text = "";
+            abiShow[6].text = "";
+        }
+
 
     }
     public void DropdownÀctivationItem(int tear)
     {
-        itemShow[0].text = items[tear].Name;
-        itemShow[1].text = items[tear].Type;
-        itemShow[2].text = items[tear].Weight;
-        itemShow[3].text = items[tear].Description;
+        if (amountsInt[2] > 0)
+        {
+            itemShow[0].text = items[tear].Name;
+            itemShow[1].text = items[tear].Type;
+            itemShow[2].text = items[tear].Weight;
+            itemShow[3].text = items[tear].Description;
+        }
+        else
+        {
+            itemShow[0].text = "";
+            itemShow[1].text = "";
+            itemShow[2].text = "";
+            itemShow[3].text = "";
+        }
+
+    }
+
+    //nimmt die momenaten nr des dropdowns und updatet sie
+    public void UpdateObyektz(int kinda)
+    {
+        Debug.Log(List[kinda].value);
+        usedSheet.UpdateObyekts(kinda);
+    }
+
+    //nimmt die momenaten nr des dropdowns und löscht sie gleichzeitig wird der amount runtergesetzt, danach wird das Dropdown refresht. vorher wird natürlich noch ein PopUp gemacht ob der nutzer sicher ist
+    public void DeleteObyektz(int kinda)
+    {
+        usedSheet.DeleteObyekts(kinda);
+    }
+    //lädt das Dropdown neu nach einer Veränderung aka. neues Obyektz oder eines weniger
+    public void RefreshDropdown(int dropi)
+    {
+        GiveOptionsAmount(dropi);
     }
 
     //_____________________________________________________________________Bestimmungen____________________________________________________________________________
@@ -427,10 +432,6 @@ public class CharSheetManager : MonoBehaviour
         for (int i = 0; i < PersonStrings.Length; i++)
         {
             PersonInputs[i].text = PersonStrings[i];
-        }
-        for (int i = 0; i < DestinyStrings.Length; i++)
-        {
-            DestinyTetxs[i].text = DestinyStrings[i];
         }
     }
 

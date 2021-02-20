@@ -36,10 +36,9 @@ public class MainMenuManager : MonoBehaviour
     //3. Auswahl der erstellten Fragebögen
 
     //___________________________________Variablen_____________________________
-    
-    //speichert die nächste Scene
-    int scene;
 
+    //zeigt die zukünftige Scene an
+    private int scene;
     //Button der die Scene wechselt
     public GameObject ChangeSceneButton;
 
@@ -50,8 +49,8 @@ public class MainMenuManager : MonoBehaviour
 
     //Zum erstellen der Charakterbögen
     public GameObject CharButton;
-    public GameObject SpawnPosition;
     int classAmount;
+
     //Speichert die Daten der Charakterbögen
     public CharValues[] charis;
 
@@ -73,60 +72,42 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        TestChar();
+        //TestChar();
         userInfos.GetTheInfos(UrlStrings.GET_USERINFO);
-        ChangeButton("");
         StartButton.onClick.Invoke();
         PressCharaktersheet();
 
 
     }
 
-    void TestChar()
-    {
-
-        ID.SaveDataString("UserID", "34");
-
-
-
-    }
+   //void TestChar()
+   //{
+   //    ID.SaveDataString("UserID", "34");
+   //}
 
     public void DeactivatePopUp()
     {
         PopUp.SetActive(false);
     }
-
-    // zum einfachen erstellen von Tabs
-    //benötigt Buttons, denen diese funktion gegeben wird mit dem int, der dem Tab zugeordent ist auf dem Script in dem Array
-
-    public GameObject Active;
-    public GameObject[] Sites;
-
-    public void SwitchSites(int Site)
-    {
-        scene = Site;
-    }
-
     //gib dem Button zum Wechseln der Seite einen Text und aktiviee ihn um auf die nächste Scene zugreifen zu können.
 
-    public void ChangeButton(string text)
+    public void ChangeButton(int future)
     {
-        if (text != "")
+        scene = future; 
+        if (future == 2)
         {
-
-            ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = text;
+            PersonalText();
         }
         else
         {
-            ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = "";
-            
+            ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = "Charakter bearbeiten";
+            //ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = classShow[1].text + "\n" + " bearbeiten";
         }
-        ChangeSceneButton.GetComponent<Button>().interactable = true;
     }
 
-    public void MakeButtonActive()
+    public void PersonalText()
     {
-        ChangeSceneButton.GetComponent<Button>().interactable = true;
+        ChangeSceneButton.GetComponentInChildren<TMP_Text>().text = Inputs[0].text + "\n" + " erstellen";
     }
 
     //_____________________________________________________________________CHARAKTERBÖGENBUTTON____________________________________________________________________________
@@ -190,12 +171,8 @@ public class MainMenuManager : MonoBehaviour
     {
         classShow[0].text = charis[tear].nrs.ToString();
         classShow[1].text = charis[tear].names;
-        classShow[2].text = charis[tear].races;
-        
+        classShow[2].text = charis[tear].races;        
     }
-
-
-
 
     //___________________________________DataManagment_____________________________
 
@@ -229,13 +206,11 @@ public class MainMenuManager : MonoBehaviour
         ID.SaveDataString("RE", basevalues[3].ToString());
         ID.SaveDataString("GE", basevalues[4].ToString());
         ID.SaveDataString("VE", basevalues[5].ToString());
-
     }
     
     public TMP_InputField[] civValues;
     public void ShowValues(int value)
     {
-
         basevalues = new int[6];
         json = new JsonManager();
         for (int i = 0; i < 6; i++)

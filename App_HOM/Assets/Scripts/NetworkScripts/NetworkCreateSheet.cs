@@ -10,18 +10,20 @@ public class NetworkCreateSheet : MonoBehaviour
     [SerializeField]
     private PlayerData Data;
 
+    GameObject manager;
+
     //wird ausgeführt, wenn ein neuer Charakterbogen gespeichert wurde
     public void SafeSheet()
     {
         // außerdem fehlt hier noch eine Fehleranalyse
         StartCoroutine(SafeCharacterSheet(UrlStrings.SAVE_SHEET));
-        StartCoroutine(SaveInfos(UrlStrings.UPDATE_USERINFO));
+        StartCoroutine(SaveInfos(UrlStrings.UPDATE_USERINFO, 0));
     }
 
     //wenn sich ein neuer Nutzer registriert benötigt er neue UserInfos
     public void RegisterUserInfos(string url)
     {
-        StartCoroutine(SaveInfos(url));
+        StartCoroutine(SaveInfos(url, 1));
     }
 
     //lädt die Daten aus der Datenbank auf die PlayerData
@@ -67,7 +69,7 @@ public class NetworkCreateSheet : MonoBehaviour
     //jetzt erstmal für den first case
 
     //erhält zwei URL (Save und Update UserInfo) um auch das zu machen
-    public IEnumerator SaveInfos(string Url)
+    public IEnumerator SaveInfos(string Url, int type)
     {
         Debug.Log("Connecting");
         WWWForm form = new WWWForm();
@@ -83,6 +85,12 @@ public class NetworkCreateSheet : MonoBehaviour
         else
         {
             Debug.Log("Ergebnis: "+request.downloadHandler.text);
+            if(type == 1)
+            {
+                manager = GameObject.FindGameObjectWithTag("manager");
+                manager.GetComponent<LoginManager>().OpenP("Erfolgreich registriert, bitte weiter.");
+            }
+            
             request.Dispose();
         }
     }

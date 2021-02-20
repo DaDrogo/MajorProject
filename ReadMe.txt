@@ -1,0 +1,1 @@
+Diese Datei, soll den Testern dabei helfen, durch das Projekt zu kommen und alles nachzubauen

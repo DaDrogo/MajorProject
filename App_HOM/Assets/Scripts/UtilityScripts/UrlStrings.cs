@@ -30,4 +30,12 @@ public class UrlStrings : MonoBehaviour
     public const string SAFE_MODI = "188.34.197.30/SafeModi.php";
     public const string SAFE_ABILITY = "188.34.197.30/SafeAbility.php";
     public const string SAFE_ITEM = "188.34.197.30/SafeItem.php";
+
+    public const string UPDATE_MODI = "188.34.197.30/UpdateModi.php";
+    public const string UPDATE_ABILITY = "188.34.197.30/UpdateAbility.php";
+    public const string UPDATE_ITEM = "188.34.197.30/UpdateItem.php";
+
+    public const string DELETE_MODI = "188.34.197.30/DeleteModi.php";
+    public const string DELETE_ABILITY = "188.34.197.30/DeleteAbility.php";
+    public const string DELETE_ITEM = "188.34.197.30/DeleteItem.php";
 }

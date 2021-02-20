@@ -22,9 +22,6 @@ public class CreateSheetManager : MonoBehaviour
 
     public TMP_Dropdown[] Dropdowns;
 
-    //sollen aufgerufen werden um Text zu laden und ausgewählt zu sein
-    public TMP_Dropdown[] Invoker;
-
     public int[] baseValues;
 
     //muss noch gemacht werden mit dem Servers
@@ -35,7 +32,7 @@ public class CreateSheetManager : MonoBehaviour
     private void Start()
     {
         //Test
-        
+        //TestChar();
 
         json = new JsonManager();
 
@@ -45,13 +42,16 @@ public class CreateSheetManager : MonoBehaviour
         int SheetNr = int.Parse(Data.data[DatabaseData.DataId.UserCharSheets.ToString()]) + 1;
         Debug.Log("SheetNr: " + SheetNr);
         Debug.Log("UserID" + Data.data[DatabaseData.DataId.UserID.ToString()]);
-        Debug.Log("UserID" + Data.data[DatabaseData.DataId.CharRace.ToString()]);
-        foreach (TMP_Dropdown b in Invoker)
-        {
-            InvokeDropdown(b);
-        }
+        Debug.Log("CharRace" + Data.data[DatabaseData.DataId.CharRace.ToString()]);
     }
-    
+
+    //void TestChar()
+    //{
+    //    Data.SaveDataString("UserID", "34");
+    //    Data.SaveDataString("UserCharSheets", "1");
+    //    Data.SaveDataString("CharRace", "Nuklen");
+    //}
+
     public void CancelSheet()
     {
         SwitchScene(1);

@@ -34,25 +34,30 @@ public class NetworkEntry : MonoBehaviour
         {
             //Warning.text = "Networkerror";
             Debug.LogError("Networkerror");
+            manager.ShowFail("Netzwerkfehler");
         }
         else if (request.downloadHandler.text == "RegisterWrong")
         {
             Debug.Log("Benutzername vergeben.");
+            manager.ShowFail("Benutzername vergeben.");
             request.Dispose();
         }
         else if (request.downloadHandler.text == "WrongUser")
         {
             Debug.Log( "Benutzername falsch.");
+            manager.ShowFail("Benutzername falsch.");
             request.Dispose();
         }
         else if (request.downloadHandler.text == "WrongPass")
         {
             Debug.Log("Passwort falsch.");
+            manager.ShowFail("Passwort falsch.");
             request.Dispose();
         }
         else if (request.downloadHandler.text == "Succces")
         {
             Debug.Log("Registriert.");
+            manager.SwitchToMenu();
             request.Dispose();
         }
         else
@@ -60,6 +65,7 @@ public class NetworkEntry : MonoBehaviour
             Debug.Log(request.downloadHandler.text + " erfolgreich eingeloggt");
             //speichert die ID des Nutzers, nach dem einloggen. Mit dieser ID kann auf alles zugegriffen werden
             Data.SaveDataString("UserID", request.downloadHandler.text);
+            manager.SwitchToMenu();
             request.Dispose();
             
         }

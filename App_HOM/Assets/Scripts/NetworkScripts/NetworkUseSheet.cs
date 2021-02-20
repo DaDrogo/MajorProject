@@ -33,42 +33,27 @@ public class NetworkUseSheet : MonoBehaviour
             Debug.Log("Fail");
     }
 
-    public void SaveMultipleObjectsData(string data)
+    public void SaveMultipleObjectsData(int destroy)
     {
-        if (data == "person")
-        {
-            StartCoroutine(UpdateValues(UrlStrings.UPDATE_PERSON, 0));
-        }
-        else if (data == "baseValue")
-        {
-
-            StartCoroutine(UpdateValues(UrlStrings.UPDATE_BASEVALUES, 1));
-        }
-        else if (data == "amounts")
-        {
-
-            StartCoroutine(UpdateValues(UrlStrings.UPDATE_AMOUNTS, 2));
-        }
-        else
-            Debug.Log("Fail");
+        StartCoroutine(UpdateValues(UrlStrings.UPDATE_AMOUNTS, destroy));
     }
 
-    public void GetObyekts(int obyekt, int amount)
+    public void GetObyekts(int obyekt)
     {
         if (obyekt == 0)
         {
             Debug.Log("Loaded Modi");
-            StartCoroutine(LoadObyektz(UrlStrings.LOAD_MODI, obyekt, amount));
+            StartCoroutine(LoadObyektz(UrlStrings.LOAD_MODI, obyekt, 0));
         }
         else if (obyekt == 1)
         {
             Debug.Log("Loaded Ability");
-            StartCoroutine(LoadObyektz(UrlStrings.LOAD_ABILITY, obyekt, amount));
+            StartCoroutine(LoadObyektz(UrlStrings.LOAD_ABILITY, obyekt, 0));
         }
         else if(obyekt == 2)
         {
             Debug.Log("Loaded Item");
-            StartCoroutine(LoadObyektz(UrlStrings.LOAD_ITEM,obyekt, amount));
+            StartCoroutine(LoadObyektz(UrlStrings.LOAD_ITEM,obyekt, 0));
         }
     }
 
@@ -108,6 +93,59 @@ public class NetworkUseSheet : MonoBehaviour
         }
     }
 
+    public void UpdateObyekts(int obyekt)
+    {
+
+        if (obyekt == 0)
+        {
+            foreach (TMP_InputField inp in manage.modiShow)
+            {
+                Data.SaveDataInput(inp);
+            }
+            StartCoroutine(WataObyektz(UrlStrings.UPDATE_MODI, obyekt));
+
+        }
+        else if (obyekt == 1)
+        {
+
+            foreach (TMP_InputField inp in manage.abiShow)
+            {
+                Data.SaveDataInput(inp);
+            }
+            StartCoroutine(WataObyektz(UrlStrings.UPDATE_ABILITY, obyekt));
+        }
+        else if (obyekt == 2)
+        {
+            //speichern der daten
+
+            foreach (TMP_InputField inp in manage.itemShow)
+            {
+                Data.SaveDataInput(inp);
+            }
+            //verbindung zur datenbank
+            StartCoroutine(WataObyektz(UrlStrings.UPDATE_ITEM, obyekt));
+        }
+    }
+
+    public void DeleteObyekts(int obyekt)
+    {
+        manage.amountsInt[obyekt]--;
+        int nr = manage.List[obyekt].value + 1;
+        if (obyekt == 0)
+        {
+            StartCoroutine(LoadObyektz(UrlStrings.DELETE_MODI, obyekt,1));
+        }
+        else if (obyekt == 1)
+        {
+            StartCoroutine(LoadObyektz(UrlStrings.DELETE_ABILITY, obyekt, 1));
+        }
+        else if (obyekt == 2)
+        {
+            StartCoroutine(LoadObyektz(UrlStrings.DELETE_ITEM, obyekt, 1));
+        }
+        
+    }
+
     public IEnumerator GiveValues(string Url,int type)
     {
         Debug.Log("Connecting");
@@ -135,14 +173,9 @@ public class NetworkUseSheet : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("UserID", Data.data["UserID"]);
         form.AddField("SheetNr", Data.data["SheetNr"]);
-
-        if(type == 2)
-        {
-            form.AddField("ModiAmount", manage.amountsInt[0]);
-            form.AddField("AbilityAmount", manage.amountsInt[1]);
-            form.AddField("ItemAmount", manage.amountsInt[2]);
-        }
-        
+        form.AddField("ModiAmount", manage.amountsInt[0]);
+        form.AddField("AbilityAmount", manage.amountsInt[1]);
+        form.AddField("ItemAmount", manage.amountsInt[2]);        
         UnityWebRequest request = UnityWebRequest.Post(Url, form);
         yield return request.Send();
         if (request.isNetworkError || request.isHttpError)
@@ -152,33 +185,44 @@ public class NetworkUseSheet : MonoBehaviour
         }
         else
         {
-    
-            request.Dispose();
+            if (type == 3)
+            {
+                request.Dispose();
+            }
+            else
+            {
+                manage.RefreshDropdown(type);
+            }
+            
+            
         }
     }
 
 
-    public IEnumerator LoadObyektz(string Url, int type, int amount)
+    public IEnumerator LoadObyektz(string Url, int type, int destroy)
     {
-        
+        int amount = 1;
         Debug.Log("Connecting Obyektz: " + type);
         WWWForm form = new WWWForm();
         form.AddField("UserID", Data.data["UserID"]);
         form.AddField("SheetNr", Data.data["SheetNr"]);
-        //modi
-        if (type == 0)
+        //modi hier müssen die nummern derjänigen hin die gelöscht werden
+        if (destroy == 1)
         {
-            form.AddField("ModiNr", amount);
-        }
-        //abil
-        else if (type == 1)
-        {
-            form.AddField("AbiNr", amount);
-        }
-        //item
-        else if (type == 2)
-        {
-            form.AddField("ItemNr", amount);
+            if (type == 0)
+            {
+                form.AddField("ModiNr", manage.modis[manage.List[type].value].Nr);
+            }
+            //abil
+            else if (type == 1)
+            {
+                form.AddField("AbiNr", manage.abilitys[manage.List[type].value].Nr);
+            }
+            //item
+            else if (type == 2)
+            {
+                form.AddField("ItemNr", manage.items[manage.List[type].value].Nr);
+            }
         }
         UnityWebRequest request = UnityWebRequest.Post(Url, form);
         yield return request.Send();
@@ -189,10 +233,20 @@ public class NetworkUseSheet : MonoBehaviour
         }
         else
         {
-            string Texti = request.downloadHandler.text;
-            ReadObyektz(Texti, type, amount);
-            Debug.Log(request.downloadHandler.text);
-            request.Dispose();
+            if(destroy == 0)
+            {
+                Debug.Log("yeah:"+request.downloadHandler.text);
+                string Texti = request.downloadHandler.text;
+                ReadObyektz(Texti, type);
+                request.Dispose();
+            }
+            else
+            {
+                Debug.Log(request.downloadHandler.text);
+                SaveMultipleObjectsData(type);
+                request.Dispose();
+            }
+
         }
     }
 
@@ -244,6 +298,59 @@ public class NetworkUseSheet : MonoBehaviour
         {
             
             Debug.Log(request.downloadHandler.text);
+            manage.RefreshDropdown(type);
+            request.Dispose();
+        }
+    }
+
+    public IEnumerator WataObyektz(string Url, int type)
+    {
+        int nr = manage.List[type].value + 1;
+        Debug.Log("Connecting Obyektz: " + type);
+        WWWForm form = new WWWForm();
+        form.AddField("UserID", Data.data["UserID"]);
+        form.AddField("SheetNr", Data.data["SheetNr"]);
+
+        //modi
+        if (type == 0)
+        {
+            form.AddField("ModiNr", nr);
+            form.AddField("ModiName", Data.data["ModiName"]);
+            form.AddField("ModiPotenz", Data.data["ModiPotenz"]);
+            form.AddField("ModiLvl", Data.data["ModiLvl"]);
+        }
+        //abil
+        else if (type == 1)
+        {
+            form.AddField("AbiNr", nr);
+            form.AddField("AbiName", Data.data["AbiName"]);
+            form.AddField("AbiType", Data.data["AbiType"]);
+            form.AddField("AbiSchool", Data.data["AbiSchool"]);
+            form.AddField("AbiRange", Data.data["AbiRange"]);
+            form.AddField("AbiCost", Data.data["AbiCost"]);
+            form.AddField("AbiLength", Data.data["AbiLength"]);
+            form.AddField("AbiEffect", Data.data["AbiEffect"]);
+        }
+        //item
+        else if (type == 2)
+        {            
+            form.AddField("ItemNr", nr);
+            form.AddField("ItemName", Data.data["ItemName"]);
+            form.AddField("ItemType", Data.data["ItemType"]);
+            form.AddField("ItemWeight", Data.data["ItemWeight"]);
+            form.AddField("ItemDescription", Data.data["ItemDescription"]);
+        }
+        UnityWebRequest request = UnityWebRequest.Post(Url, form);
+        yield return request.Send();
+        if (request.isNetworkError || request.isHttpError)
+        {
+            //Warning.text = "Networkerror";
+            Debug.LogError("Networkerror");
+        }
+        else
+        {
+            Debug.Log(request.downloadHandler.text);
+            manage.RefreshDropdown(type);
             request.Dispose();
         }
     }
@@ -258,11 +365,6 @@ public class NetworkUseSheet : MonoBehaviour
             {
                 manage.PersonStrings[i] = textArray[i];
                 
-            }
-            for (int i = 9; i < 13; i++)
-            {
-                manage.DestinyStrings[i-9] = textArray[i];
-
             }
             manage.MakeDestiny();
         }
@@ -287,44 +389,57 @@ public class NetworkUseSheet : MonoBehaviour
         }
     }
 
-    void ReadObyektz(string text, int type, int amount)
+    void ReadObyektz(string text, int type)
     {
+        
         string[] textArray = text.Split("|"[0]);
         //modi
         if (type == 0)
         {
-            Debug.Log("ACHTUNG");
-            Debug.Log(textArray[0]);
-            Debug.Log(textArray[1]);
-            manage.modis[amount - 1].Nr = textArray[0];
-            manage.modis[amount - 1].Name = textArray[1];
-            manage.modis[amount - 1].Potenzial = textArray[2];
-            manage.modis[amount - 1].Rank = textArray[3];
+            manage.modis = new ModiInfos[manage.amountsInt[type] + 1];
+            for (int i = 0; i < manage.amountsInt[type]; i++)
+            {
+                manage.modis[i] = new ModiInfos();
+                manage.modis[i].Nr = textArray[0+(4*i)];
+                manage.modis[i].Name = textArray[1 + (4 * i)];
+                manage.modis[i].Potenzial = textArray[2 + (4 * i)];
+                manage.modis[i].Rank = textArray[3 + (4 * i)];
+            }            
             //form.AddField("ModiNr", Data.data["ModiNr"]);
         }
         //abil
         else if (type == 1)
         {
-            manage.abilitys[amount - 1].Nr = textArray[0];
-            manage.abilitys[amount - 1].Name = textArray[1];
-            manage.abilitys[amount - 1].Type = textArray[2];
-            manage.abilitys[amount - 1].School = textArray[3];
-            manage.abilitys[amount - 1].Range = textArray[4];
-            manage.abilitys[amount - 1].Length = textArray[5];
-            manage.abilitys[amount - 1].Costs = textArray[6];
-            manage.abilitys[amount - 1].Effect = textArray[7];
+            manage.abilitys = new AbilitysInfos[manage.amountsInt[type] + 1];
+            for (int i = 0; i < manage.amountsInt[type]; i++)
+            {
+                manage.abilitys[i] = new AbilitysInfos();
+                manage.abilitys[i].Nr = textArray[0 + (8 * i)];
+                manage.abilitys[i].Name = textArray[1 + (8 * i)];
+                manage.abilitys[i].Type = textArray[2 + (8 * i)];
+                manage.abilitys[i].School = textArray[3 + (8 * i)];
+                manage.abilitys[i].Range = textArray[4 + (8 * i)];
+                manage.abilitys[i].Length = textArray[5 + (8* i)];
+                manage.abilitys[i].Costs = textArray[6 + (8 * i)];
+                manage.abilitys[i].Effect = textArray[7 + (8 * i)];
+            }            
             //.AddField("AbiNr", Data.data["AbiNr"]);
         }
         //item
         else if (type == 2)
         {
+            manage.items = new ItemInfos[manage.amountsInt[type] + 1];
+            for (int i = 0; i < manage.amountsInt[type]; i++)
+            {
+                manage.items[i] = new ItemInfos();
+                manage.items[i].Nr = textArray[0 + (5 * i)];
+                manage.items[i].Name = textArray[1 + (5 * i)];
+                manage.items[i].Type = textArray[2 + (5 * i)];
+                manage.items[i].Weight = textArray[3 + (5 * i)];
+                manage.items[i].Description = textArray[4 + (5 * i)];
 
-            manage.items[amount - 1].Nr = textArray[0];
-            manage.items[amount - 1].Name = textArray[1];
-            manage.items[amount - 1].Type = textArray[2];
-            manage.items[amount - 1].Weight = textArray[3];
-            manage.items[amount - 1].Description = textArray[4];
-
+            }
         }
+        manage.GiveDropdownsOptions(type);
     }
 }
