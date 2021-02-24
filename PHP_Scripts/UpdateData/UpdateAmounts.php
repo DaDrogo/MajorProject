@@ -17,7 +17,7 @@ else
 	$AbilityAmount = $_POST['AbilityAmount'];
 	$ItemAmount = $_POST['ItemAmount'];
 	
-	$query = "UPDATE charcreate SET ModiAmount ='$ModiAmount' AND AbilityAmount ='$AblilityAmount' AND ItemAmount='$ItemAmount'  WHERE UserID = '$UserID' AND UserCharSheets = '$SheetNr'";
+	$query = "UPDATE charcreate SET ModiAmount ='$ModiAmount' , AbilityAmount ='$AbilityAmount' , ItemAmount='$ItemAmount'  WHERE UserID = '$UserID' AND SheetNr = '$SheetNr'";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

@@ -12,14 +12,19 @@ if(mysqli_connect_errno())
 else
 {
 	$UserID 	 	= $_POST['UserID'];
-	$CharSheetNr 	= $_POST['CharSheetNr'];
+	$SheetNr		= $_POST['SheetNr'];
+	$AbiNr 	 		= $_POST['AbiNr'];
 	$AbiName 	 	= $_POST['AbiName'];
 	$AbiType	 	= $_POST['AbiType'];
-	$AbiExhaust	 	= $_POST['AbiExhaust'];
-	$AbiEffect		= $_POST['AbiEffect'];	
+	$AbiSchool	 	= $_POST['AbiSchool'];
+	$AbiRange		= $_POST['AbiRange'];
+	$AbiCost		= $_POST['AbiCost'];
+	$AbiLength		= $_POST['AbiLength'];
+	$AbiEffect		= $_POST['AbiEffect'];
 	
 	
-	$query = "INSERT INTO abilitys (UserID, CharSheetNr, AbiName, AbiType, AbiExhaust, AbiEffect) VALUES ('$UserID', '$CharSheetNr', '$AbiName', '$AbiType', '$AbiExhaust', '$AbiEffect') ";
+	
+	$query = "INSERT INTO abilitys (UserID, SheetNr,AbiNr, AbiName, AbiType, AbiSchool,AbiRange,AbiCost,AbiLength, AbiEffect) VALUES ('$UserID', '$SheetNr','$AbiNr', '$AbiName', '$AbiType', '$AbiSchool','$AbiRange','$AbiCost','$AbiLength', '$AbiEffect') ";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class CreateSheetManager : MonoBehaviour
 {
+    public bool test = false;
+
     public NetworkCreateSheet SaveData;
     public PlayerData Data;
 
@@ -31,8 +33,10 @@ public class CreateSheetManager : MonoBehaviour
 
     private void Start()
     {
-        //Test
-        //TestChar();
+        if (test)
+        {
+            TestChar();
+        }
 
         json = new JsonManager();
 
@@ -45,12 +49,12 @@ public class CreateSheetManager : MonoBehaviour
         Debug.Log("CharRace" + Data.data[DatabaseData.DataId.CharRace.ToString()]);
     }
 
-    //void TestChar()
-    //{
-    //    Data.SaveDataString("UserID", "34");
-    //    Data.SaveDataString("UserCharSheets", "1");
-    //    Data.SaveDataString("CharRace", "Nuklen");
-    //}
+    void TestChar()
+    {
+        Data.SaveDataString("UserID", "34");
+        Data.SaveDataString("UserCharSheets", "1");
+        Data.SaveDataString("CharRace", "Nuklen");
+    }
 
     public void CancelSheet()
     {

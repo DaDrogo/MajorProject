@@ -235,7 +235,6 @@ public class NetworkUseSheet : MonoBehaviour
         {
             if(destroy == 0)
             {
-                Debug.Log("yeah:"+request.downloadHandler.text);
                 string Texti = request.downloadHandler.text;
                 ReadObyektz(Texti, type);
                 request.Dispose();
@@ -405,8 +404,9 @@ public class NetworkUseSheet : MonoBehaviour
                 manage.modis[i].Potenzial = textArray[2 + (4 * i)];
                 manage.modis[i].Rank = textArray[3 + (4 * i)];
             }            
-            //form.AddField("ModiNr", Data.data["ModiNr"]);
         }
+
+
         //abil
         else if (type == 1)
         {

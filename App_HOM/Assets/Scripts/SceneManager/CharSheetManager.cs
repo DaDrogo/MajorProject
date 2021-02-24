@@ -53,7 +53,9 @@ public class CharSheetManager : MonoBehaviour
     //
     //_____________________________________________________________________VARIABLES____________________________________________________________________________
 
-        //Network
+    public bool test = false;
+
+    //Network
     public PlayerData player;
     public NetworkUseSheet usedSheet;
     public NetworkCreateSheet createdSheet;
@@ -116,23 +118,23 @@ public class CharSheetManager : MonoBehaviour
     //Danach werden die Modifikationen/Items/Fertigkeiten/Ambitionen geladen
     private void Start()
     {
+        if (test)
+        {
+            TestChar();
+        }
         baseValuesInt = new int[18];
         PersonStrings = new string[13];
         amountsInt = new int[3];
-        TestChar();
         Debug.Log("UserID" + player.data[DatabaseData.DataId.UserID.ToString()]);
         Debug.Log("SheetNr" + player.data[DatabaseData.DataId.SheetNr.ToString()]);
-
         StartCharSheet();
     }
 
     void TestChar()
-    {
-    
+    {   
         player.SaveDataString("UserID", "34");
         player.SaveDataString("SheetNr", "1");
-        Debug.Log("Created Test"+" + "+ player.data["UserID"]+" + "+player.data["SheetNr"]);
-        
+        Debug.Log("Created Test"+" + "+ player.data["UserID"]+" + "+player.data["SheetNr"]);        
     }
 
     void StartCharSheet()
@@ -154,6 +156,7 @@ public class CharSheetManager : MonoBehaviour
     {
         SaveUp.GetComponentInChildren<TMP_Text>().text = "Möchtest du deinen Charakterbogen speichern?";
     }
+
     public void Succes()
     {
         suceder++;
@@ -188,28 +191,24 @@ public class CharSheetManager : MonoBehaviour
         SceneManager.LoadScene(1);
     }
     //speichert die Daten zwischen
+
     void DetermineValues()
     {
-        //benötigt die person Daten
-
-        //benötigt die basevalues
         foreach (TMP_InputField inp in BaseValuesInputs)
         {
             Debug.Log("1");
             player.SaveDataInput(inp);
         }
-        //personal values
         foreach (TMP_InputField inp in PersonInputs)
         {
             Debug.Log("2");
             player.SaveDataInput(inp);
         }
-        //bestimmungsvalues
-        //Amounts speichern
-        player.SaveDataString("ModiAmount", amountsInt[0].ToString());
-        player.SaveDataString("AbilityAmount", amountsInt[1].ToString());
-        player.SaveDataString("ItemAmount", amountsInt[2].ToString());
-        }
+    player.SaveDataString("ModiAmount", amountsInt[0].ToString());
+    player.SaveDataString("AbilityAmount", amountsInt[1].ToString());
+    player.SaveDataString("ItemAmount", amountsInt[2].ToString());
+    }
+
     //_____________________________________________________________________TEXTS____________________________________________________________________________
 
     //bekommt die Dtaen aus der Bank und setzt sie in eine Liste ein
@@ -272,13 +271,14 @@ public class CharSheetManager : MonoBehaviour
 
     //zählt von 0 bis 2 durch um zu erfahren, was vorhanden ist
     //wenn was vorhanden, werden die Objekte geladen
+
+
     void CreateOptions()
     {
         for (int i = 0; i <amountsInt.Length; i++)
         {
             if (amountsInt[i] > 0)
             {
-                Debug.Log("Gewinner"+amountsInt[i]);
                 GiveOptionsAmount(i);
             }
             else
@@ -462,6 +462,8 @@ public class CharSheetManager : MonoBehaviour
     //[Ag + Re + 1w6]
     //Maximales Tragegewicht
     //AU + KR + Körpergewicht in kg
+
+
     public void ShowValues()
     {
         int AG=(int.Parse(BaseValuesInputs[0].text)+int.Parse(BaseValuesInputs[1].text)-int.Parse(BaseValuesInputs[2].text) )/ 10;

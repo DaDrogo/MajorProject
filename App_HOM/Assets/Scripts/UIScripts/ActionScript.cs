@@ -11,6 +11,8 @@ public class ActionScript : MonoBehaviour
 
     //wenn Button gedrückt wurde, soll in Text die zu würfelnden würfel angezeigt werden
     //als bekommt Zahl als Input und gibt string als Output zum Text
+
+
     public void GetValue()
     {
         Master = GameObject.FindGameObjectWithTag("Master");

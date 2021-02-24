@@ -61,7 +61,6 @@
     <Compile Include="Assets\Scripts\SceneManager\LoginManager.cs" />
     <Compile Include="Assets\Scripts\NetworkScripts\GetUserInfos.cs" />
     <Compile Include="Assets\Scripts\UIScripts\CivilScript.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\AncientManager.cs" />
     <Compile Include="Assets\Scripts\XOldies\PersonCreationScript.cs" />
     <Compile Include="Assets\Scripts\XOldies\CharButtonScript.cs" />
     <Compile Include="Assets\Scripts\UIScripts\InvokeDropdown.cs" />
@@ -81,11 +80,10 @@
     <Compile Include="Assets\Scripts\UtilityScripts\DropdownManager.cs" />
     <Compile Include="Assets\Scripts\NetworkScripts\NetworkCreateSheet.cs" />
     <Compile Include="Assets\Scripts\UIScripts\BaseValues.cs" />
+    <Compile Include="Assets\Scripts\UIScripts\ChangeIt.cs" />
     <Compile Include="Assets\Scripts\SceneManager\CharSheetManager.cs" />
     <Compile Include="Assets\Scripts\NetworkScripts\NetworkEntry.cs" />
     <Compile Include="Assets\Scripts\UtilityScripts\GetBaseValues.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\ResultScript.cs" />
-    <Compile Include="Assets\Scripts\UIScripts\ChangeIt.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Resources\DropBeschr\DropBesti.txt" />

@@ -12,11 +12,11 @@ if(mysqli_connect_errno())
 else
 {
 	$UserID = $_POST['UserID'];
-	$UserCharSheets = $_POST['UserCharSheets'];
+	$SheetNr= $_POST['SheetNr'];
 	
 	
 	
-	$query = "INSERT INTO userinfo (UserID, UserCharSheets) VALUES ('$UserID','$UserCharSheets') ";
+	$query = "INSERT INTO userinfo (UserID, UserCharSheets) VALUES ('$UserID','$SheetNr') ";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

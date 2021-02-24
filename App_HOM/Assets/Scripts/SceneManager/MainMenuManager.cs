@@ -37,6 +37,8 @@ public class MainMenuManager : MonoBehaviour
 
     //___________________________________Variablen_____________________________
 
+    public bool test =false;
+
     //zeigt die zukünftige Scene an
     private int scene;
     //Button der die Scene wechselt
@@ -72,7 +74,10 @@ public class MainMenuManager : MonoBehaviour
 
     private void Start()
     {
-        //TestChar();
+        if (test)
+        {
+            TestChar();
+        }
         userInfos.GetTheInfos(UrlStrings.GET_USERINFO);
         StartButton.onClick.Invoke();
         PressCharaktersheet();
@@ -80,10 +85,10 @@ public class MainMenuManager : MonoBehaviour
 
     }
 
-   //void TestChar()
-   //{
-   //    ID.SaveDataString("UserID", "34");
-   //}
+    void TestChar()
+    {
+        ID.SaveDataString("UserID", "37");
+    }
 
     public void DeactivatePopUp()
     {
@@ -169,9 +174,24 @@ public class MainMenuManager : MonoBehaviour
     public TMP_InputField[] classShow;
     public void DropdownÀctivationClasses(int tear)
     {
-        classShow[0].text = charis[tear].nrs.ToString();
-        classShow[1].text = charis[tear].names;
-        classShow[2].text = charis[tear].races;        
+        if (charis.Length == 0)
+        {
+            CharClasses.ClearOptions();
+            DropOptions.Add("leer");
+            CharClasses.AddOptions(DropOptions);
+            DropOptions.Clear();
+
+            classShow[0].text = "leer";
+            classShow[1].text = "leer";
+            classShow[2].text = "leer";
+        }
+        else
+        {
+            classShow[0].text = charis[tear].nrs.ToString();
+            classShow[1].text = charis[tear].names;
+            classShow[2].text = charis[tear].races;
+            ID.SaveDataInput(classShow[0]);
+        }
     }
 
     //___________________________________DataManagment_____________________________

@@ -31,9 +31,15 @@ public class DiceScript : MonoBehaviour
         }
     }
 
+    int Randomizer(int max)
+    {
+        return Random.Range(0, max);
+    }
+
     string getDice(int value)
     {
         string dice = "";
+
         if (value <= 4)
         {
             dices = Randomizer(5) + " ";
@@ -67,8 +73,5 @@ public class DiceScript : MonoBehaviour
         return dice;
     }
 
-    int Randomizer(int max)
-    {
-        return Random.Range(0, max);
-    }
+
 }

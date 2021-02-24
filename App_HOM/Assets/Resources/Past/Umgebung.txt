@@ -1,6 +1,6 @@
 Aus einem guten Grund seid ihr aus eurer Heimat geflohen und habt alles dafür getan nie wieder heimzukehren. +15 Agilität, +15 Reflexe
 Etwas an euch war der Auslöser für eine Jagd auf euer Leben. Das Wandern von Versteck zu Versteck war euer bisheriges Leben. +10 Agilität, +20 Reflexe
-Gleich Nomaden habt ihr und eure Familie es bevorzugt zu wandern, anstatt sesshaft zu sein. +20 Agilität, +10 Reflexe
+Ihr und eure Familie habt es bevorzugt zu wandern, anstatt sesshaft zu sein. +20 Agilität, +10 Reflexe
 Ihr seid in einer Region aufgewachsen, die oft von blutigen Konflikten heimgesucht wurde. +15 Kraft, +15 Ausdauer
 Eurerseits hatte die Nähe zur Natur bevorzugt, weitab jeglicher Zivilisation. +20 Kraft, +10 Ausdauer
 Eure Familie war einzig und allein das Gotteshauss in dem ihr aufgewachsen seid. +5 Agilität,  +5 Kraft, +5 Ausdauer, +15 Reflexe, +5 Gesundheit, +5 Verstand

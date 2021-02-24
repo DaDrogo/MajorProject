@@ -87,7 +87,7 @@ public class NetworkCreateSheet : MonoBehaviour
             Debug.Log("Ergebnis: "+request.downloadHandler.text);
             if(type == 1)
             {
-                manager = GameObject.FindGameObjectWithTag("manager");
+                manager = GameObject.FindGameObjectWithTag("Manager");
                 manager.GetComponent<LoginManager>().OpenP("Erfolgreich registriert, bitte weiter.");
             }
             

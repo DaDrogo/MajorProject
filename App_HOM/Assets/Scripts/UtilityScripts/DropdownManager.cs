@@ -59,8 +59,6 @@ public class DropdownManager : MonoBehaviour
             CreateOptions(i.OptionsText, i.Dropdowns, i.OptionsNr);
         }
     }
-    //Tmp reference oder value erzeugt einen Dropdown
-    //_____________________________________Problem_______________________________________-
     void CreateOptions(TextAsset File,TMP_Dropdown Down, int Options)
     {
          for (int i = 0; i < Options; i++)
@@ -77,7 +75,6 @@ public class DropdownManager : MonoBehaviour
     //gibt den Optionen oder dem Text eine Schrift
     private string ParseFile(TextAsset File, int Nr)
     {
-        //muss noch überarbeitet werden suche des Speicherorts
         //TXT Dateien aus dem Server holen
         string[] Text = File.text.Split("\n"[0]);
         return (Text[Nr]);
@@ -103,9 +100,7 @@ public class DropdownManager : MonoBehaviour
     //stellt die nummer des gewählten Objekts fest
     public void OnValueChange(int Drop)
     {
-        setX(Drop);
-        
-        
+        setX(Drop);       
     }
     //ändert den Text der beschreibung
     public void SetDropdown(int what)

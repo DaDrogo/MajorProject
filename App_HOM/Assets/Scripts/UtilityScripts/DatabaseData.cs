@@ -13,7 +13,8 @@ public class DatabaseData : MonoBehaviour
         UserCharSheets, SheetNr,
 
         //Speicherung der festen String Werte eines Charakters
-        CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor,CharSkinColor, CharGender, CharLanguage, CharReligion, CharDestiny, CharDestinyLevel, CharAmbition, ModiAmount, AbilityAmount, ItemAmount,
+        CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor,CharSkinColor, CharGender,
+        CharLanguage, CharReligion, CharDestiny, CharDestinyLevel, CharAmbition, ModiAmount, AbilityAmount, ItemAmount,
         
         //wird für die GW AUswertung benötigt
         CharFeature, CharEducation, CharEnvironment, CharTraining,
@@ -28,10 +29,8 @@ public class DatabaseData : MonoBehaviour
         AbiName, AbiType, AbiSchool, AbiRange, AbiCost, AbiLength, AbiEffect,
 
         //Grundwert Daten
-        AG, AGplus, AGminus, KR, KRplus, KRminus, AU, AUplus, AUminus, RE, REplus, REminus, GE, GEplus, GEminus, VE, VEplus, VEminus,
+        AG, AGplus, AGminus, KR, KRplus, KRminus, AU, AUplus, AUminus, RE, REplus, REminus, GE, GEplus, GEminus, VE, VEplus, VEminus
 
-        //Erhlt nach dem Erfolg von Ambitionen für neue Bestimmungen 
-        ProfDeath, ProfDeathII, ProfLife, ProfLifeII, ProfFriend, ProfFriendII, ProfLonely, ProfLonelyII, ProfMind, ProfMindII, ProdDestiny, ProfDestinyII, ProfGreed, ProfGreedII, ProfZero, ProfZeroII
 
     }
 

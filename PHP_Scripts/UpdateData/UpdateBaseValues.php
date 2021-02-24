@@ -33,7 +33,7 @@ else
 	$VEminus   	=  $_POST['VEminus'];
 
 
-	$query = "UPDATE basevalues SET AG = '$AG', AGplus= '$AGplus', AGminus= '$AGminus', KR= '$KR', KRplus= '$KRplus', KRminus= '$KRminus', AU= '$AU', AUplus= '$AUplus', AUminus= 'AUminus$', RE= '$RE', REplus= '$REplus', REminus= '$REminus', GE= '$GE', GEplus= '$GEplus', GEminus= '$GEminus', VE= '$VE', VEplus= '$VEplus', VEminus = '$VEminus' WHERE UserID = '$UserID' AND SheetNr = '$SheetNr'";
+	$query = "UPDATE basevalues SET AG = '$AG', AGplus= '$AGplus', AGminus= '$AGminus', KR= '$KR', KRplus= '$KRplus', KRminus= '$KRminus', AU= '$AU', AUplus= '$AUplus', AUminus= '$AUminus', RE= '$RE', REplus= '$REplus', REminus= '$REminus', GE= '$GE', GEplus= '$GEplus', GEminus= '$GEminus', VE= '$VE', VEplus= '$VEplus', VEminus = '$VEminus' WHERE UserID = '$UserID' AND SheetNr = '$SheetNr'";
 
 	
 	$result = mysqli_query($connection, $query);
