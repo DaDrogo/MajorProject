@@ -1,7 +1,10 @@
+kurzbeschreibung
+
 # MajorProject
  Medienprojekt für die Bachelorarbeit
- 
- 16.09.2020
- Erstellt für eine App
-	Deswegen muss android aktiviert werden.
-	Sonst wurde noch nix geändert
+ Version: 1.0
+1. Projekt beschreibung
+2. Entwicklungsumgebung
+3. wie ist das Projekt gebaut
+4. Mitarbeit am Projekt
+5. links zu weiteren Informationen
