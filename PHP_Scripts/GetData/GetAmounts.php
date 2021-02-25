@@ -14,7 +14,7 @@ else
 	$UserID	=  $_POST['UserID'];
 	$SheetNr =  $_POST['SheetNr'];
 
-	$query = "SELECT ModiAmount, AbilityAmount, ItemAmount FROM charcreate WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
+	$query = "SELECT ModiAmount, AbilityAmount, ItemAmount FROM charcreated WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
 	$result = mysqli_query($connection, $query);
 
 	if (mysqli_num_rows($result) > 0) 

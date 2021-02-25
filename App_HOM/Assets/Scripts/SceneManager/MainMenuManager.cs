@@ -80,14 +80,13 @@ public class MainMenuManager : MonoBehaviour
         }
         userInfos.GetTheInfos(UrlStrings.GET_USERINFO);
         StartButton.onClick.Invoke();
-        PressCharaktersheet();
 
 
     }
 
     void TestChar()
     {
-        ID.SaveDataString("UserID", "37");
+        ID.SaveDataString("UserID", "41");
     }
 
     public void DeactivatePopUp()

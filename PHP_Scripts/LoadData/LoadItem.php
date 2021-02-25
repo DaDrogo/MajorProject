@@ -15,7 +15,7 @@ else
 	$UserID	=  $_POST['UserID'];
 	$SheetNr =  $_POST['SheetNr'];
 
-	$query = "SELECT ItemNr, ItemName, ItemType, ItemWeight, ItemDescription FROM items WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
+	$query = "SELECT ItemNr, ItemName, ItemType, ItemWeight, ItemDescription FROM item WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
 	$result = mysqli_query($connection, $query);
 
 	if (mysqli_num_rows($result) > 0) 

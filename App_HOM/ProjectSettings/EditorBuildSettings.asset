@@ -12,9 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: 7464e9ad610501144b3bef22ce96de93
   - enabled: 1
-    path: Assets/Scenes/FragebogenSceneTest.unity
+    path: Assets/Scenes/FragebogenScene.unity
     guid: 73b42024eb6cf654e9a4903d494510d1
   - enabled: 1
-    path: Assets/Scenes/Charakterbogen 1.unity
+    path: Assets/Scenes/CharakterbogenScene.unity
     guid: 680bc6712c5bdba4b8db2b5c44cda9ff
   m_configObjects: {}

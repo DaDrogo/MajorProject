@@ -180,7 +180,7 @@ public class NetworkCreateSheet : MonoBehaviour
         }
         else
         {
-            Debug.Log("1");
+
             form.AddField("AG", Data.data["AG"]);
             form.AddField("AGplus", "0");
             form.AddField("AGminus", "0");

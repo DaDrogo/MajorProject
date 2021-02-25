@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Erstellungszeit: 24. Feb 2021 um 23:26
+-- Erstellungszeit: 25. Feb 2021 um 00:25
 -- Server-Version: 10.3.25-MariaDB-0ubuntu0.20.04.1
 -- PHP-Version: 7.4.3
 
@@ -73,10 +73,10 @@ CREATE TABLE `basevalues` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `charcreate`
+-- Tabellenstruktur für Tabelle `charcreated`
 --
 
-CREATE TABLE `charcreate` (
+CREATE TABLE `charcreated` (
   `UserID` int(11) DEFAULT NULL,
   `SheetNr` int(11) DEFAULT NULL,
   `CharRace` varchar(255) DEFAULT NULL,
@@ -101,10 +101,10 @@ CREATE TABLE `charcreate` (
 -- --------------------------------------------------------
 
 --
--- Tabellenstruktur für Tabelle `items`
+-- Tabellenstruktur für Tabelle `item`
 --
 
-CREATE TABLE `items` (
+CREATE TABLE `item` (
   `UserID` int(11) DEFAULT NULL,
   `SheetNr` int(11) DEFAULT NULL,
   `ItemNr` int(11) DEFAULT NULL,
@@ -139,6 +139,13 @@ CREATE TABLE `userinfo` (
   `UserID` int(11) DEFAULT NULL,
   `UserCharSheets` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Daten für Tabelle `userinfo`
+--
+
+INSERT INTO `userinfo` (`UserID`, `UserCharSheets`) VALUES
+(41, 0);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

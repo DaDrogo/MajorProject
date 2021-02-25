@@ -51,7 +51,7 @@ public class CreateSheetManager : MonoBehaviour
 
     void TestChar()
     {
-        Data.SaveDataString("UserID", "34");
+        Data.SaveDataString("UserID", "42");
         Data.SaveDataString("UserCharSheets", "1");
         Data.SaveDataString("CharRace", "Nuklen");
     }

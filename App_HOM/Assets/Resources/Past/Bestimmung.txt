@@ -1,8 +1,0 @@
-In der Truppe fühlt Ihr euch wohl. Ein Befehl wird erteilt und Ihr folgt.  +2 Agilität,  +2 Kraft, +2 Ausdauer, +2 Reflexe, +2 Gesundheit, -10 Verstand
-Euch wurde die göttliche Offenbarung zuteil.  +5 Gesundheit
-Euch wurden eure Fähigkeiten in die Wiege gelegt.  -2 Agilität,  -4 Kraft, -2 Reflexe, -2 Gesundheit, +10 Verstand
-Ihr bezaubert die Menschen mit eurer Kunst.  +5 Agilität,  -4 Kraft, +2 Reflexe, -3 Gesundheit
-Ohne Euch würde sich kein Rad drehen, kein Schornstein rauchen und die Menschen blieben hunrig.  +4 Kraft, +4 Ausdauer, +1 Reflexe, +1 Gesundheit, -5 Verstand
-Wissensdurst treibt euch voran, Forschergeist erfüllt Euch.  -1 Agilität,  -1 Kraft, -1 Ausdauer, +-1 Reflexe, -1 Gesundheit, +5 Verstand
-Gegen alles ist ein Kraut gewachsen. Ihr kennt sie und wisst sie zu mischen.  -2 Kraft, +1 Ausdauer, +2 Reflexe, +2 Gesundheit, +5 Verstand
-Grenzen kennt Ihr nicht. Alles ist ein Spiel ... schnell, heimlich und geschickt. Nur so habt Ihr Erfolg.  +4 Agilität, +2 Ausdauer, +4 Reflexe, -5 Gesundheit, -5 Verstand

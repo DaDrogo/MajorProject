@@ -20,7 +20,7 @@ else
 	$ItemDescription = $_POST['ItemDescription'];	
 	
 	
-	$query = "INSERT INTO items (UserID, SheetNr,ItemNr, ItemName, ItemType, ItemWeight, ItemDescription) VALUES ('$UserID', '$SheetNr','$ItemNr', '$ItemName', '$ItemType', '$ItemWeight', '$ItemDescription') ";
+	$query = "INSERT INTO item (UserID, SheetNr,ItemNr, ItemName, ItemType, ItemWeight, ItemDescription) VALUES ('$UserID', '$SheetNr','$ItemNr', '$ItemName', '$ItemType', '$ItemWeight', '$ItemDescription') ";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

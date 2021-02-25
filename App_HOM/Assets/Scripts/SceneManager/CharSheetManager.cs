@@ -132,7 +132,7 @@ public class CharSheetManager : MonoBehaviour
 
     void TestChar()
     {   
-        player.SaveDataString("UserID", "34");
+        player.SaveDataString("UserID", "42");
         player.SaveDataString("SheetNr", "1");
         Debug.Log("Created Test"+" + "+ player.data["UserID"]+" + "+player.data["SheetNr"]);        
     }
@@ -342,7 +342,8 @@ public class CharSheetManager : MonoBehaviour
 
         List[nummerofdropdown].AddOptions(DropOptions);
         DropOptions.Clear();
-
+        List[nummerofdropdown].value = 1;
+        List[nummerofdropdown].value = 0;
     }
 
     public void DropdownÀctivationModi(int tear)
@@ -412,17 +413,39 @@ public class CharSheetManager : MonoBehaviour
     {
         Debug.Log(List[kinda].value);
         usedSheet.UpdateObyekts(kinda);
+        OpenUpDePopUp("Erflogreich geupdatet");
     }
 
     //nimmt die momenaten nr des dropdowns und löscht sie gleichzeitig wird der amount runtergesetzt, danach wird das Dropdown refresht. vorher wird natürlich noch ein PopUp gemacht ob der nutzer sicher ist
     public void DeleteObyektz(int kinda)
     {
-        usedSheet.DeleteObyekts(kinda);
+
+        if (amountsInt[kinda] > 0)
+        {
+            usedSheet.DeleteObyekts(kinda);
+            OpenUpDePopUp("Erflogreich gelöscht");
+        }
+        else
+        {
+            OpenUpDePopUp("Kein Objekt zum Löschen");
+        }
     }
     //lädt das Dropdown neu nach einer Veränderung aka. neues Obyektz oder eines weniger
     public void RefreshDropdown(int dropi)
     {
         GiveOptionsAmount(dropi);
+    }
+    public TMP_Text UpDeText;
+    public GameObject UpDePop;
+    void OpenUpDePopUp(string value)
+    {
+        UpDePop.SetActive(true);
+        UpDeText.text = value;
+    }
+
+    public void CloseUpDePopUp()
+    {
+        UpDePop.SetActive(false);
     }
 
     //_____________________________________________________________________Bestimmungen____________________________________________________________________________

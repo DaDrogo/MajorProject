@@ -19,7 +19,7 @@ else
 	$ItemWeight = $_POST['ItemWeight'];
 	$ItemDescription = $_POST['ItemDescription'];
 	
-	$query = "UPDATE items SET ItemName ='$ItemName' , ItemType ='$ItemType' , ItemWeight='$ItemWeight' , ItemDescription='$ItemDescription' WHERE UserID = '$UserID' AND SheetNr = '$SheetNr' AND ItemNr = '$ItemNr'";
+	$query = "UPDATE item SET ItemName ='$ItemName' , ItemType ='$ItemType' , ItemWeight='$ItemWeight' , ItemDescription='$ItemDescription' WHERE UserID = '$UserID' AND SheetNr = '$SheetNr' AND ItemNr = '$ItemNr'";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

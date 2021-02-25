@@ -15,7 +15,7 @@ else
 	$SheetNr= $_POST['SheetNr'];
 	$ItemNr	= $_POST['ItemNr'];
 	
-	$query = "DELETE FROM items WHERE ItemNr = '$ItemNr' AND UserID = '$UserID' AND SheetNr = '$SheetNr'";
+	$query = "DELETE FROM item WHERE ItemNr = '$ItemNr' AND UserID = '$UserID' AND SheetNr = '$SheetNr'";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

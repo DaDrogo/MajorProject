@@ -31,7 +31,7 @@ else
 	$AbilityAmount     =  $_POST['AbilityAmount'];
 	$ItemAmount        =  $_POST['ItemAmount'];
 
-	$query = "UPDATE charcreate SET UserID ='$UserID', SheetNr = '$SheetNr', CharRace = '$CharRace', CharRaceAbility = '$CharRaceAbility', CharName ='$CharName', CharWeight ='$CharWeight', CharHeight = '$CharHeight', CharAge = '$CharAge', CharHairColor = '$CharHairColor', CharSkinColor = '$CharSkinColor', CharGender = '$CharGender', CharLanguage = '$CharLanguage', CharReligion = '$CharReligion', CharDestiny = '$CharDestiny', CharDestinyLevel = '$CharDestinyLevel', CharAmbition = '$CharAmbition', ModiAmount = '$ModiAmount', AbilityAmount = '$AbilityAmount', ItemAmount = '$ItemAmount' WHERE UserID = '$UserID' AND SheetNr = '$SheetNr'";
+	$query = "UPDATE charcreated SET UserID ='$UserID', SheetNr = '$SheetNr', CharRace = '$CharRace', CharRaceAbility = '$CharRaceAbility', CharName ='$CharName', CharWeight ='$CharWeight', CharHeight = '$CharHeight', CharAge = '$CharAge', CharHairColor = '$CharHairColor', CharSkinColor = '$CharSkinColor', CharGender = '$CharGender', CharLanguage = '$CharLanguage', CharReligion = '$CharReligion', CharDestiny = '$CharDestiny', CharDestinyLevel = '$CharDestinyLevel', CharAmbition = '$CharAmbition', ModiAmount = '$ModiAmount', AbilityAmount = '$AbilityAmount', ItemAmount = '$ItemAmount' WHERE UserID = '$UserID' AND SheetNr = '$SheetNr'";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)

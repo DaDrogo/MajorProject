@@ -16,7 +16,7 @@ else
 
 	// CharDestinyLevel, 
 
-	$query = "SELECT  CharName, CharWeight, CharHeight, CharAge, CharHairColor, CharSkinColor, CharGender, CharLanguage, CharReligion, CharRace, CharRaceAbility, CharDestiny, CharDestinyLevel, CharAmbition FROM charcreate WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
+	$query = "SELECT  CharName, CharWeight, CharHeight, CharAge, CharHairColor, CharSkinColor, CharGender, CharLanguage, CharReligion, CharRace, CharRaceAbility, CharDestiny, CharDestinyLevel, CharAmbition FROM charcreated WHERE UserID='$UserID' AND SheetNr='$SheetNr'";
 	$result = mysqli_query($connection, $query);
 
 	if (mysqli_num_rows($result) > 0) 

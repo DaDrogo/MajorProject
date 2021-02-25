@@ -65,9 +65,9 @@ else
 	//$query .= ")";
 	
 
-	//$query = "INSERT INTO charcreate ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharFeature, CharEducation, CharEnvironment) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion','$chartraining','$charfeature','$chareducation','$charenvironment')";
+	//$query = "INSERT INTO charcreated ( UserID, CharCiv, CharName, CharWeight, CharHeight, CharAge, CharColor, CharLanguage, CharReligion, CharTraining, CharFeature, CharEducation, CharEnvironment) VALUES ('$userid', '$charciv','$charname', '$charweight','$charheight', '$charage','$charcolor', '$charlanguage','$charreligion','$chartraining','$charfeature','$chareducation','$charenvironment')";
 	
-	$query = "INSERT INTO charcreate(UserID, SheetNr, CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor,CharSkinColor, CharGender, CharLanguage, CharReligion, CharDestiny, CharDestinyLevel, CharAmbition, ModiAmount, AbilityAmount, ItemAmount) VALUES ('$UserID', '$SheetNr', '$CharRace', '$CharRaceAbility', '$CharName', '$CharWeight', '$CharHeight', '$CharAge', '$CharHairColor', '$CharSkinColor', '$CharGender', '$CharLanguage', '$CharReligion', '$CharDestiny','$CharDestinyLevel', '$CharAmbition', '$ModiAmount', '$AbilityAmount', '$ItemAmount')";
+	$query = "INSERT INTO charcreated (UserID, SheetNr, CharRace, CharRaceAbility, CharName, CharWeight, CharHeight, CharAge, CharHairColor,CharSkinColor, CharGender, CharLanguage, CharReligion, CharDestiny, CharDestinyLevel, CharAmbition, ModiAmount, AbilityAmount, ItemAmount) VALUES ('$UserID', '$SheetNr', '$CharRace', '$CharRaceAbility', '$CharName', '$CharWeight', '$CharHeight', '$CharAge', '$CharHairColor', '$CharSkinColor', '$CharGender', '$CharLanguage', '$CharReligion', '$CharDestiny','$CharDestinyLevel', '$CharAmbition', '$ModiAmount', '$AbilityAmount', '$ItemAmount')";
 	
 	$result = mysqli_query($connection, $query);
 	if($result)
