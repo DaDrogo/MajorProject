@@ -9,12 +9,12 @@ Das Projekt wurde für das Pen&Paper Regelwerk, „Hell Over Mind" und soll eine
 
 ## 2.Inhalt
 
-1.Das Abstract, mit einem PDF, um eine kleine Zusammenfassung der wissenschaftlichen Arbeit zu geben
-2.Der Unity Ordner, mit Assets, der ausführbaren .apk, den verwendeten Packages und den ProjectSettings
-3.Die verwendeten PHP Skripte, die auf dem Server liegen
-4.Die wissenschaftliche Arbeit, als Pdf 
-5.Ein Screencast, das als Video die App zeigt und ihre Funktionen
-6.Die verwendeten SQL Skripte vom Server
+1.Das Abstract, mit einem PDF, um eine kleine Zusammenfassung der wissenschaftlichen Arbeit zu geben<br>
+2.Der Unity Ordner, mit Assets, der ausführbaren .apk, den verwendeten Packages und den ProjectSettings<br>
+3.Die verwendeten PHP Skripte, die auf dem Server liegen<br>
+4.Die wissenschaftliche Arbeit, als Pdf <br>
+5.Ein Screencast, das als Video die App zeigt und ihre Funktionen<br>
+6.Die verwendeten SQL Skripte vom Server<br>
 
 
 ## 3.Reproduktion
