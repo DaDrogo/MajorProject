@@ -3,8 +3,22 @@
 
  Version: 1.0
 ## 1.Projekt Beschreibung
-## 2.Entwicklungsumgebung
-## 3.Wie ist das Projekt gebaut
-## 4.links zu weiteren Informationen
+
+Das Projekt wurde für das Pen&Paper Regelwerk, „Hell Over Mind" und soll eine Ergänzung zum Charakterbogen darstellen. Außerdem wird durch die App die Erstellung eines Charakters dargestellt. Die Daten, des Charakterbogen, werden extern auf einem Cloud-Server gespeichert.
+
+
+## 2.Inhalt
+
+1.Das Abstract, mit einem PDF, um eine kleine Zusammenfassung der wissenschaftlichen Arbeit zu geben
+2.Der Unity Ordner, mit Assets, der ausführbaren .apk, den verwendeten Packages und den ProjectSettings
+3.Die verwendeten PHP Skripte, die auf dem Server liegen
+4.Die wissenschaftliche Arbeit, als Pdf 
+5.Ein Screencast, das als Video die App zeigt und ihre Funktionen
+6.Die verwendeten SQL Skripte vom Server
+
+
+## 3.Reproduktion
+
+
 
 
