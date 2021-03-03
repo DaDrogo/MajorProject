@@ -35,12 +35,7 @@ Um das Projekt zu kopieren, werden ein paar Schritte nötig sein.<br>
 ## 4.Mitarbeit
 
 Falls sie bei dem Projekt mitarbeiten wollen oder Ideen für weitere Features haben, melden sie sich bei "n.walther@protonmail.com".<br>
-Falls sie sich auf meinem Server anmelden wollen, benötigen sie den Zugang: <br>
-1.IP-Adresse: 188.34.197.30<br>
-2.Benutzername: root<br>
-3.Passwort: HkunKt4cV7nRHATVeV9P<br>
-4.PhpMySqlAdmin Benutzername: kingdrogo<br>
-5.PhpMySqlAdmin Passwort: 12345<br>
+
 
 
 
